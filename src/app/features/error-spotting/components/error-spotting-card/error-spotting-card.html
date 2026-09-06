@@ -1,0 +1,47 @@
+<article class="question-card">
+  <header class="question-header">
+    <span class="badge">Pregunta {{ index() + 1 }}</span>
+  </header>
+
+  <p class="instructions">
+    Identifica la palabra o frase subrayada que debe cambiarse:
+  </p>
+
+  <div class="sentence-box">
+    @for (part of parsedSentence; track $index) {
+      @if (part.isOption) {
+        <button
+          type="button"
+          appButton
+          variant="outline"
+          class="option-btn"
+          [class.selected]="selectedLabel() === part.label"
+          (click)="selectOption(part.label!)"
+        >
+          <span class="option-text">{{ part.text }}</span>
+          <span class="option-label">({{ part.label }})</span>
+        </button>
+      } @else {
+        <span class="plain-text">{{ part.text }}</span>
+      }
+    }
+  </div>
+
+  @if (selectedLabel(); as selected) {
+    <div 
+      class="feedback-box" 
+      [class.correct]="selected === question().correct_label"
+      [class.incorrect]="selected !== question().correct_label"
+    >
+      @if (selected === question().correct_label) {
+        <p class="status">¡Correcto!</p>
+      } @else {
+        <p class="status">
+          Incorrecto. El error es <strong>({{ question().correct_label }})</strong>.
+        </p>
+        <p class="correction">Corrección: <em>{{ question().correction }}</em></p>
+      }
+      <p class="explanation">{{ question().explanation }}</p>
+    </div>
+  }
+</article>

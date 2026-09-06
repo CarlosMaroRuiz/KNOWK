@@ -1,0 +1,197 @@
+.ds-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  border: var(--border-width) solid var(--color-ink);
+  border-radius: var(--radius-sm);
+  color: var(--button-on-accent);
+  font: inherit;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--color-ink);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
+}
+
+.ds-button:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--color-ink);
+}
+
+.ds-button:active:not(:disabled) {
+  transform: var(--state-active-transform);
+  box-shadow: 0 0 0 var(--color-ink);
+}
+
+.ds-button:disabled {
+  cursor: var(--state-disabled-cursor);
+  opacity: var(--state-disabled-opacity);
+  box-shadow: none;
+}
+
+.ds-button.ds-button--loading {
+  cursor: wait;
+  gap: var(--space-2);
+  pointer-events: none;
+}
+
+.ds-button.ds-button--loading::before {
+  width: var(--button-loading-size);
+  height: var(--button-loading-size);
+  content: '';
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: ds-button-spin 0.7s linear infinite;
+}
+
+.ds-button.ds-button--full-width {
+  width: 100%;
+}
+
+.ds-button.ds-button--primary {
+  background: var(--color-primary);
+}
+
+.ds-button.ds-button--secondary {
+  background: var(--color-surface);
+}
+
+.ds-button.ds-button--secondary:hover:not(:disabled) {
+  background: var(--state-hover-surface);
+}
+
+.ds-button.ds-button--success {
+  background: var(--color-green);
+}
+
+.ds-button.ds-button--danger {
+  background: var(--color-pink);
+}
+
+/* Dark text keeps the three accent variants readable against the palette. */
+.ds-button.ds-button--primary,
+.ds-button.ds-button--success,
+.ds-button.ds-button--danger {
+  color: var(--button-on-accent);
+}
+
+.ds-button.ds-button--outline {
+  background: transparent;
+}
+
+.ds-button.ds-button--outline:hover:not(:disabled) {
+  background: var(--state-hover-surface);
+}
+
+.ds-button.ds-button--ghost {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.ds-button.ds-button--ghost:hover:not(:disabled) {
+  background: var(--state-hover-surface);
+  box-shadow: none;
+}
+
+.ds-button.ds-button--sm {
+  min-height: 36px;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--fs-sm);
+}
+
+.ds-button.ds-button--lg {
+  min-height: 52px;
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--fs-lg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-button {
+    transition: none;
+  }
+
+  .ds-button.ds-button--loading::before {
+    animation: none;
+  }
+}
+
+@keyframes ds-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ds-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+  border: var(--border-width) solid var(--color-ink);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink);
+  font: inherit;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--color-ink);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
+}
+
+.ds-icon-button:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--color-ink);
+}
+
+.ds-icon-button:active:not(:disabled) {
+  transform: var(--state-active-transform);
+  box-shadow: none;
+}
+
+.ds-icon-button:disabled {
+  cursor: var(--state-disabled-cursor);
+  opacity: var(--state-disabled-opacity);
+  box-shadow: none;
+}
+
+.ds-icon-button--primary {
+  background: var(--color-primary);
+}
+
+.ds-icon-button--secondary {
+  background: var(--color-surface-alt);
+}
+
+.ds-icon-button--ghost {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.ds-icon-button--ghost:hover:not(:disabled) {
+  background: var(--state-hover-surface);
+  box-shadow: none;
+}
+
+.ds-icon-button--sm {
+  width: 36px;
+  height: 36px;
+}
+
+.ds-icon-button--md {
+  width: 44px;
+  height: 44px;
+}
+
+.ds-icon-button--lg {
+  width: 52px;
+  height: 52px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-icon-button {
+    transition: none;
+  }
+}

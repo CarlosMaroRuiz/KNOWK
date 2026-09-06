@@ -1,0 +1,22 @@
+@if (item().available) {
+  <a class="catalog-card" [routerLink]="item().route">
+    <span class="catalog-icon">
+      <lucide-icon [img]="item().icon" [size]="22" [strokeWidth]="2.5" />
+    </span>
+    <span class="catalog-title">{{ item().title }}</span>
+    <span class="catalog-description">{{ item().description }}</span>
+    <span class="catalog-action">
+      Comenzar práctica
+      <lucide-icon [img]="ArrowRight" [size]="18" aria-hidden="true" />
+    </span>
+  </a>
+} @else {
+  <div class="catalog-card is-disabled">
+    <span class="catalog-badge">Próximamente</span>
+    <span class="catalog-icon">
+      <lucide-icon [img]="item().icon" [size]="22" [strokeWidth]="2.5" />
+    </span>
+    <span class="catalog-title">{{ item().title }}</span>
+    <span class="catalog-description">{{ item().description }}</span>
+  </div>
+}

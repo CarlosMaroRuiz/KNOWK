@@ -1,0 +1,29 @@
+<div class="layout-wrapper">
+  <header class="navbar" role="banner">
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <div class="nav-left">
+      <a
+        routerLink="/"
+        appIconButton
+        variant="secondary"
+        size="sm"
+        aria-label="Volver a la página principal"
+      >
+        <lucide-icon [img]="ArrowLeft" class="icon" aria-hidden="true"></lucide-icon>
+      </a>
+
+      <div class="brand">
+        <span class="brand-text" role="heading" aria-level="1">{{ title() }}</span>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <a routerLink="/" appButton variant="primary" size="sm">KNOWK</a>
+    </div>
+  </header>
+
+  <main id="main-content" class="main-content" tabIndex="-1">
+    <router-outlet />
+  </main>
+</div>

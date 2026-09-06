@@ -1,0 +1,226 @@
+.question-card {
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.question-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.question-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.badge {
+  background-color: var(--color-yellow);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  padding: var(--space-1) var(--space-3);
+  border: 2px solid var(--color-ink);
+  border-radius: 9999px;
+}
+
+.instructions {
+  color: var(--color-ink-muted);
+  font-size: var(--fs-sm);
+  margin: 0 0 var(--space-5) 0;
+}
+
+.sentence-box {
+  background-color: var(--color-surface-alt);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-5);
+  font-size: var(--fs-lg);
+  line-height: 2.25rem;
+  color: var(--color-ink);
+  word-break: break-word;
+}
+
+.plain-text {
+  color: var(--color-ink);
+  opacity: 0.85;
+}
+
+.option-btn {
+  align-items: baseline;
+  gap: var(--space-1);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  padding: 0.125rem var(--space-3);
+  margin: 0.15rem;
+}
+
+/* Seleccionado = "presionado": se hunde hasta su propia sombra */
+.option-btn.selected {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--color-ink);
+}
+
+.option-label {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.option-btn.selected .option-label {
+  opacity: 1;
+  color: #ffffff;
+}
+
+.feedback-box {
+  margin-top: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border: var(--border-width) solid var(--color-ink);
+  border-radius: var(--radius-sm);
+  box-shadow: 4px 4px 0 var(--color-ink);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.feedback-box.correct {
+  background-color: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.feedback-box.incorrect {
+  background-color: var(--color-error-soft);
+  color: var(--color-error);
+}
+
+.status {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-base);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.correction {
+  font-size: var(--fs-sm);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.explanation {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+  margin: 0;
+  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Pantallas grandes: card más espaciosa ---- */
+@media (min-width: 900px) {
+  .question-card {
+    padding: clamp(var(--space-6), 4vw, 4rem) clamp(var(--space-6), 5vw, 5rem);
+  }
+
+  .instructions {
+    font-size: var(--fs-lg);
+    margin-bottom: var(--space-6);
+  }
+
+  .sentence-box {
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
+    line-height: 3.2rem;
+    padding: clamp(var(--space-6), 4vw, 3rem);
+  }
+
+  .option-btn {
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
+    padding: 0.25rem var(--space-3);
+  }
+
+  .option-label {
+    font-size: var(--fs-sm);
+  }
+
+  .feedback-box {
+    padding: var(--space-6) clamp(var(--space-6), 4vw, 3rem);
+    margin-top: var(--space-6);
+  }
+
+  .status {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .correction,
+  .explanation {
+    font-size: var(--fs-lg);
+    line-height: var(--lh-normal);
+  }
+}
+
+/* ---- Pantallas móviles (teléfonos) ---- */
+@media (max-width: 600px) {
+  .question-card {
+    padding: var(--space-4) var(--space-3);
+    margin-bottom: var(--space-4);
+    border-radius: var(--radius-md);
+  }
+
+  .question-header {
+    margin-bottom: var(--space-3);
+  }
+
+  .badge {
+    font-size: 0.65rem;
+    padding: 2px var(--space-2);
+  }
+
+  .instructions {
+    font-size: var(--fs-xs);
+    margin-bottom: var(--space-4);
+  }
+
+  .sentence-box {
+    font-size: var(--fs-base);
+    line-height: 2rem;
+    padding: var(--space-4);
+  }
+
+  .option-btn {
+    font-size: var(--fs-base);
+    padding: 0 var(--space-2);
+    margin: 0.1rem;
+  }
+
+  .option-label {
+    font-size: 0.65rem;
+  }
+
+  .feedback-box {
+    margin-top: var(--space-4);
+    padding: var(--space-4);
+  }
+
+  .status {
+    font-size: var(--fs-base);
+  }
+
+  .correction,
+  .explanation {
+    font-size: var(--fs-sm);
+  }
+}

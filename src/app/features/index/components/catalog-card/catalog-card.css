@@ -1,0 +1,257 @@
+/* ============================================================
+   CATALOG CARD — Neobrutalism interactions
+   Usa longhand animation-name para Angular Encapsulation.
+   ============================================================ */
+
+.catalog-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: 230px;
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-ink);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  text-decoration: none;
+  color: var(--color-ink);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition:
+    transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+/* Hover: se levanta hacia arriba-izquierda con sombra mayor */
+.catalog-card:not(.is-disabled):hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Active: se "presiona" como un sello físico */
+.catalog-card:not(.is-disabled):active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-card-active);
+  transition-duration: 0.1s;
+}
+
+.catalog-card:focus-visible {
+  outline: var(--border-width) solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ---- Icono: rota en hover de la card ---- */
+.catalog-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary-soft);
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink);
+  transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.catalog-card:not(.is-disabled):hover .catalog-icon {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+/* ---- Título ---- */
+.catalog-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+}
+
+/* ---- Descripción ---- */
+.catalog-description {
+  font-size: var(--fs-sm);
+  color: var(--color-ink-muted);
+  line-height: var(--lh-normal);
+}
+
+/* ---- Acción: la flecha se desliza al hover ---- */
+.catalog-action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: auto;
+  color: var(--color-primary-hover);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+/* La flecha lucide dentro de .catalog-action */
+.catalog-action lucide-icon {
+  transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.catalog-card:not(.is-disabled):hover .catalog-action lucide-icon {
+  transform: translateX(5px);
+}
+
+/* ---- Estado DISABLED ---- */
+.catalog-card.is-disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  background-color: var(--color-surface-alt);
+}
+
+.catalog-card.is-disabled:hover {
+  /* Shake sutil — "no disponible todavía" */
+  animation-name: neo-shake;
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.catalog-card.is-disabled .catalog-icon {
+  background-color: var(--color-surface);
+  color: var(--color-ink-muted);
+  opacity: 0.6;
+}
+
+.catalog-card.is-disabled .catalog-title,
+.catalog-card.is-disabled .catalog-description {
+  opacity: 0.55;
+}
+
+/* ---- Badge "Próximamente": pulso en loop ---- */
+.catalog-badge {
+  position: absolute;
+  top: -10px;
+  right: var(--space-3);
+  background-color: var(--color-yellow);
+  color: var(--color-ink);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  padding: 2px var(--space-2);
+  border: 2px solid var(--color-ink);
+  border-radius: 9999px;
+  transform-origin: top right;
+  animation-name: neo-badge-bounce;
+  animation-duration: 2.4s;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation-iteration-count: infinite;
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+
+@keyframes neo-shake {
+  0%   { transform: translateX(0); }
+  15%  { transform: translateX(-5px) rotate(-1deg); }
+  35%  { transform: translateX(4px) rotate(1deg); }
+  55%  { transform: translateX(-3px) rotate(-0.5deg); }
+  75%  { transform: translateX(2px) rotate(0.5deg); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes neo-badge-bounce {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  10%       { transform: scale(1.18) rotate(-4deg); }
+  20%       { transform: scale(0.95) rotate(3deg); }
+  30%       { transform: scale(1.08) rotate(-2deg); }
+  40%       { transform: scale(1) rotate(0deg); }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .catalog-card {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    grid-template-rows: auto auto;
+    column-gap: var(--space-3);
+    row-gap: var(--space-1);
+    align-items: center;
+    min-height: auto;
+    padding: var(--space-4);
+  }
+
+  .catalog-icon {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 48px;
+    height: 48px;
+  }
+
+  .catalog-title {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: var(--fs-base);
+    align-self: end;
+  }
+
+  .catalog-description {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 0.75rem;
+    align-self: start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .catalog-action {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    font-size: 0; /* Oculta el texto, deja solo el icono */
+  }
+
+  .catalog-action lucide-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .catalog-badge {
+    top: -10px;
+    right: 12px;
+    font-size: 0.6rem;
+  }
+}
+
+/* ============================================================
+   PREFERS-REDUCED-MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .catalog-card {
+    transition: none;
+    will-change: auto;
+  }
+
+  .catalog-card:not(.is-disabled):hover {
+    transform: none;
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .catalog-card:not(.is-disabled):active {
+    transform: none;
+    box-shadow: var(--shadow-card-active);
+  }
+
+  .catalog-icon,
+  .catalog-action lucide-icon {
+    transition: none;
+  }
+
+  .catalog-card:not(.is-disabled):hover .catalog-icon,
+  .catalog-card:not(.is-disabled):hover .catalog-action lucide-icon {
+    transform: none;
+  }
+
+  .catalog-card.is-disabled:hover {
+    animation-name: none;
+  }
+
+  .catalog-badge {
+    animation-name: none;
+  }
+}

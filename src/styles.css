@@ -1,1 +1,158 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #fdfaf5;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f1e8;
+  --color-ink: #0b0704;
+  --color-ink-muted: #55524c;
+  --color-border: #0b0704;
+
+  --color-primary: #8267f6;
+  --color-primary-hover: #6b4ef0;
+  --color-primary-soft: #ece7ff;
+  --color-primary-border: #0b0704;
+
+  --color-yellow: #fed01a;
+  --color-yellow-soft: #fff3c4;
+
+  --color-pink: #fc4e83;
+  --color-pink-soft: #ffe1ea;
+
+  --color-green: #3ecf4a;
+  --color-green-soft: #e1f9e3;
+
+  --color-success: #1f8a3b;
+  --color-success-soft: #e1f9e3;
+  --color-success-border: #0b0704;
+  --color-error: #d81e3f;
+  --color-error-soft: #ffe1e6;
+  --color-error-border: #0b0704;
+
+  --state-hover-primary: var(--color-primary-hover);
+  --state-hover-surface: var(--color-primary-soft);
+  --state-active-transform: translate(2px, 2px);
+  --state-focus: var(--color-primary);
+  --state-disabled-opacity: 0.5;
+  --state-disabled-cursor: not-allowed;
+  --button-on-accent: var(--color-ink);
+  --button-loading-size: 1em;
+
+  --font-display: 'Poppins', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.75rem;
+
+  --lh-tight: 1.15;
+  --lh-normal: 1.4;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  --border-width: 3px;
+
+  --shadow-card: 5px 5px 0 var(--color-ink);
+  --shadow-card-hover: 8px 8px 0 var(--color-ink);
+  --shadow-card-active: 2px 2px 0 var(--color-ink);
+
+  --neo-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --neo-snap:   cubic-bezier(0.16, 1, 0.3, 1);
+  --neo-ease:   cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --neo-duration-fast: 0.18s;
+  --neo-duration-base: 0.38s;
+  --neo-duration-slow: 0.55s;
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #09090b;
+  --color-surface: #18181b;
+  --color-surface-alt: #27272a;
+  
+  --color-ink: #ffffff;
+  --color-ink-muted: #a1a1aa;
+  --color-border: #ffffff;
+
+  --color-primary: #a64aff;
+  --color-primary-hover: #c480ff;
+  --color-primary-soft: #2b114d; 
+  
+  --color-yellow: #ffe600;
+  --color-yellow-soft: #332e00;
+
+  --color-pink: #ff3385;
+  --color-pink-soft: #330a1a;
+
+  --color-green: #17f748;
+  --color-green-soft: #05330f;
+
+  --color-success: #17f748;
+  --color-success-soft: #05330f;
+  
+  --color-error: #ff244c;
+  --color-error-soft: #330711;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  line-height: var(--lh-tight);
+  margin: 0 0 var(--space-4);
+}
+
+h2 {
+  font-size: var(--fs-xl);
+  font-weight: 800;
+}
+
+p {
+  margin: 0;
+  color: var(--color-ink-muted);
+}
+
+button {
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: var(--border-width) solid var(--state-focus);
+  outline-offset: 2px;
+}

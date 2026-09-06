@@ -1,0 +1,77 @@
+<nav class="index-navbar">
+  <div class="index-navbar__brand">
+    <div class="brand-icon">
+      <lucide-icon [img]="BookOpenText" [size]="24" [strokeWidth]="2.5"></lucide-icon>
+    </div>
+    <span class="brand-name">KNOWK</span>
+  </div>
+
+  <button 
+    class="theme-toggle-btn" 
+    (click)="toggleTheme()" 
+    [attr.aria-label]="isDarkMode() ? 'Activar modo claro' : 'Activar modo oscuro'">
+    <lucide-icon [img]="isDarkMode() ? Sun : Moon" [size]="20" [strokeWidth]="2.5"></lucide-icon>
+  </button>
+</nav>
+
+<section class="menu-container">
+  <header class="menu-header">
+    <div class="menu-header__content">
+      <span class="menu-eyebrow">Práctica TOEFL</span>
+      <h1>Prepárate para alcanzar tu meta</h1>
+      <p>Practica por categorías, identifica tus errores y mejora tu desempeño.</p>
+    </div>
+
+    <img
+      class="menu-header__image"
+      src="img/eng.png"
+      alt="Materiales de estudio de inglés y TOEFL"
+      loading="lazy"
+    />
+  </header>
+
+  <div class="stats-bar">
+    @for (stat of stats; track stat.label) {
+      <div class="stat-item" [class]="stat.tone">
+        <span class="stat-value">{{ stat.value }}</span>
+        <span class="stat-label">{{ stat.label }}</span>
+      </div>
+    }
+  </div>
+
+  <section class="catalog-section" aria-labelledby="available-title">
+    <div class="section-heading">
+      <div>
+        <span class="section-eyebrow">Empieza ahora</span>
+        <h2 id="available-title">Práctica disponible</h2>
+      </div>
+      <span class="section-count">{{ availableItems.length }} categorías</span>
+    </div>
+
+    <div class="catalog-grid">
+      @for (item of availableItems; track item.id) {
+        <catalog-card [item]="item" />
+      } @empty {
+        <p class="empty-state">No hay prácticas disponibles todavía.</p>
+      }
+    </div>
+  </section>
+
+  @if (upcomingItems.length > 0) {
+    <section class="catalog-section catalog-section--upcoming" aria-labelledby="upcoming-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-eyebrow">En camino</span>
+          <h2 id="upcoming-title">Próximamente</h2>
+        </div>
+        <span class="section-count">{{ upcomingItems.length }} categorías</span>
+      </div>
+
+      <div class="catalog-grid">
+        @for (item of upcomingItems; track item.id) {
+          <catalog-card [item]="item" />
+        }
+      </div>
+    </section>
+  }
+</section>

@@ -1,0 +1,55 @@
+<section class="error-spotting-container">
+
+  @if (questionsResource.isLoading()) {
+    <div class="loading-box">
+      <p>Cargando preguntas...</p>
+    </div>
+  }
+
+  @if (questionsResource.error()) {
+    <div class="error-box">
+      <p>Ocurrió un error al obtener las preguntas.</p>
+    </div>
+  }
+
+  @if (questionsResource.value(); as questions) {
+    @if (questions.length > 0 && questions[currentQuestionIndex()]; as question) {
+      <div class="question-view">
+        <app-error-spotting-card
+          [question]="question"
+          [index]="currentQuestionIndex()"
+          [selectedLabel]="selectedAnswers()[question.id]"
+          (optionSelected)="selectOption(question.id, $event)"
+        />
+
+        <nav class="question-navigation" aria-label="Navegación de preguntas">
+          <button
+            type="button"
+            appButton
+            variant="secondary"
+            [disabled]="currentQuestionIndex() === 0"
+            (click)="previousQuestion()"
+          >
+            Anterior
+          </button>
+
+          <span>{{ currentQuestionIndex() + 1 }} / {{ questions.length }}</span>
+
+          <button
+            type="button"
+            appButton
+            variant="primary"
+            [disabled]="currentQuestionIndex() === questions.length - 1"
+            (click)="nextQuestion()"
+          >
+            Siguiente
+          </button>
+        </nav>
+      </div>
+    } @else {
+      <div class="error-box">
+        <p>No hay preguntas disponibles.</p>
+      </div>
+    }
+  }
+</section>
