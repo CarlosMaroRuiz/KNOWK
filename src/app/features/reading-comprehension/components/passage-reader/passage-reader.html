@@ -1,0 +1,22 @@
+<article class="passage-reader">
+	<header class="passage-reader__header">
+		<img
+			class="passage-reader__cover"
+			[src]="book().coverImage"
+			[alt]="'Portada de ' + book().title"
+		/>
+		<div>
+			<span class="passage-reader__level">{{ book().level }}</span>
+			<h2>{{ book().title }}</h2>
+			<p>{{ book().wordCount }} palabras</p>
+		</div>
+	</header>
+
+	<div class="passage-reader__text">
+		<p>{{ book().text }}</p>
+	</div>
+
+	<button type="button" appButton variant="primary" (click)="finishedReading.emit()">
+		Responder preguntas
+	</button>
+</article>

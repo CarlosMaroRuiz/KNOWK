@@ -1,0 +1,11 @@
+<article class="book-card">
+	<img [src]="book().coverImage" [alt]="'Portada de ' + book().title" />
+	<div class="book-card__content">
+		<span class="book-card__level">{{ book().level }}</span>
+		<h3>{{ book().title }}</h3>
+		<p>{{ book().wordCount }} palabras · {{ book().questions.length }} preguntas</p>
+		<button type="button" appButton variant="outline" (click)="selected.emit(book().id)">
+			Leer pasaje
+		</button>
+	</div>
+</article>

@@ -1,0 +1,34 @@
+<article class="reading-question-card">
+	<span class="reading-question-card__number">Pregunta {{ index() + 1 }}</span>
+	<h2>{{ question().prompt }}</h2>
+
+	<div class="reading-question-card__options">
+		@for (option of question().options; track option.label) {
+			<button
+				type="button"
+				appButton
+				variant="outline"
+				[class.selected]="selectedLabel() === option.label"
+				(click)="optionSelected.emit(option.label)"
+			>
+				<strong>{{ option.label }}</strong>
+				<span>{{ option.text }}</span>
+			</button>
+		}
+	</div>
+
+	@if (selectedLabel(); as selected) {
+		<div
+			class="reading-question-card__feedback"
+			[class.correct]="selected === question().correctLabel"
+			[class.incorrect]="selected !== question().correctLabel"
+		>
+			@if (selected === question().correctLabel) {
+				<strong>Correcto</strong>
+			} @else {
+				<strong>Respuesta correcta: {{ question().correctLabel }}</strong>
+			}
+			<p>{{ question().explanation }}</p>
+		</div>
+	}
+</article>

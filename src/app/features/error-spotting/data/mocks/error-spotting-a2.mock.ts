@@ -1,6 +1,6 @@
 import { Question } from '@features/error-spotting/domain/models';
 
-export const ERROR_SPOTTING_MOCK_DATA: Question[] = [
+export const ERROR_SPOTTING_MOCK_DATA_A2: Question[] = [
   {
     id: 1,
     category: 'Parallel Structure',

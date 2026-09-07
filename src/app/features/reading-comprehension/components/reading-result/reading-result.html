@@ -1,0 +1,37 @@
+<article class="reading-result" [class.reading-result--perfect]="isPerfect()">
+	@if (isPerfect()) {
+		<div class="confetti" aria-hidden="true">
+			@for (piece of confettiPieces; track $index) {
+				<span
+					[style.left.%]="($index * 37) % 100"
+					[style.background]="'hsl(' + (($index * 47) % 360) + ', 80%, 58%)'"
+					[style.transform]="'rotate(' + ($index * 29) + 'deg)'"
+					[style.animation-delay.ms]="$index * 45"
+				></span>
+			}
+		</div>
+	}
+
+	<p class="reading-result__eyebrow">Lectura completada</p>
+	<h2>{{ isPerfect() ? '¡Excelente trabajo!' : 'Resultado de tu lectura' }}</h2>
+	<p class="reading-result__score">
+		<strong>{{ correctAnswers() }}</strong> de {{ totalQuestions() }} respuestas correctas
+	</p>
+	<p class="reading-result__percentage">{{ percentage() }}%</p>
+	<p>
+		@if (isPerfect()) {
+			Respondiste todas las preguntas correctamente.
+		} @else {
+			Revisa tus respuestas y vuelve a intentarlo para mejorar tu resultado.
+		}
+	</p>
+
+	<div class="reading-result__actions">
+		<button type="button" appButton variant="primary" (click)="restart.emit()">
+			Intentar de nuevo
+		</button>
+		<button type="button" appButton variant="secondary" (click)="backToCatalog.emit()">
+			Volver al catálogo
+		</button>
+	</div>
+</article>

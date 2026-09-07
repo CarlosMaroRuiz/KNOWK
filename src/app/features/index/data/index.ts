@@ -1,10 +1,10 @@
 import {
-  SpellCheck,
+  BookA,
   BookOpen,
   Headphones,
-  BookA,
-  Puzzle,
   PenTool,
+  Puzzle,
+  SpellCheck,
 } from 'lucide-angular';
 import { CatalogItem } from '../domain/models';
 
@@ -22,7 +22,8 @@ export const CATALOG_ITEMS: CatalogItem[] = [
       title: 'Reading Comprehension',
       description: 'Lee un pasaje académico y responde preguntas.',
       icon: BookOpen,
-      available: false,
+      route: '/reading-comprehension',
+      available: true,
     },
     {
       id: 'listening',

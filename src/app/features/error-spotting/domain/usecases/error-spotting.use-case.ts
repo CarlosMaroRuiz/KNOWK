@@ -8,7 +8,7 @@ export class ErrorSpottingUseCase {
   private readonly repository = inject(ErrorSpottingRepository);
 
 
-  getQuestions(): Observable<Question[]> {
-    return this.repository.fetchQuestions();
+  getQuestions(level: string): Observable<Question[]> {
+    return this.repository.fetchQuestions(level);
   }
 }

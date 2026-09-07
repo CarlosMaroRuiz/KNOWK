@@ -20,6 +20,14 @@ export const routes: Routes = [
             (m) => m.ErrorSpotting
           ),
       },
+      {
+        path: APP_ROUTES.READING_COMPREHENSION.path,
+        data: { title: APP_ROUTES.READING_COMPREHENSION.title },
+        loadComponent: () =>
+          import('@features/reading-comprehension/reading-comprehension').then(
+            (m) => m.ReadingComprehension,
+          ),
+      },
     ],
   },
   {

@@ -1,0 +1,72 @@
+.book-card {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	border: var(--border-width) solid var(--color-ink);
+	border-radius: var(--radius-md);
+	background: var(--color-surface);
+	box-shadow: var(--shadow-card);
+}
+
+.book-card img {
+	width: 100%;
+	aspect-ratio: 16 / 10;
+	object-fit: cover;
+	background: var(--color-primary-soft);
+}
+
+.book-card__content {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--space-2);
+	padding: var(--space-4);
+}
+
+.book-card h3,
+.book-card p {
+	margin: 0;
+}
+
+.book-card p {
+	color: var(--color-muted);
+	font-size: var(--fs-sm);
+}
+
+.book-card button {
+	margin-top: auto;
+}
+
+@media (max-width: 760px) {
+	.book-card {
+		min-height: 142px;
+		flex-direction: row;
+	}
+
+	.book-card img {
+		width: 102px;
+		height: 142px;
+		flex: 0 0 102px;
+	}
+
+	.book-card__content {
+		gap: var(--space-1);
+		padding: var(--space-3);
+	}
+
+	.book-card h3 {
+		font-size: var(--fs-md);
+	}
+
+	.book-card p {
+		font-size: var(--fs-xs);
+	}
+
+	.book-card button {
+		align-self: stretch;
+		margin-top: var(--space-2);
+		padding-inline: var(--space-2);
+		font-size: var(--fs-sm);
+	}
+}

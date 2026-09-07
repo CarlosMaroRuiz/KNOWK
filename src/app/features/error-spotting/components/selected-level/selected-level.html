@@ -1,0 +1,13 @@
+<div class="level-selector" role="group" aria-label="Seleccionar nivel">
+  @for (level of levels; track level) {
+    <button
+      type="button"
+      class="level-button"
+      [class.level-button--active]="level === selectedLevel()"
+      [attr.aria-pressed]="level === selectedLevel()"
+      (click)="onSelect(level)"
+    >
+      {{ level }}
+    </button>
+  }
+</div>

@@ -1,0 +1,101 @@
+<section class="reading-comprehension-container">
+	<header class="reading-header">
+		<div>
+			<p class="eyebrow">English practice</p>
+			<h1>Reading Comprehension</h1>
+			<p>Elige un texto, léelo con calma y comprueba tu comprensión.</p>
+		</div>
+
+		<div class="level-selector" role="group" aria-label="Seleccionar nivel">
+			@for (level of levels; track level) {
+				<button
+					type="button"
+					appButton
+					variant="outline"
+					[class.active]="selectLevel() === level"
+					[attr.aria-pressed]="selectLevel() === level"
+					(click)="changeLevel(level)"
+				>
+					{{ level }}
+				</button>
+			}
+		</div>
+	</header>
+
+	@if (booksResource.isLoading()) {
+		<div class="status-box">Cargando lecturas...</div>
+	} @else if (booksResource.error()) {
+		<div class="status-box status-box--error">No se pudieron cargar las lecturas.</div>
+	} @else if (booksResource.value(); as books) {
+		@switch (viewMode()) {
+			@case ('catalog') {
+				<div class="book-grid">
+					@for (book of books; track book.id) {
+						<app-book-card [book]="book" (selected)="selectBook($event)" />
+					} @empty {
+						<div class="status-box">No hay lecturas disponibles para este nivel.</div>
+					}
+				</div>
+			}
+
+			@case ('reading') {
+				@if (selectedBook(); as book) {
+					<div class="reading-view">
+						<button type="button" appButton variant="ghost" (click)="backToCatalog()">
+							Volver al catálogo
+						</button>
+						<app-passage-reader [book]="book" (finishedReading)="startQuestions()" />
+					</div>
+				}
+			}
+
+			@case ('questions') {
+				@if (selectedBook(); as book) {
+					@if (currentQuestion(); as question) {
+						<div class="questions-view">
+							<div class="questions-view__topbar">
+								<button type="button" appButton variant="ghost" (click)="backToReading()">
+									Volver a la lectura
+								</button>
+								<span>{{ currentQuestionIndex() + 1 }} / {{ book.questions.length }}</span>
+							</div>
+							<app-reading-question-card
+								[question]="question"
+								[index]="currentQuestionIndex()"
+								[selectedLabel]="selectedAnswers()[question.id]"
+								(optionSelected)="selectOption(question.id, $event)"
+							/>
+							<nav class="question-navigation" aria-label="Navegación de preguntas">
+								<button
+									type="button"
+									appButton
+									variant="secondary"
+									[disabled]="currentQuestionIndex() === 0"
+									(click)="previousQuestion()"
+								>Anterior</button>
+								<button
+									type="button"
+									appButton
+									variant="primary"
+									[disabled]="currentQuestionIndex() === book.questions.length - 1 ? !allQuestionsAnswered() : !currentAnswer()"
+									(click)="nextQuestion()"
+								>{{ currentQuestionIndex() === book.questions.length - 1 ? 'Finalizar' : 'Siguiente' }}</button>
+							</nav>
+						</div>
+					}
+				}
+			}
+
+			@case ('results') {
+				@if (selectedBook(); as book) {
+					<app-reading-result
+						[correctAnswers]="correctAnswers()"
+						[totalQuestions]="book.questions.length"
+						(restart)="restartQuestions()"
+						(backToCatalog)="backToCatalog()"
+					/>
+				}
+			}
+		}
+	}
+</section>

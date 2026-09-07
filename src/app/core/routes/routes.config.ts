@@ -12,4 +12,8 @@ export const APP_ROUTES = {
     path: 'error-spoting',
     title: 'Error Spotting',
   },
+  READING_COMPREHENSION: {
+    path: 'reading-comprehension',
+    title: 'Reading Comprehension',
+  },
 } as const satisfies Record<string, RouteConfig>;
