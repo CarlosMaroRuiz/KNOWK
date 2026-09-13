@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "category": "Word Form",
+    "full_sentence": "The company announced a significant improve in its quarterly earnings this year.",
+    "options": [
+      { "label": "A", "text": "announced" },
+      { "label": "B", "text": "significant improve" },
+      { "label": "C", "text": "quarterly earnings" },
+      { "label": "D", "text": "this year" }
+    ],
+    "correct_label": "B",
+    "correction": "significant improvement",
+    "explanation": "Después de un adjetivo se necesita un sustantivo (\"improvement\"), no la forma verbal \"improve\"."
+  },
+  {
+    "id": 2,
+    "category": "Reduced Participle Clauses",
+    "full_sentence": "Build in 1969, the library remains one of the most visited landmarks in the city.",
+    "options": [
+      { "label": "A", "text": "Build in 1969" },
+      { "label": "B", "text": "remains" },
+      { "label": "C", "text": "most visited" },
+      { "label": "D", "text": "in the city" }
+    ],
+    "correct_label": "A",
+    "correction": "Built in 1969",
+    "explanation": "La cláusula reducida pasiva requiere el participio pasado \"Built\", no la forma base \"Build\"."
+  },
+  {
+    "id": 3,
+    "category": "Complex Relative Clauses",
+    "full_sentence": "The scientist which discovered the compound was awarded a prestigious prize.",
+    "options": [
+      { "label": "A", "text": "which discovered" },
+      { "label": "B", "text": "the compound" },
+      { "label": "C", "text": "was awarded" },
+      { "label": "D", "text": "prestigious prize" }
+    ],
+    "correct_label": "A",
+    "correction": "who discovered",
+    "explanation": "Para referirse a personas se usa \"who\", no \"which\", que se reserva para cosas."
+  },
+  {
+    "id": 4,
+    "category": "Dependent Prepositions",
+    "full_sentence": "The final decision depends of the results of the upcoming inspection.",
+    "options": [
+      { "label": "A", "text": "final decision" },
+      { "label": "B", "text": "depends of" },
+      { "label": "C", "text": "results" },
+      { "label": "D", "text": "upcoming inspection" }
+    ],
+    "correct_label": "B",
+    "correction": "depends on",
+    "explanation": "La colocación correcta es \"depend on\", no \"depend of\"."
+  },
+  {
+    "id": 5,
+    "category": "Inversion",
+    "full_sentence": "Rarely the committee approves a proposal without requesting additional revisions.",
+    "options": [
+      { "label": "A", "text": "Rarely the committee approves" },
+      { "label": "B", "text": "a proposal" },
+      { "label": "C", "text": "without requesting" },
+      { "label": "D", "text": "additional revisions" }
+    ],
+    "correct_label": "A",
+    "correction": "Rarely does the committee approve",
+    "explanation": "\"Rarely\" al inicio de la oración exige inversión con el auxiliar \"does\": \"does the committee approve\"."
+  }
+]

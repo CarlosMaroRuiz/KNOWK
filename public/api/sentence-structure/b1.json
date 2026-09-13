@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "category": "Participios Reducidos",
+    "prompt": "The archaeological artifacts ________ during the recent excavation are now displayed in the national museum.",
+    "options": [
+      { "label": "A", "text": "were discovered" },
+      { "label": "B", "text": "discovered" },
+      { "label": "C", "text": "they discovered" },
+      { "label": "D", "text": "discovering" }
+    ],
+    "correctLabel": "B",
+    "explanation": "El verbo principal de la oración es \"are now displayed\". El espacio en blanco debe ser un participio pasado adjetival (\"discovered\") para modificar a \"artifacts\" sin duplicar el verbo conjugado."
+  },
+  {
+    "id": 2,
+    "category": "Inversión de Lugar",
+    "prompt": "At the foot of the mountain range ________ a tranquil village surrounded by dense pine forests.",
+    "options": [
+      { "label": "A", "text": "it lies" },
+      { "label": "B", "text": "lies" },
+      { "label": "C", "text": "where lies" },
+      { "label": "D", "text": "situated" }
+    ],
+    "correctLabel": "B",
+    "explanation": "Cuando una oración inicia con una frase preposicional de lugar enfática, ocurre una inversión de sujeto y verbo (Verbo + Sujeto). El sujeto real es \"a tranquil village\" y el verbo conjugado necesario es \"lies\"."
+  },
+  {
+    "id": 3,
+    "category": "Aposición Central",
+    "prompt": "The Pacific Ring of Fire, ________ containing hundreds of active volcanoes, experiences frequent seismic activity.",
+    "options": [
+      { "label": "A", "text": "a region" },
+      { "label": "B", "text": "is a region" },
+      { "label": "C", "text": "was a region that" },
+      { "label": "D", "text": "it is a region" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Entre las comas se ubica una aposición nominal (\"a region\"). No debe incluir un verbo (\"is\" o \"was\") para evitar un choque sintáctico con el verbo principal \"experiences\"."
+  },
+  {
+    "id": 4,
+    "category": "Participio Presente (-ing)",
+    "prompt": "The scientists ________ the deep-sea ecosystem discovered several previously unknown species of invertebrates.",
+    "options": [
+      { "label": "A", "text": "were studying" },
+      { "label": "B", "text": "studying" },
+      { "label": "C", "text": "they studied" },
+      { "label": "D", "text": "studied" }
+    ],
+    "correctLabel": "B",
+    "explanation": "\"studying\" es un participio presente funcionando como adjetivo que modifica a \"The scientists\". El verbo principal de la cláusula es \"discovered\"."
+  },
+  {
+    "id": 5,
+    "category": "Objetos Compuestos de Preposición",
+    "prompt": "In addition to her groundbreaking research in biochemistry, Professor Ramirez ________ several university committees.",
+    "options": [
+      { "label": "A", "text": "chairs" },
+      { "label": "B", "text": "chairing" },
+      { "label": "C", "text": "to chair" },
+      { "label": "D", "text": "she chairs" }
+    ],
+    "correctLabel": "A",
+    "explanation": "\"In addition to...\" es una frase preposicional compuesta. El sujeto explícito es \"Professor Ramirez\" y requiere un verbo conjugado principal en tercera persona singular (\"chairs\")."
+  }
+]

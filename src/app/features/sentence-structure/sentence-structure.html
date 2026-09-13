@@ -1,0 +1,87 @@
+<div class="sentence-structure-wrapper">
+  <!-- Header de Selección de Nivel -->
+  <header class="header-section">
+    <div class="title-area">
+      <h1>Sentence Structure</h1>
+      <p>Preguntas 1 a 15 de la Sección 2 del TOEFL ITP (Estructura de la Oración).</p>
+    </div>
+
+    <div class="level-selector">
+      <span class="level-label">Nivel:</span>
+      <div class="level-buttons">
+        @for (level of levels; track level) {
+          <button
+            type="button"
+            class="level-btn"
+            [class.is-active]="selectLevel() === level"
+            (click)="changeLevel(level)"
+          >
+            {{ level }}
+          </button>
+        }
+      </div>
+    </div>
+  </header>
+
+  @if (questionsResource.isLoading()) {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Cargando preguntas de Sentence Structure...</p>
+    </div>
+  } @else if (viewMode() === 'practice') {
+    @if (currentQuestion()) {
+      <!-- Barra de Progreso -->
+      <div class="progress-section">
+        <div class="progress-info">
+          <span>Pregunta {{ currentQuestionIndex() + 1 }} de {{ questions().length }}</span>
+          <span>{{ progressPercent() }}% completado</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" [style.width.%]="progressPercent()"></div>
+        </div>
+      </div>
+
+      <!-- Tarjeta de Pregunta -->
+      <app-sentence-structure-card
+        [question]="currentQuestion()!"
+        [selectedAnswer]="currentAnswer()"
+        (optionSelected)="selectOption(currentQuestion()!.id, $event)"
+      />
+
+      <!-- Navegación -->
+      <div class="nav-controls">
+        <button
+          appButton
+          variant="secondary"
+          [disabled]="currentQuestionIndex() === 0"
+          (click)="previousQuestion()"
+        >
+          Anterior
+        </button>
+
+        <button
+          appButton
+          variant="primary"
+          [disabled]="!currentAnswer()"
+          (click)="nextQuestion()"
+        >
+          {{ currentQuestionIndex() === questions().length - 1 ? 'Ver Resultados' : 'Siguiente' }}
+        </button>
+      </div>
+    }
+  } @else {
+    <!-- Vista de Resultados -->
+    <div class="results-card">
+      <h2>Resultados del Módulo</h2>
+      <p class="score-summary">
+        Obtuviste <strong>{{ correctCount() }}</strong> de
+        <strong>{{ questions().length }}</strong> respuestas correctas en el Nivel
+        <strong>{{ selectLevel() }}</strong>.
+      </p>
+
+      <div class="results-actions">
+        <button appButton variant="primary" (click)="restart()">Reintentar Nivel</button>
+      </div>
+    </div>
+  }
+</div>

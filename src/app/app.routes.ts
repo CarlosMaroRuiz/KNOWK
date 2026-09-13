@@ -28,6 +28,36 @@ export const routes: Routes = [
             (m) => m.ReadingComprehension,
           ),
       },
+      {
+        path: APP_ROUTES.SENTENCE_STRUCTURE.path,
+        data: { title: APP_ROUTES.SENTENCE_STRUCTURE.title },
+        loadComponent: () =>
+          import('@features/sentence-structure/sentence-structure').then(
+            (m) => m.SentenceStructure,
+          ),
+      },
+      {
+        path: APP_ROUTES.VOCABULARY.path,
+        data: { title: APP_ROUTES.VOCABULARY.title },
+        loadComponent: () =>
+          import('@features/vocabulary/vocabulary').then((m) => m.Vocabulary),
+      },
+      {
+        path: APP_ROUTES.GRAMMAR_REVIEW.path,
+        data: { title: APP_ROUTES.GRAMMAR_REVIEW.title },
+        loadComponent: () =>
+          import('@features/grammar-review/grammar-review').then(
+            (m) => m.GrammarReview,
+          ),
+      },
+      {
+        path: APP_ROUTES.MOCK_EXAM.path,
+        data: { title: APP_ROUTES.MOCK_EXAM.title },
+        loadComponent: () =>
+          import('@features/mock-exam/mock-exam').then(
+            (m) => m.MockExam,
+          ),
+      },
     ],
   },
   {

@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "category": "Inversión Negativa / Enfática",
+    "prompt": "Not until the invention of the electron microscope ________ scientists able to observe cellular structures in detail.",
+    "options": [
+      { "label": "A", "text": "were" },
+      { "label": "B", "text": "they were" },
+      { "label": "C", "text": "when were" },
+      { "label": "D", "text": "that were" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Expresiones negativas restrictivas como \"Not until...\" al inicio de una oración causan inversión sujeto-verbo en la cláusula principal: Auxiliar + Sujeto. La opción A aporta el auxiliar \"were\" antes del sujeto \"scientists\"."
+  },
+  {
+    "id": 2,
+    "category": "Infinitivo como Sujeto",
+    "prompt": "________ a sustainable balance between economic growth and environmental protection remains a formidable challenge.",
+    "options": [
+      { "label": "A", "text": "To achieve" },
+      { "label": "B", "text": "Achieved" },
+      { "label": "C", "text": "Achieves" },
+      { "label": "D", "text": "For achieving" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Un infinitivo (\"To achieve\") actúa como frase sustantiva singular y funciona como el sujeto directo del verbo principal \"remains\"."
+  },
+  {
+    "id": 3,
+    "category": "Estructuras Paralelas Complejas",
+    "prompt": "Neither the initial hypothesis nor the subsequent experiments ________ sufficient evidence to support the claim.",
+    "options": [
+      { "label": "A", "text": "provided" },
+      { "label": "B", "text": "providing" },
+      { "label": "C", "text": "to provide" },
+      { "label": "D", "text": "it provided" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Con la estructura correlativa \"Neither... nor...\", se requiere un verbo conjugado principal (\"provided\") que complete la predicación."
+  },
+  {
+    "id": 4,
+    "category": "Oraciones de Relieve (Cleft Sentences)",
+    "prompt": "It was during the Renaissance ________ perspective in painting achieved widespread technical mastery.",
+    "options": [
+      { "label": "A", "text": "that" },
+      { "label": "B", "text": "which" },
+      { "label": "C", "text": "when" },
+      { "label": "D", "text": "what" }
+    ],
+    "correctLabel": "A",
+    "explanation": "La estructura enfática \"It was [elemento] THAT [cláusula]\" requiere el conector \"that\" para completar la cláusula de relieve."
+  },
+  {
+    "id": 5,
+    "category": "Cláusula Adverbial Reducida",
+    "prompt": "Although ________ extensively in tropical zones, the plant can also adapt to temperate climates.",
+    "options": [
+      { "label": "A", "text": "cultivated" },
+      { "label": "B", "text": "was cultivated" },
+      { "label": "C", "text": "cultivating" },
+      { "label": "D", "text": "it is cultivated" }
+    ],
+    "correctLabel": "A",
+    "explanation": "En una cláusula adverbial reducida con \"Although\", cuando el sujeto es idéntico al de la cláusula principal, se omite el sujeto y el verbo be, dejando solo el participio pasado \"cultivated\"."
+  }
+]

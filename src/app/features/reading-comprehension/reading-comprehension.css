@@ -47,6 +47,7 @@
 	color: var(--color-on-primary);
 }
 
+.skeleton-grid,
 .book-grid {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -111,6 +112,7 @@
 		flex: 1;
 	}
 
+	.skeleton-grid,
 	.book-grid {
 		grid-template-columns: 1fr;
 	}

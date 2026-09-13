@@ -1,0 +1,52 @@
+[
+  {
+    "id": "v-a2-1",
+    "word": "Hypothesis",
+    "partOfSpeech": "noun",
+    "phonetic": "/haɪˈpɒθ.ə.sɪs/",
+    "definition": "Una suposición o explicación tentativa planteada como base para un razonamiento o investigación.",
+    "exampleSentence": "The researchers proposed a new hypothesis to explain the unexpected experimental results.",
+    "synonyms": ["Theory", "Assumption", "Proposition"],
+    "level": "A2"
+  },
+  {
+    "id": "v-a2-2",
+    "word": "Acquire",
+    "partOfSpeech": "verb",
+    "phonetic": "/əˈkwaɪər/",
+    "definition": "Obtener o comprar un objeto o habilidad mediante esfuerzo propio o experiencia.",
+    "exampleSentence": "Students acquire advanced language skills through daily practice and immersion.",
+    "synonyms": ["Obtain", "Gain", "Attain"],
+    "level": "A2"
+  },
+  {
+    "id": "v-a2-3",
+    "word": "Accurate",
+    "partOfSpeech": "adjective",
+    "phonetic": "/ˈæk.jə.rət/",
+    "definition": "Correcto, exacto y libre de errores en detalles o mediciones.",
+    "exampleSentence": "An accurate measurement of temperature is essential for chemical experiments.",
+    "synonyms": ["Precise", "Correct", "Exact"],
+    "level": "A2"
+  },
+  {
+    "id": "v-a2-4",
+    "word": "Analyze",
+    "partOfSpeech": "verb",
+    "phonetic": "/ˈæn.əl.aɪz/",
+    "definition": "Examinar algo metódicamente y en detalle para explicarlo o interpretarlo.",
+    "exampleSentence": "The software can analyze large sets of environmental data in seconds.",
+    "synonyms": ["Examine", "Inspect", "Evaluate"],
+    "level": "A2"
+  },
+  {
+    "id": "v-a2-5",
+    "word": "Significant",
+    "partOfSpeech": "adjective",
+    "phonetic": "/sɪɡˈnɪf.ɪ.kənt/",
+    "definition": "Suficientemente grande o importante como para merecer atención o tener efecto.",
+    "exampleSentence": "There was a significant increase in renewable energy production last year.",
+    "synonyms": ["Important", "Notable", "Substantial"],
+    "level": "A2"
+  }
+]

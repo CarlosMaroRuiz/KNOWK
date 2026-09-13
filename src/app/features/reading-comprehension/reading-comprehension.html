@@ -23,9 +23,17 @@
 	</header>
 
 	@if (booksResource.isLoading()) {
-		<div class="status-box">Cargando lecturas...</div>
+		<div class="skeleton-grid">
+			<app-skeleton shape="card" height="240px" />
+			<app-skeleton shape="card" height="240px" />
+			<app-skeleton shape="card" height="240px" />
+		</div>
 	} @else if (booksResource.error()) {
-		<div class="status-box status-box--error">No se pudieron cargar las lecturas.</div>
+		<app-error-state
+			title="Error al cargar las lecturas"
+			message="No se pudieron obtener los datos de los libros para el nivel seleccionado."
+			(retry)="retryFetch()"
+		/>
 	} @else if (booksResource.value(); as books) {
 		@switch (viewMode()) {
 			@case ('catalog') {

@@ -1,0 +1,40 @@
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-6);
+  gap: var(--space-3);
+  background-color: var(--color-error-soft);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  max-width: 500px;
+  margin: var(--space-4) auto;
+}
+
+.error-badge {
+  background-color: var(--color-pink);
+  color: var(--color-ink);
+  font-weight: 800;
+  font-size: var(--fs-xs);
+  padding: var(--space-1) var(--space-3);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.error-title {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.error-message {
+  font-size: var(--fs-base);
+  color: var(--color-ink-muted);
+  margin: 0;
+  line-height: var(--lh-normal);
+}

@@ -5,6 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "check:unused": "node scripts/check-unused.mjs",
+    "check:ng-compat": "node scripts/check-ng-compat.mjs",
+    "create:feature": "node scripts/create-feature.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

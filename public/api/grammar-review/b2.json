@@ -1,0 +1,35 @@
+[
+  {
+    "id": "g-b2-1",
+    "title": "Inversión Negativa Restrictiva",
+    "category": "Inversiones Avanzadas",
+    "level": "B2",
+    "summary": "Expresiones negativas o restrictivas al inicio de la cláusula principal fuerzan inversión de auxiliar y sujeto.",
+    "ruleFormula": "[Never / Rarely / Not until / Hardly] + Auxiliar + Sujeto + Verbo Principal",
+    "keyPoints": [
+      "Funciona exactamente como la estructura de una pregunta en cuanto a posición de auxiliar.",
+      "Afecta a adverbios como: Never, Seldom, Rarely, Scarcely, Not only."
+    ],
+    "examples": [
+      {
+        "correct": "Seldom have astronomers observed such a rare celestial event.",
+        "incorrect": "Seldom astronomers have observed such a rare event.",
+        "note": "Falta de inversión de auxiliar \"have\" antes de \"astronomers\"."
+      }
+    ],
+    "exercises": [
+      {
+        "id": 301,
+        "prompt": "Rarely ________ such a dramatic shift in economic policy occurred in so short a time.",
+        "options": [
+          { "label": "A", "text": "has" },
+          { "label": "B", "text": "it has" },
+          { "label": "C", "text": "having" },
+          { "label": "D", "text": "that has" }
+        ],
+        "correctLabel": "A",
+        "explanation": "\"Rarely\" al inicio exige el auxiliar \"has\" antes del sujeto \"such a dramatic shift\"."
+      }
+    ]
+  }
+]

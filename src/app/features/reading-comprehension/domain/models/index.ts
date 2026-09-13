@@ -1,3 +1,5 @@
+import { Level } from '@common/models';
+
 export interface ReadingQuestion {
   id: number;
   prompt: string;
@@ -9,7 +11,7 @@ export interface ReadingQuestion {
 export interface Book {
   id: string;
   title: string;
-  level: string;
+  level: Level;
   coverImage: string;
   wordCount: number;
   text: string;

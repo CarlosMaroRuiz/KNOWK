@@ -1,7 +1,10 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 
 import { ButtonDirective } from '@common/components/button';
+import { ErrorStateComponent } from '@common/components/error-state';
+import { SkeletonComponent } from '@common/components/skeleton';
+import { Level } from '@common/models';
 import { Question } from '@features/error-spotting/domain/models';
 import { ErrorSpottingUseCase } from '@features/error-spotting/domain/usecases/error-spotting.use-case';
 import { provideErrorSpotting } from '@features/error-spotting/providers/error-spotting.providers';
@@ -11,22 +14,36 @@ import { SelectedLevel } from './components/selected-level/selected-level';
 @Component({
   selector: 'app-error-spoting',
   standalone: true,
-  imports: [ButtonDirective, ErrorSpottingCardComponent, SelectedLevel],
+  imports: [
+    ButtonDirective,
+    ErrorSpottingCardComponent,
+    SelectedLevel,
+    SkeletonComponent,
+    ErrorStateComponent,
+  ],
   templateUrl: './error-spotting.html',
   styleUrl: './error-spotting.css',
-  providers: [provideErrorSpotting()]
+  providers: [provideErrorSpotting()],
 })
 export class ErrorSpotting {
   private readonly useCase = inject(ErrorSpottingUseCase);
-  selectLevel = signal<string>('B1');
+  selectLevel = signal<Level>('B1');
 
-  protected questionsResource = rxResource<Question[], string>({
+  protected questionsResource = rxResource<Question[], Level>({
     params: () => this.selectLevel(),
-    stream: ({ params }) => this.useCase.getQuestions(params)
+    stream: ({ params }) => this.useCase.getQuestions(params),
   });
 
   protected selectedAnswers = signal<Record<number, string>>({});
   protected currentQuestionIndex = signal(0);
+
+  protected readonly questions = computed(() => this.questionsResource.value() ?? []);
+
+  protected readonly progressPercent = computed(() => {
+    const total = this.questions().length;
+    if (total === 0) return 0;
+    return Math.round(((this.currentQuestionIndex() + 1) / total) * 100);
+  });
 
   constructor() {
     effect(() => {
@@ -37,21 +54,25 @@ export class ErrorSpotting {
   }
 
   protected selectOption(questionId: number, label: string): void {
-    this.selectedAnswers.update(prev => ({
+    this.selectedAnswers.update((prev) => ({
       ...prev,
-      [questionId]: label
+      [questionId]: label,
     }));
   }
 
   protected previousQuestion(): void {
-    this.currentQuestionIndex.update(index => Math.max(0, index - 1));
+    this.currentQuestionIndex.update((index) => Math.max(0, index - 1));
   }
 
   protected nextQuestion(): void {
-    const questions = this.questionsResource.value() ?? [];
+    const qList = this.questions();
 
-    this.currentQuestionIndex.update(index =>
-      Math.min(questions.length - 1, index + 1)
+    this.currentQuestionIndex.update((index) =>
+      Math.min(qList.length - 1, index + 1)
     );
+  }
+
+  protected retryFetch(): void {
+    this.questionsResource.reload();
   }
 }

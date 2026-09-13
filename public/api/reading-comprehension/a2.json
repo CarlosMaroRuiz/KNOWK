@@ -1,0 +1,106 @@
+[
+  {
+    "id": "a2-city-gardens",
+    "title": "City Gardens",
+    "level": "A2",
+    "coverImage": "/img/books/a2/a2-city-gardens.jpg",
+    "wordCount": 98,
+    "text": "Cities can become greener when people plant trees, protect parks, and use public transportation. In many neighborhoods, empty spaces are being changed into small community gardens. Residents grow tomatoes, herbs, and flowers there. They also meet their neighbors and learn how to care for plants. These gardens make the air cleaner and give people a quiet place to rest. Trees provide shade during hot days, while flowers attract bees and butterflies. Public transportation is another important part of a greener city. When people take a bus or ride a bicycle, fewer cars are on the road, reducing noise and pollution. A green city grows through small choices made by many people.",
+    "questions": [
+      {
+        "id": 1,
+        "prompt": "What is the main idea of the passage?",
+        "options": [
+          { "label": "A", "text": "Small actions can help make cities greener." },
+          { "label": "B", "text": "Cities should remove all public parks." },
+          { "label": "C", "text": "Flowers only grow in large forests." },
+          { "label": "D", "text": "Buses are more expensive than cars." }
+        ],
+        "correctLabel": "A",
+        "explanation": "The passage explains several simple ways people can create greener cities."
+      },
+      {
+        "id": 2,
+        "prompt": "What do residents grow in community gardens?",
+        "options": [
+          { "label": "A", "text": "Only trees" },
+          { "label": "B", "text": "Tomatoes, herbs, and flowers" },
+          { "label": "C", "text": "Rice and wheat" },
+          { "label": "D", "text": "Sea plants" }
+        ],
+        "correctLabel": "B",
+        "explanation": "The passage names tomatoes, herbs, and flowers."
+      },
+      {
+        "id": 3,
+        "prompt": "Why are fewer cars useful?",
+        "options": [
+          { "label": "A", "text": "They make roads longer." },
+          { "label": "B", "text": "They reduce noise and pollution." },
+          { "label": "C", "text": "They create more plastic." },
+          { "label": "D", "text": "They stop flowers from growing." }
+        ],
+        "correctLabel": "B",
+        "explanation": "Using public transportation reduces noise and pollution."
+      },
+      {
+        "id": 4,
+        "prompt": "What do trees provide during hot days?",
+        "options": [
+          { "label": "A", "text": "Shade" },
+          { "label": "B", "text": "Food for fish" },
+          { "label": "C", "text": "Bus tickets" },
+          { "label": "D", "text": "Plastic bags" }
+        ],
+        "correctLabel": "A",
+        "explanation": "The passage says trees provide shade."
+      },
+      {
+        "id": 5,
+        "prompt": "According to the passage, how does a green city grow?",
+        "options": [
+          { "label": "A", "text": "Through one large project" },
+          { "label": "B", "text": "Through small choices by many people" },
+          { "label": "C", "text": "By building more roads" },
+          { "label": "D", "text": "By closing gardens" }
+        ],
+        "correctLabel": "B",
+        "explanation": "Many small choices made by people gradually improve a city."
+      }
+    ]
+  },
+  {
+    "id": "a2-ocean-life",
+    "title": "Life in the Ocean",
+    "level": "A2",
+    "coverImage": "/img/eng.png",
+    "wordCount": 92,
+    "text": "The ocean is home to many different animals. Near the surface, small fish eat tiny plants called algae. Larger fish eat the smaller fish, so every animal has a role in the food chain. Coral reefs are another important home. They give young fish places to hide and provide food for many sea creatures. However, plastic waste can hurt animals when they mistake it for food. People can protect ocean life by using fewer plastic bags, keeping beaches clean, and respecting animals in their natural homes. Small actions on land can help keep the water healthy.",
+    "questions": [
+      {
+        "id": 1,
+        "prompt": "What is the passage mainly about?",
+        "options": [
+          { "label": "A", "text": "The variety of ocean life and how to protect it" },
+          { "label": "B", "text": "How to build a fishing boat" },
+          { "label": "C", "text": "The history of city parks" },
+          { "label": "D", "text": "Why all fish eat algae" }
+        ],
+        "correctLabel": "A",
+        "explanation": "The passage describes ocean homes, food chains, threats, and protection."
+      },
+      {
+        "id": 2,
+        "prompt": "What do small fish eat near the surface?",
+        "options": [
+          { "label": "A", "text": "Plastic bags" },
+          { "label": "B", "text": "Coral reefs" },
+          { "label": "C", "text": "Algae" },
+          { "label": "D", "text": "Large fish" }
+        ],
+        "correctLabel": "C",
+        "explanation": "The passage says small fish eat tiny plants called algae."
+      }
+    ]
+  }
+]

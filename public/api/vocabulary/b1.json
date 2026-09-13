@@ -1,0 +1,52 @@
+[
+  {
+    "id": "v-b1-1",
+    "word": "Biodiversity",
+    "partOfSpeech": "noun",
+    "phonetic": "/ˌbaɪ.oʊ.daɪˈvɝː.sə.t̬i/",
+    "definition": "La variedad de vida vegetal y animal presente en un ecosistema o hábitat específico.",
+    "exampleSentence": "Rainforests possess extraordinary biodiversity, housing millions of distinct organisms.",
+    "synonyms": ["Ecological variety", "Biological diversity"],
+    "level": "B1"
+  },
+  {
+    "id": "v-b1-2",
+    "word": "Synthesize",
+    "partOfSpeech": "verb",
+    "phonetic": "/ˈsɪn.θə.saɪz/",
+    "definition": "Combinar diversos elementos o ideas para formar un sistema o conclusión coherente.",
+    "exampleSentence": "The author managed to synthesize multiple historical perspectives into a unified narrative.",
+    "synonyms": ["Combine", "Integrate", "Merge"],
+    "level": "B1"
+  },
+  {
+    "id": "v-b1-3",
+    "word": "Prevalent",
+    "partOfSpeech": "adjective",
+    "phonetic": "/ˈprev.əl.ənt/",
+    "definition": "Muy extendido, común o frecuente en un lugar o época determinada.",
+    "exampleSentence": "Dry climatic conditions are highly prevalent in the arid southwestern regions.",
+    "synonyms": ["Widespread", "Common", "Pervasive"],
+    "level": "B1"
+  },
+  {
+    "id": "v-b1-4",
+    "word": "Fluctuate",
+    "partOfSpeech": "verb",
+    "phonetic": "/ˈflʌk.tʃu.eɪt/",
+    "definition": "Cambiar continuamente entre diferentes niveles o estados de manera irregular.",
+    "exampleSentence": "Market prices tend to fluctuate depending on supply and demand dynamics.",
+    "synonyms": ["Vary", "Oscillate", "Shift"],
+    "level": "B1"
+  },
+  {
+    "id": "v-b1-5",
+    "word": "Plausible",
+    "partOfSpeech": "adjective",
+    "phonetic": "/ˈplɑː.zə.bəl/",
+    "definition": "Que parece razonable, creíble o probable según la evidencia existente.",
+    "exampleSentence": "The astronomer presented a plausible explanation for the unusual orbital movement.",
+    "synonyms": ["Credible", "Believable", "Reasonable"],
+    "level": "B1"
+  }
+]

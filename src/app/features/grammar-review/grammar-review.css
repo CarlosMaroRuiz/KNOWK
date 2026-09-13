@@ -1,0 +1,313 @@
+.grammar-review-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.header-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: var(--space-4);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+@media (min-width: 640px) {
+  .header-section {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.title-area h1 {
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  margin-bottom: var(--space-1);
+}
+
+.level-selector {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.level-label {
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--color-ink);
+}
+
+.level-buttons {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.level-btn {
+  padding: var(--space-1) var(--space-3);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--color-ink);
+  transition: transform 0.1s ease, background-color 0.1s ease;
+}
+
+.level-btn:hover {
+  transform: translate(-1px, -1px);
+}
+
+.level-btn.is-active {
+  background-color: var(--color-primary);
+  color: var(--color-ink);
+}
+
+.skeleton-grid,
+.topics-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .skeleton-grid,
+  .topics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.empty-box {
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.lesson-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.lesson-content {
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.lesson-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.category-badge {
+  align-self: flex-start;
+  background-color: var(--color-yellow-soft);
+  color: var(--color-ink);
+  font-weight: 700;
+  font-size: var(--fs-xs);
+  padding: var(--space-1) var(--space-3);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.lesson-header h2 {
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  margin: 0;
+}
+
+.lesson-summary {
+  font-size: var(--fs-base);
+  color: var(--color-ink-muted);
+}
+
+.formula-banner {
+  background-color: var(--color-primary-soft);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.banner-title {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.banner-formula {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.points-section h3,
+.examples-section h3,
+.exercises-section h3 {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+}
+
+.points-section ul {
+  padding-left: var(--space-5);
+  margin: 0;
+}
+
+.points-section li {
+  margin-bottom: var(--space-2);
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.examples-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.example-card {
+  background-color: var(--color-surface-alt);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.ex-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.ex-badge {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.ex-correct .ex-badge {
+  background-color: var(--color-green);
+  color: var(--color-ink);
+}
+
+.ex-incorrect .ex-badge {
+  background-color: var(--color-pink);
+  color: var(--color-ink);
+}
+
+.ex-note {
+  font-size: var(--fs-xs);
+  color: var(--color-ink-muted);
+  font-style: italic;
+  margin: 0;
+}
+
+.exercise-box {
+  background-color: var(--color-surface-alt);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.exercise-prompt {
+  font-size: var(--fs-base);
+  font-weight: 700;
+  margin: 0;
+}
+
+.exercise-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+}
+
+@media (min-width: 640px) {
+  .exercise-options {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.opt-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+}
+
+.opt-btn.is-selected {
+  background-color: var(--color-primary-soft);
+}
+
+.opt-btn.is-correct {
+  background-color: var(--color-green-soft);
+}
+
+.opt-btn.is-wrong {
+  background-color: var(--color-pink-soft);
+}
+
+.opt-label {
+  font-weight: 700;
+}
+
+.opt-text {
+  font-size: var(--fs-sm);
+}
+
+.exercise-feedback {
+  padding: var(--space-3);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.fb-correct {
+  background-color: var(--color-green-soft);
+}
+
+.fb-wrong {
+  background-color: var(--color-pink-soft);
+}
+
+.fb-title {
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  margin: 0 0 var(--space-1);
+}
+
+.fb-explanation {
+  font-size: var(--fs-sm);
+  margin: 0;
+}

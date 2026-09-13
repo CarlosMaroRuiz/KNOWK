@@ -1,0 +1,20 @@
+<div class="topic-card-wrapper" (click)="onSelect()">
+  <div class="card-header">
+    <span class="category-badge">{{ topic().category }}</span>
+    <span class="level-badge">{{ topic().level }}</span>
+  </div>
+
+  <h3 class="topic-title">{{ topic().title }}</h3>
+  <p class="topic-summary">{{ topic().summary }}</p>
+
+  <div class="formula-box">
+    <span class="formula-label">Fórmula:</span>
+    <code class="formula-code">{{ topic().ruleFormula }}</code>
+  </div>
+
+  <div class="card-actions">
+    <button type="button" appButton variant="primary" size="sm" (click)="onSelect()">
+      Estudiar Leccion
+    </button>
+  </div>
+</div>

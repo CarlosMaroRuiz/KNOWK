@@ -1,0 +1,32 @@
+<div class="mock-exam-page">
+  @if (currentState() === 'setup') {
+    <app-exam-setup (startExam)="handleStartExam($event)" />
+  }
+
+  @if (currentState() === 'running') {
+    @if (questionsResource.isLoading()) {
+      <div class="loading-box">
+        <app-skeleton width="100%" height="400px" borderRadius="16px" />
+      </div>
+    } @else if (questionsResource.error()) {
+      <app-error-state
+        title="Error al cargar el examen"
+        message="No se pudieron obtener las preguntas para este nivel. Revisa tu conexión."
+        (retry)="questionsResource.reload()"
+      />
+    } @else if (questionsResource.value(); as questions) {
+      <app-exam-runner
+        [questions]="questions"
+        [level]="selectedLevel()"
+        (finishExam)="handleFinishExam($event)"
+      />
+    }
+  }
+
+  @if (currentState() === 'completed' && examResult(); as result) {
+    <app-exam-result
+      [result]="result"
+      (restart)="resetToSetup()"
+    />
+  }
+</div>

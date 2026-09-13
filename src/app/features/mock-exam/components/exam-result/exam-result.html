@@ -1,0 +1,135 @@
+<div class="exam-result-container">
+  <!-- Main Score Card -->
+  <div class="score-card">
+    <div class="score-header">
+      <h2 class="score-title">Resultado de tu Examen Simulador</h2>
+      <p class="score-subtitle">Sección 2: Structure & Written Expression</p>
+    </div>
+
+    <div class="score-metrics">
+      <div class="metric-box toefl-box">
+        <span class="metric-label">Puntaje TOEFL Estimado</span>
+        <span class="metric-value toefl-value">{{ result().toeflScore }}</span>
+        <span class="metric-sub">Escala oficial: 31 a 68 pts</span>
+      </div>
+
+      <div class="metric-box">
+        <span class="metric-label">Aciertos Totales</span>
+        <span class="metric-value">{{ result().correctAnswersCount }} / {{ result().totalQuestions }}</span>
+        <span class="metric-sub">{{ result().percentage }}% de precisión</span>
+      </div>
+
+      <div class="metric-box">
+        <span class="metric-label">Tiempo Empleado</span>
+        <span class="metric-value">{{ formattedTimeSpent() }}</span>
+        <span class="metric-sub">de 25:00 min disponibles</span>
+      </div>
+    </div>
+
+    <div class="actions-row">
+      <button
+        appButton
+        variant="primary"
+        size="md"
+        (click)="onRestart()"
+      >
+        Volver a Intentar
+      </button>
+    </div>
+  </div>
+
+  <!-- Category Breakdown Section -->
+  <div class="breakdown-card">
+    <h3 class="card-section-title">Desglose por Categoría Gramatical</h3>
+    <div class="category-list">
+      @for (cat of result().categoryBreakdown; track cat.category) {
+        <div class="category-item">
+          <div class="category-info">
+            <span class="category-name">{{ cat.category }}</span>
+            <span class="category-score">{{ cat.correct }} / {{ cat.total }} ({{ cat.percentage }}%)</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div
+              class="progress-bar-fill"
+              [style.width.%]="cat.percentage"
+              [class.high]="cat.percentage >= 75"
+              [class.medium]="cat.percentage >= 50 && cat.percentage < 75"
+              [class.low]="cat.percentage < 50"
+            ></div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Detailed Question Review Accordion -->
+  <div class="review-card">
+    <div class="review-header">
+      <h3 class="card-section-title">Revisión Detallada de Reactivos</h3>
+      <div class="filter-buttons">
+        <button
+          type="button"
+          class="filter-chip"
+          [class.active]="filterMode() === 'all'"
+          (click)="setFilter('all')"
+        >
+          Todas ({{ result().questions.length }})
+        </button>
+        <button
+          type="button"
+          class="filter-chip"
+          [class.active]="filterMode() === 'incorrect'"
+          (click)="setFilter('incorrect')"
+        >
+          Incorrectas ({{ incorrectCount() }})
+        </button>
+      </div>
+    </div>
+
+    <div class="questions-review-list">
+      @for (q of filteredQuestions(); track q.id) {
+        @let userAns = getUserAnswer(q.id);
+        @let isCorrect = userAns === q.correctLabel;
+
+        <div class="review-item" [class.item-correct]="isCorrect" [class.item-incorrect]="!isCorrect">
+          <div class="item-header">
+            <span class="item-badge" [class.badge-pass]="isCorrect" [class.badge-fail]="!isCorrect">
+              {{ isCorrect ? 'Correcta' : 'Incorrecta' }}
+            </span>
+            <span class="item-category">{{ q.category }}</span>
+          </div>
+
+          <div class="item-sentence">
+            @if (q.type === 'structure') {
+              <p class="sentence-text">{{ q.prompt }}</p>
+            } @else {
+              <p class="sentence-text">{{ q.fullSentence }}</p>
+            }
+          </div>
+
+          <div class="answers-comparison">
+            <div class="ans-row">
+              <span class="ans-label">Tu respuesta:</span>
+              <span class="ans-value" [class.text-fail]="!isCorrect" [class.text-pass]="isCorrect">
+                {{ userAns ? userAns : 'Sin responder' }}
+              </span>
+            </div>
+            <div class="ans-row">
+              <span class="ans-label">Respuesta correcta:</span>
+              <span class="ans-value text-pass">
+                {{ q.correctLabel }}
+                @if (q.correction) {
+                  ({{ q.correction }})
+                }
+              </span>
+            </div>
+          </div>
+
+          <div class="item-explanation">
+            <strong>Explicación:</strong> {{ q.explanation }}
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

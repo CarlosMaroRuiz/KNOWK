@@ -1,6 +1,9 @@
 import { Component, computed, effect, inject, signal } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { ButtonDirective } from '@common/components/button';
+import { ErrorStateComponent } from '@common/components/error-state';
+import { SkeletonComponent } from '@common/components/skeleton';
+import { Level } from '@common/models';
 import { BookCard } from './components/book-card/book-card';
 import { PassageReader } from './components/passage-reader/passage-reader';
 import { ReadingQuestionCard } from './components/reading-question-card/reading-question-card';
@@ -12,7 +15,15 @@ import { provideReadingComprehension } from './providers/reading-comprehension.p
 @Component({
   selector: 'app-reading-comprehension',
   standalone: true,
-  imports: [ButtonDirective, BookCard, PassageReader, ReadingQuestionCard, ReadingResult],
+  imports: [
+    ButtonDirective,
+    BookCard,
+    PassageReader,
+    ReadingQuestionCard,
+    ReadingResult,
+    SkeletonComponent,
+    ErrorStateComponent,
+  ],
   templateUrl: './reading-comprehension.html',
   styleUrl: './reading-comprehension.css',
   providers: [provideReadingComprehension()],
@@ -20,14 +31,14 @@ import { provideReadingComprehension } from './providers/reading-comprehension.p
 export class ReadingComprehension {
   private readonly useCase = inject(ReadingComprehensionUseCase);
 
-  protected readonly levels = ['A2', 'B1', 'B2'] as const;
-  protected readonly selectLevel = signal<string>('A2');
+  protected readonly levels: readonly Level[] = ['A2', 'B1', 'B2'];
+  protected readonly selectLevel = signal<Level>('A2');
   protected readonly viewMode = signal<'catalog' | 'reading' | 'questions' | 'results'>('catalog');
   protected readonly selectedBookId = signal<string | null>(null);
   protected readonly selectedAnswers = signal<Record<number, string>>({});
   protected readonly currentQuestionIndex = signal(0);
 
-  protected readonly booksResource = rxResource<Book[], string>({
+  protected readonly booksResource = rxResource<Book[], Level>({
     params: () => this.selectLevel(),
     stream: ({ params }) => this.useCase.getBooks(params),
   });
@@ -67,7 +78,7 @@ export class ReadingComprehension {
     });
   }
 
-  protected changeLevel(level: string): void {
+  protected changeLevel(level: Level): void {
     this.selectLevel.set(level);
   }
 
@@ -118,4 +129,7 @@ export class ReadingComprehension {
     this.selectedAnswers.set({});
   }
 
+  protected retryFetch(): void {
+    this.booksResource.reload();
+  }
 }

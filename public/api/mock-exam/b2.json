@@ -1,0 +1,60 @@
+[
+  {
+    "id": 1,
+    "type": "structure",
+    "category": "Inversion",
+    "prompt": "Not until the late 20th century _____ the full environmental impact of industrialization.",
+    "options": [
+      { "label": "A", "text": "did scientists realize" },
+      { "label": "B", "text": "scientists realized" },
+      { "label": "C", "text": "realized scientists" },
+      { "label": "D", "text": "scientists did realize" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Fronted negative clause 'Not until...' demands auxiliary-subject inversion."
+  },
+  {
+    "id": 2,
+    "type": "structure",
+    "category": "Subjunctive / Formal Structures",
+    "prompt": "The dean insisted that every faculty member _____ present at the annual convocation.",
+    "options": [
+      { "label": "A", "text": "be" },
+      { "label": "B", "text": "is" },
+      { "label": "C", "text": "was" },
+      { "label": "D", "text": "to be" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Verbs of command/mandate like 'insist that' take subjunctive base form ('be')."
+  },
+  {
+    "id": 3,
+    "type": "error-spotting",
+    "category": "Word Form",
+    "fullSentence": "The company announced a significant improve in its quarterly earnings this year.",
+    "options": [
+      { "label": "A", "text": "announced" },
+      { "label": "B", "text": "significant improve" },
+      { "label": "C", "text": "quarterly earnings" },
+      { "label": "D", "text": "this year" }
+    ],
+    "correctLabel": "B",
+    "correction": "significant improvement",
+    "explanation": "Noun 'improvement' is required after adjective 'significant'."
+  },
+  {
+    "id": 4,
+    "type": "error-spotting",
+    "category": "Dependent Prepositions",
+    "fullSentence": "The final decision depends of the results of the upcoming inspection.",
+    "options": [
+      { "label": "A", "text": "final decision" },
+      { "label": "B", "text": "depends of" },
+      { "label": "C", "text": "results" },
+      { "label": "D", "text": "upcoming inspection" }
+    ],
+    "correctLabel": "B",
+    "correction": "depends on",
+    "explanation": "Correct preposition is 'depends on', not 'depends of'."
+  }
+]

@@ -1,0 +1,75 @@
+[
+  {
+    "id": "g-a2-1",
+    "title": "Estructura Basica: Sujeto y Verbo",
+    "category": "Núcleo de Oración",
+    "level": "A2",
+    "summary": "Toda oración completa en inglés requiere al menos un sujeto explícito y un verbo conjugado.",
+    "ruleFormula": "Sujeto Explícito + Verbo Conjugado = Oración Completa",
+    "keyPoints": [
+      "El sujeto nunca debe ser omitido en inglés (salvo imperativos).",
+      "No se debe duplicar el sujeto mediante pronombres pleonásticos.",
+      "Los objetos de preposición (in, on, of, for) nunca son el sujeto."
+    ],
+    "examples": [
+      {
+        "correct": "The research scientist published the findings.",
+        "incorrect": "Is publishing the findings.",
+        "note": "Falta de sujeto explícito."
+      },
+      {
+        "correct": "The main manager approved the project.",
+        "incorrect": "The main manager he approved the project.",
+        "note": "Doble sujeto innecesario (\"he\")."
+      }
+    ],
+    "exercises": [
+      {
+        "id": 101,
+        "prompt": "________ at the research facility conducted the genetic study.",
+        "options": [
+          { "label": "A", "text": "The team of scientists" },
+          { "label": "B", "text": "Conducting" },
+          { "label": "C", "text": "When the team" },
+          { "label": "D", "text": "Because of the team" }
+        ],
+        "correctLabel": "A",
+        "explanation": "Se requería un sujeto completo (\"The team of scientists\") antes del verbo \"conducted\"."
+      }
+    ]
+  },
+  {
+    "id": "g-a2-2",
+    "title": "Aposiciones Simples",
+    "category": "Modificadores del Sujeto",
+    "level": "A2",
+    "summary": "Una aposición es una frase nominal que renombra o describe a otro sustantivo inmediatamente contiguo.",
+    "ruleFormula": "Sujeto , [Aposición] , Verbo  |  [Aposición] , Sujeto + Verbo",
+    "keyPoints": [
+      "Normalmente aparece encerrada entre dos comas.",
+      "La aposición NO contiene el verbo principal de la oración.",
+      "Si se borra la aposición, la oración sigue teniendo sentido completo."
+    ],
+    "examples": [
+      {
+        "correct": "George Washington, the first US president, was born in Virginia.",
+        "incorrect": "George Washington, was the first US president, was born in Virginia.",
+        "note": "La aposición no debe llevar verbo conjugado propio."
+      }
+    ],
+    "exercises": [
+      {
+        "id": 102,
+        "prompt": "Dr. Elizabeth Blackwell, ________, founded the New York Infirmary for Women.",
+        "options": [
+          { "label": "A", "text": "the first female physician in the U.S." },
+          { "label": "B", "text": "was the first female physician" },
+          { "label": "C", "text": "she was the first physician" },
+          { "label": "D", "text": "who she was a physician" }
+        ],
+        "correctLabel": "A",
+        "explanation": "La opción A es la aposición pura sin verbo, lo cual encaja perfectamente entre comas."
+      }
+    ]
+  }
+]

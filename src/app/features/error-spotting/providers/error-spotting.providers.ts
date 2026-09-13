@@ -12,8 +12,6 @@ export const provideErrorSpotting = (): Provider[] => [
 
   {
     provide: ErrorSpottingRepository,
-    useFactory: () => {
-      return inject(ErrorSpottingMockRepository)
-    }
+    useExisting: ErrorSpottingMockRepository,
   }
 ];

@@ -1,0 +1,10 @@
+.mock-exam-page {
+  padding: 1.5rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.loading-box {
+  max-width: 800px;
+  margin: 2rem auto;
+}

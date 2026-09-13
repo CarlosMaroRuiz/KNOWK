@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "category": "Passive Voice",
+    "full_sentence": "The new policy was implement without prior notice to the staff members.",
+    "options": [
+      { "label": "A", "text": "was implement" },
+      { "label": "B", "text": "without" },
+      { "label": "C", "text": "prior notice" },
+      { "label": "D", "text": "staff members" }
+    ],
+    "correct_label": "A",
+    "correction": "was implemented",
+    "explanation": "La voz pasiva requiere be + participio pasado (\"implemented\"), no la forma base del verbo."
+  },
+  {
+    "id": 2,
+    "category": "Passive Voice",
+    "full_sentence": "The bridge is being repair by a team of engineers this month.",
+    "options": [
+      { "label": "A", "text": "is being repair" },
+      { "label": "B", "text": "by a team" },
+      { "label": "C", "text": "engineers" },
+      { "label": "D", "text": "this month" }
+    ],
+    "correct_label": "A",
+    "correction": "is being repaired",
+    "explanation": "En la pasiva progresiva (\"is being + participio\"), se necesita \"repaired\", no \"repair\"."
+  },
+  {
+    "id": 3,
+    "category": "Subject-Verb Agreement (Intervening Phrases)",
+    "full_sentence": "The manager, along with her assistants, are reviewing the quarterly report.",
+    "options": [
+      { "label": "A", "text": "The manager" },
+      { "label": "B", "text": "along with her assistants" },
+      { "label": "C", "text": "are reviewing" },
+      { "label": "D", "text": "quarterly report" }
+    ],
+    "correct_label": "C",
+    "correction": "is reviewing",
+    "explanation": "El sujeto principal es \"The manager\" (singular); la frase \"along with...\" no cambia el número del verbo."
+  },
+  {
+    "id": 4,
+    "category": "Expletive Structures",
+    "full_sentence": "There is several reasons why the project was delayed last quarter.",
+    "options": [
+      { "label": "A", "text": "There is" },
+      { "label": "B", "text": "several reasons" },
+      { "label": "C", "text": "was delayed" },
+      { "label": "D", "text": "last quarter" }
+    ],
+    "correct_label": "A",
+    "correction": "There are",
+    "explanation": "\"Reasons\" es plural, por lo que la estructura expletiva correcta es \"There are\"."
+  },
+  {
+    "id": 5,
+    "category": "Infinitive/Gerund Objects",
+    "full_sentence": "She decided joining the new committee after careful consideration.",
+    "options": [
+      { "label": "A", "text": "She decided" },
+      { "label": "B", "text": "joining" },
+      { "label": "C", "text": "after careful" },
+      { "label": "D", "text": "consideration" }
+    ],
+    "correct_label": "B",
+    "correction": "to join",
+    "explanation": "El verbo \"decide\" siempre va seguido de infinitivo (\"decided to join\"), no de gerundio."
+  }
+]

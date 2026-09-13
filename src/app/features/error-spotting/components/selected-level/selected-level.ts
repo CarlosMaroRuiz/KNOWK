@@ -1,4 +1,5 @@
 import { Component, model } from '@angular/core';
+import { Level } from '@common/models';
 
 @Component({
   selector: 'app-selected-level',
@@ -8,11 +9,11 @@ import { Component, model } from '@angular/core';
   styleUrl: './selected-level.css',
 })
 export class SelectedLevel {
-  selectedLevel = model.required<string>();
+  selectedLevel = model.required<Level>();
 
-  readonly levels: readonly string[] = ['A2', 'B1', 'B2'];
+  readonly levels: readonly Level[] = ['A2', 'B1', 'B2'];
 
-  onSelect(level: string): void {
+  onSelect(level: Level): void {
     this.selectedLevel.set(level);
   }
 }

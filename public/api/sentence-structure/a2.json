@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "category": "Núcleo Obligatorio (Sujeto)",
+    "prompt": "________ for the position must submit their credentials to the department chair by Friday.",
+    "options": [
+      { "label": "A", "text": "Applicants who" },
+      { "label": "B", "text": "All applicants" },
+      { "label": "C", "text": "If applicants" },
+      { "label": "D", "text": "Although applicants" }
+    ],
+    "correctLabel": "B",
+    "explanation": "La oración carecía de sujeto explícito antes del verbo conjugado \"must submit\". Las frases preposicionales \"for the position\" y \"by Friday\" no pueden funcionar como sujeto. La opción B aporta el sujeto exacto sin agregar conectores innecesarios."
+  },
+  {
+    "id": 2,
+    "category": "Núcleo Obligatorio (Verbo)",
+    "prompt": "The new scientific laboratory ________ equipped with modern research instruments last month.",
+    "options": [
+      { "label": "A", "text": "was fully" },
+      { "label": "B", "text": "fully" },
+      { "label": "C", "text": "being" },
+      { "label": "D", "text": "to be" }
+    ],
+    "correctLabel": "A",
+    "explanation": "La oración tiene sujeto (\"The new scientific laboratory\") pero le falta un verbo conjugado principal. El participio solo (\"being\" o \"to be\") no funciona como verbo principal. \"was fully\" provee el auxiliar de tiempo pasado conjugado."
+  },
+  {
+    "id": 3,
+    "category": "Objetos de Preposición",
+    "prompt": "During the annual conference, the report on climate change ________ by several international experts.",
+    "options": [
+      { "label": "A", "text": "presented" },
+      { "label": "B", "text": "was presented" },
+      { "label": "C", "text": "presenting" },
+      { "label": "D", "text": "they presented" }
+    ],
+    "correctLabel": "B",
+    "explanation": "\"During the annual conference\" y \"on climate change\" son frases preposicionales. El sujeto es \"the report\", por lo que se requiere el verbo pasivo conjugado \"was presented\"."
+  },
+  {
+    "id": 4,
+    "category": "Aposiciones",
+    "prompt": "A prominent figure in modern medicine, ________ pioneered the use of vaccines in the nineteenth century.",
+    "options": [
+      { "label": "A", "text": "Louis Pasteur" },
+      { "label": "B", "text": "when Louis Pasteur" },
+      { "label": "C", "text": "it was Louis Pasteur who" },
+      { "label": "D", "text": "that Louis Pasteur" }
+    ],
+    "correctLabel": "A",
+    "explanation": "El segmento antes de la coma es una aposición inicial. Se requiere un sujeto limpio inmediatamente después de la coma (\"Louis Pasteur\") para conectar con el verbo principal \"pioneered\"."
+  },
+  {
+    "id": 5,
+    "category": "Sujetos en Gerundio",
+    "prompt": "________ complex data sets requires high-performance computing systems and specialized algorithms.",
+    "options": [
+      { "label": "A", "text": "Analyze" },
+      { "label": "B", "text": "Analyzing" },
+      { "label": "C", "text": "Analyzed" },
+      { "label": "D", "text": "Analysis of" }
+    ],
+    "correctLabel": "B",
+    "explanation": "Un gerundio (-ing) como \"Analyzing\" funciona como sujeto singular de la oración, lo cual concuerda con el verbo \"requires\"."
+  }
+]

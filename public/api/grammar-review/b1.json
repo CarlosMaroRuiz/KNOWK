@@ -1,0 +1,69 @@
+[
+  {
+    "id": "g-b1-1",
+    "title": "Participios (-ing y -ed) como Adjetivos",
+    "category": "Participios",
+    "level": "B1",
+    "summary": "Un participio presente (-ing) o pasado (-ed) puede funcionar como adjetivo reduciendo una cláusula relativa.",
+    "ruleFormula": "Sujeto + [Participio solo (Adjetivo)] + Verbo Principal",
+    "keyPoints": [
+      "Si el participio aparece SOLO (sin BE ni HAVE), es un adjetivo.",
+      "El participio presente (-ing) expresa acción activa.",
+      "El participio pasado (-ed) expresa acción pasiva o completada."
+    ],
+    "examples": [
+      {
+        "correct": "The letter mailed yesterday arrived today.",
+        "incorrect": "The letter was mailed yesterday arrived today.",
+        "note": "Doble verbo conjugado \"was mailed... arrived\"."
+      }
+    ],
+    "exercises": [
+      {
+        "id": 201,
+        "prompt": "The students ________ in the advanced seminar prepared a comprehensive report.",
+        "options": [
+          { "label": "A", "text": "participating" },
+          { "label": "B", "text": "were participating" },
+          { "label": "C", "text": "they participated" },
+          { "label": "D", "text": "who participating" }
+        ],
+        "correctLabel": "A",
+        "explanation": "\"participating\" actúa como participio adjetivo activo modificando a \"students\" sin duplicar el verbo principal \"prepared\"."
+      }
+    ]
+  },
+  {
+    "id": "g-b1-2",
+    "title": "Inversión por Frases de Lugar",
+    "category": "Inversiones",
+    "level": "B1",
+    "summary": "Cuando una oración inicia con una frase preposicional enfática de ubicación, el sujeto y el verbo se invierten.",
+    "ruleFormula": "Frase de Lugar + Verbo Conjugado + Sujeto Real",
+    "keyPoints": [
+      "El verbo concuerda con el sujeto que aparece DESPUÉS de él.",
+      "No se deben agregar pronombres como \"it\" o \"there\" si el sujeto real ya está presente."
+    ],
+    "examples": [
+      {
+        "correct": "In the center of the valley lies a small historical town.",
+        "incorrect": "In the center of the valley it lies a small town.",
+        "note": "Pronombre pleonástico \"it\" antes del verbo en la inversión."
+      }
+    ],
+    "exercises": [
+      {
+        "id": 202,
+        "prompt": "Behind the university library ________ a modern research complex.",
+        "options": [
+          { "label": "A", "text": "stands" },
+          { "label": "B", "text": "it stands" },
+          { "label": "C", "text": "standing" },
+          { "label": "D", "text": "where stands" }
+        ],
+        "correctLabel": "A",
+        "explanation": "Inversión de lugar: el verbo \"stands\" precede al sujeto real \"a modern research complex\"."
+      }
+    ]
+  }
+]

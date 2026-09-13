@@ -5,6 +5,7 @@ import {
   PenTool,
   Puzzle,
   SpellCheck,
+  Timer,
 } from 'lucide-angular';
 import { CatalogItem } from '../domain/models';
 
@@ -14,7 +15,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
       title: 'Error Spotting',
       description: 'Identifica la palabra o frase con el error gramatical.',
       icon: SpellCheck,
-      route: '/error-spoting',
+      route: '/error-spotting',
       available: true,
     },
     {
@@ -37,20 +38,31 @@ export const CATALOG_ITEMS: CatalogItem[] = [
       title: 'Vocabulary Builder',
       description: 'Amplía tu vocabulario académico en contexto.',
       icon: BookA,
-      available: false,
+      route: '/vocabulary',
+      available: true,
     },
     {
       id: 'sentence-structure',
       title: 'Sentence Structure',
       description: 'Completa oraciones con la estructura correcta.',
       icon: Puzzle,
-      available: false,
+      route: '/sentence-structure',
+      available: true,
     },
     {
       id: 'grammar-review',
       title: 'Grammar Review',
       description: 'Repasa reglas gramaticales clave para el examen.',
       icon: PenTool,
-      available: false,
+      route: '/grammar-review',
+      available: true,
+    },
+    {
+      id: 'mock-exam',
+      title: 'Mock Exam Simulator',
+      description: 'Simula un examen TOEFL ITP completo (Structure & Written Expression) con tiempo real.',
+      icon: Timer,
+      route: '/mock-exam',
+      available: true,
     },
   ];

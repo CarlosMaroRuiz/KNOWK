@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "category": "Parallel Structure",
+    "full_sentence": "The director is responsible for planning the event, managing the budget, and to direct the team.",
+    "options": [
+      { "label": "A", "text": "is responsible" },
+      { "label": "B", "text": "planning" },
+      { "label": "C", "text": "managing" },
+      { "label": "D", "text": "to direct" }
+    ],
+    "correct_label": "D",
+    "correction": "directing",
+    "explanation": "Los elementos en una lista precedidos por una preposición deben mantener la misma forma gramatical (-ing)."
+  },
+  {
+    "id": 2,
+    "category": "Subject-Verb Agreement",
+    "full_sentence": "The list of upcoming academic workshops were posted on the bulletin board.",
+    "options": [
+      { "label": "A", "text": "of" },
+      { "label": "B", "text": "academic" },
+      { "label": "C", "text": "were" },
+      { "label": "D", "text": "bulletin" }
+    ],
+    "correct_label": "C",
+    "correction": "was",
+    "explanation": "El sujeto principal es \"The list\" (singular), por lo que requiere el verbo \"was\" en lugar de \"were\"."
+  },
+  {
+    "id": 3,
+    "category": "Adjective vs Adverb",
+    "full_sentence": "The new software system operates efficient during peak hours.",
+    "options": [
+      { "label": "A", "text": "software" },
+      { "label": "B", "text": "operates" },
+      { "label": "C", "text": "efficient" },
+      { "label": "D", "text": "peak" }
+    ],
+    "correct_label": "C",
+    "correction": "efficiently",
+    "explanation": "Se necesita un adverbio (\"efficiently\") para modificar al verbo \"operates\", no un adjetivo."
+  },
+  {
+    "id": 4,
+    "category": "Pronoun Agreement",
+    "full_sentence": "Each of the students must submit their assignment before the deadline.",
+    "options": [
+      { "label": "A", "text": "Each" },
+      { "label": "B", "text": "must submit" },
+      { "label": "C", "text": "their" },
+      { "label": "D", "text": "deadline" }
+    ],
+    "correct_label": "C",
+    "correction": "his or her",
+    "explanation": "\"Each\" es singular, por lo que el pronombre que lo reemplaza debe ser singular (\"his or her\"), no \"their\"."
+  },
+  {
+    "id": 5,
+    "category": "Verb Tense",
+    "full_sentence": "By the time the manager arrived, the meeting already started.",
+    "options": [
+      { "label": "A", "text": "By the time" },
+      { "label": "B", "text": "arrived" },
+      { "label": "C", "text": "already" },
+      { "label": "D", "text": "started" }
+    ],
+    "correct_label": "D",
+    "correction": "had already started",
+    "explanation": "Cuando una acción pasada ocurre antes de otra acción pasada, la primera debe usar el pasado perfecto (\"had started\")."
+  }
+]

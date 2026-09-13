@@ -1,0 +1,36 @@
+[
+  {
+    "id": "b2-digital-research",
+    "title": "Digital Research and Judgment",
+    "level": "B2",
+    "coverImage": "/img/eng.png",
+    "wordCount": 125,
+    "text": "Although digital tools have transformed academic research, they have not eliminated the need for critical judgment. Search systems can organize immense collections of information in seconds, allowing researchers to discover studies that would once have taken weeks to locate. However, speed does not guarantee reliability. A search engine may place a popular article beside a carefully reviewed academic paper, even though the two sources have different purposes and standards of evidence. Researchers must examine who produced each source, when it was published, and what evidence supports its claims. They must also consider what information may be missing. A study with a narrow sample, for example, may offer useful observations without representing an entire population. Digital tools are most valuable when they support thoughtful analysis rather than replace it.",
+    "questions": [
+      {
+        "id": 1,
+        "prompt": "What is the central argument of the passage?",
+        "options": [
+          { "label": "A", "text": "Digital tools are useful, but researchers still need critical judgment." },
+          { "label": "B", "text": "Search engines always produce reliable evidence." },
+          { "label": "C", "text": "Academic research no longer needs human decisions." },
+          { "label": "D", "text": "Popular articles are better than reviewed papers." }
+        ],
+        "correctLabel": "A",
+        "explanation": "The passage presents digital tools as helpful while emphasizing evaluation and judgment."
+      },
+      {
+        "id": 2,
+        "prompt": "Why does the author mention a narrow sample?",
+        "options": [
+          { "label": "A", "text": "To show that a study may not represent an entire population" },
+          { "label": "B", "text": "To prove all studies are useless" },
+          { "label": "C", "text": "To explain how search engines work" },
+          { "label": "D", "text": "To compare two computer systems" }
+        ],
+        "correctLabel": "A",
+        "explanation": "A narrow sample can limit how widely a finding should be applied."
+      }
+    ]
+  }
+]

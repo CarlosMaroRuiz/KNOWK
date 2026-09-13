@@ -1,0 +1,52 @@
+[
+  {
+    "id": "v-b2-1",
+    "word": "Formidable",
+    "partOfSpeech": "adjective",
+    "phonetic": "/fɔːrˈmɪd.ə.bəl/",
+    "definition": "Que inspira respeto o temor por su gran tamaño, complejidad o dificultad.",
+    "exampleSentence": "Achieving complete carbon neutrality remains a formidable challenge for global industries.",
+    "synonyms": ["Imposing", "Daunting", "Formidable"],
+    "level": "B2"
+  },
+  {
+    "id": "v-b2-2",
+    "word": "Paradigm",
+    "partOfSpeech": "noun",
+    "phonetic": "/ˈpær.ə.daɪm/",
+    "definition": "Un modelo o patrón claro que sirve como marco conceptual en una disciplina científica o intelectual.",
+    "exampleSentence": "Quantum mechanics introduced a fundamental paradigm shift in modern physics.",
+    "synonyms": ["Model", "Archetype", "Framework"],
+    "level": "B2"
+  },
+  {
+    "id": "v-b2-3",
+    "word": "Ameliorate",
+    "partOfSpeech": "verb",
+    "phonetic": "/əˈmiːl.jə.reɪt/",
+    "definition": "Hacer que algo malo o insatisfactorio mejore o sea más tolerable.",
+    "exampleSentence": "New urban policies were designed to ameliorate living conditions in low-income areas.",
+    "synonyms": ["Improve", "Enhance", "Mitigate"],
+    "level": "B2"
+  },
+  {
+    "id": "v-b2-4",
+    "word": "Extraneous",
+    "partOfSpeech": "adjective",
+    "phonetic": "/ɪkˈstreɪ.ni.əs/",
+    "definition": "Irrelevante o no relacionado directamente con el tema o problema principal.",
+    "exampleSentence": "The researcher removed all extraneous variables from the laboratory setup.",
+    "synonyms": ["Irrelevant", "Unrelated", "Superfluous"],
+    "level": "B2"
+  },
+  {
+    "id": "v-b2-5",
+    "word": "Ubiquitous",
+    "partOfSpeech": "adjective",
+    "phonetic": "/juːˈbɪk.wə.t̬əs/",
+    "definition": "Presente, encontrado o existente en todas partes al mismo tiempo.",
+    "exampleSentence": "Digital smartphones have become ubiquitous elements of modern daily life.",
+    "synonyms": ["Omnipresent", "Pervasive", "Universal"],
+    "level": "B2"
+  }
+]

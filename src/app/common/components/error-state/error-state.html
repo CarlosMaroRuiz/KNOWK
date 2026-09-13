@@ -1,0 +1,8 @@
+<div class="error-wrapper">
+  <div class="error-badge">[ERROR]</div>
+  <h3 class="error-title">{{ title() }}</h3>
+  <p class="error-message">{{ message() }}</p>
+  <button appButton variant="danger" (click)="onRetry()">
+    {{ retryText() }}
+  </button>
+</div>

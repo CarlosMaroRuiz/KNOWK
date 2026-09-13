@@ -1,0 +1,287 @@
+[
+  {
+    "id": 1,
+    "type": "structure",
+    "category": "Subject-Verb Agreement",
+    "prompt": "The new manager of the sales department _____ several changes in the office routine.",
+    "options": [
+      { "label": "A", "text": "has implemented" },
+      { "label": "B", "text": "have implemented" },
+      { "label": "C", "text": "implementing" },
+      { "label": "D", "text": "to implement" }
+    ],
+    "correctLabel": "A",
+    "explanation": "The main subject is 'The new manager' (singular), requiring the singular verb 'has implemented'."
+  },
+  {
+    "id": 2,
+    "type": "structure",
+    "category": "Clause Connectors",
+    "prompt": "_____ the storm was severe, the plane landed safely at the airport.",
+    "options": [
+      { "label": "A", "text": "Although" },
+      { "label": "B", "text": "Despite" },
+      { "label": "C", "text": "In spite of" },
+      { "label": "D", "text": "Because of" }
+    ],
+    "correctLabel": "A",
+    "explanation": "'Although' introduces a subordinate clause containing a subject and a verb ('the storm was severe')."
+  },
+  {
+    "id": 3,
+    "type": "structure",
+    "category": "Parallel Structure",
+    "prompt": "The course covers writing research papers, analyzing case studies, and _____ oral presentations.",
+    "options": [
+      { "label": "A", "text": "delivering" },
+      { "label": "B", "text": "to deliver" },
+      { "label": "C", "text": "deliver" },
+      { "label": "D", "text": "delivered" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Items in a series must maintain parallel structure ('writing', 'analyzing', 'delivering')."
+  },
+  {
+    "id": 4,
+    "type": "structure",
+    "category": "Inversion",
+    "prompt": "Not until the late 19th century _____ widespread acceptance in medical science.",
+    "options": [
+      { "label": "A", "text": "did germ theory gain" },
+      { "label": "B", "text": "germ theory gained" },
+      { "label": "C", "text": "gained germ theory" },
+      { "label": "D", "text": "germ theory did gain" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Initial negative adverbial expression 'Not until...' requires auxiliary-subject inversion ('did germ theory gain')."
+  },
+  {
+    "id": 5,
+    "type": "structure",
+    "category": "Reduced Participle Clauses",
+    "prompt": "_____ by the committee, the proposal was forwarded to the board of directors.",
+    "options": [
+      { "label": "A", "text": "Approved" },
+      { "label": "B", "text": "Approving" },
+      { "label": "C", "text": "Approve" },
+      { "label": "D", "text": "To approve" }
+    ],
+    "correctLabel": "A",
+    "explanation": "A reduced passive participial phrase modifies 'the proposal', requiring past participle 'Approved'."
+  },
+  {
+    "id": 6,
+    "type": "structure",
+    "category": "Subject-Verb Agreement",
+    "prompt": "Neither the teacher nor the students _____ aware of the sudden schedule change.",
+    "options": [
+      { "label": "A", "text": "were" },
+      { "label": "B", "text": "was" },
+      { "label": "C", "text": "is" },
+      { "label": "D", "text": "be" }
+    ],
+    "correctLabel": "A",
+    "explanation": "With 'neither...nor', the verb agrees with the closer subject ('the students', plural: 'were')."
+  },
+  {
+    "id": 7,
+    "type": "structure",
+    "category": "Word Form",
+    "prompt": "The economic report provides a _____ analysis of market trends over the past decade.",
+    "options": [
+      { "label": "A", "text": "comprehensive" },
+      { "label": "B", "text": "comprehend" },
+      { "label": "C", "text": "comprehension" },
+      { "label": "D", "text": "comprehensively" }
+    ],
+    "correctLabel": "A",
+    "explanation": "An adjective ('comprehensive') is required to modify the noun 'analysis'."
+  },
+  {
+    "id": 8,
+    "type": "structure",
+    "category": "Relative Clauses",
+    "prompt": "Dr. Aris, _____ research on renewable energy won an award, will speak tomorrow.",
+    "options": [
+      { "label": "A", "text": "whose" },
+      { "label": "B", "text": "who" },
+      { "label": "C", "text": "whom" },
+      { "label": "D", "text": "which" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Possessive relative pronoun 'whose' modifies 'research'."
+  },
+  {
+    "id": 9,
+    "type": "structure",
+    "category": "Conditionals",
+    "prompt": "If the company _____ earlier, it would have avoided heavy financial losses.",
+    "options": [
+      { "label": "A", "text": "had invested" },
+      { "label": "B", "text": "invested" },
+      { "label": "C", "text": "would invest" },
+      { "label": "D", "text": "has invested" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Third conditional requires past perfect ('had invested') in the if-clause."
+  },
+  {
+    "id": 10,
+    "type": "structure",
+    "category": "Gerund vs Infinitive",
+    "prompt": "The team avoided _____ unnecessary risks during the critical phase of the experiment.",
+    "options": [
+      { "label": "A", "text": "taking" },
+      { "label": "B", "text": "to take" },
+      { "label": "C", "text": "take" },
+      { "label": "D", "text": "taken" }
+    ],
+    "correctLabel": "A",
+    "explanation": "The verb 'avoid' is followed by a gerund ('taking')."
+  },
+  {
+    "id": 11,
+    "type": "structure",
+    "category": "Comparatives",
+    "prompt": "The new engine is significantly _____ than the previous model.",
+    "options": [
+      { "label": "A", "text": "more efficient" },
+      { "label": "B", "text": "most efficient" },
+      { "label": "C", "text": "efficienter" },
+      { "label": "D", "text": "as efficient" }
+    ],
+    "correctLabel": "A",
+    "explanation": "'Than' requires a comparative form ('more efficient')."
+  },
+  {
+    "id": 12,
+    "type": "structure",
+    "category": "Passive Voice",
+    "prompt": "The annual financial statements must _____ by an independent auditing firm.",
+    "options": [
+      { "label": "A", "text": "be reviewed" },
+      { "label": "B", "text": "review" },
+      { "label": "C", "text": "reviewed" },
+      { "label": "D", "text": "are reviewed" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Modal passive structure requires modal + be + past participle ('must be reviewed')."
+  },
+  {
+    "id": 13,
+    "type": "structure",
+    "category": "Countable/Uncountable Nouns",
+    "prompt": "The supervisor gave the interns valuable _____ on their final presentation.",
+    "options": [
+      { "label": "A", "text": "feedback" },
+      { "label": "B", "text": "feedbacks" },
+      { "label": "C", "text": "a feedback" },
+      { "label": "D", "text": "many feedbacks" }
+    ],
+    "correctLabel": "A",
+    "explanation": "'Feedback' is uncountable and does not take plural forms or indefinite articles."
+  },
+  {
+    "id": 14,
+    "type": "structure",
+    "category": "Dependent Prepositions",
+    "prompt": "The success of the project depends largely _____ the cooperation of all team members.",
+    "options": [
+      { "label": "A", "text": "on" },
+      { "label": "B", "text": "of" },
+      { "label": "C", "text": "with" },
+      { "label": "D", "text": "at" }
+    ],
+    "correctLabel": "A",
+    "explanation": "The verb 'depend' collocates with the preposition 'on'."
+  },
+  {
+    "id": 15,
+    "type": "structure",
+    "category": "Expletive Structures",
+    "prompt": "_____ many compelling reasons to adopt sustainable energy practices immediately.",
+    "options": [
+      { "label": "A", "text": "There are" },
+      { "label": "B", "text": "There is" },
+      { "label": "C", "text": "It is" },
+      { "label": "D", "text": "They are" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Expletive 'There are' agrees with plural noun phrase 'many compelling reasons'."
+  },
+  {
+    "id": 16,
+    "type": "error-spotting",
+    "category": "Parallel Structure",
+    "fullSentence": "The director is responsible for planning the event, managing the budget, and to direct the team.",
+    "options": [
+      { "label": "A", "text": "is responsible" },
+      { "label": "B", "text": "planning" },
+      { "label": "C", "text": "managing" },
+      { "label": "D", "text": "to direct" }
+    ],
+    "correctLabel": "D",
+    "correction": "directing",
+    "explanation": "Parallel structure requires gerund 'directing' to match 'planning' and 'managing'."
+  },
+  {
+    "id": 17,
+    "type": "error-spotting",
+    "category": "Subject-Verb Agreement",
+    "fullSentence": "The list of upcoming academic workshops were posted on the bulletin board.",
+    "options": [
+      { "label": "A", "text": "of" },
+      { "label": "B", "text": "academic" },
+      { "label": "C", "text": "were" },
+      { "label": "D", "text": "bulletin" }
+    ],
+    "correctLabel": "C",
+    "correction": "was",
+    "explanation": "Subject 'The list' is singular, so the verb should be 'was'."
+  },
+  {
+    "id": 18,
+    "type": "error-spotting",
+    "category": "Adjective vs Adverb",
+    "fullSentence": "The new software system operates efficient during peak hours.",
+    "options": [
+      { "label": "A", "text": "software" },
+      { "label": "B", "text": "operates" },
+      { "label": "C", "text": "efficient" },
+      { "label": "D", "text": "peak" }
+    ],
+    "correctLabel": "C",
+    "correction": "efficiently",
+    "explanation": "Adverb 'efficiently' is needed to modify verb 'operates'."
+  },
+  {
+    "id": 19,
+    "type": "error-spotting",
+    "category": "Pronoun Agreement",
+    "fullSentence": "Each of the students must submit their assignment before the deadline.",
+    "options": [
+      { "label": "A", "text": "Each" },
+      { "label": "B", "text": "must submit" },
+      { "label": "C", "text": "their" },
+      { "label": "D", "text": "deadline" }
+    ],
+    "correctLabel": "C",
+    "correction": "his or her",
+    "explanation": "'Each' is singular and requires a singular pronoun ('his or her')."
+  },
+  {
+    "id": 20,
+    "type": "error-spotting",
+    "category": "Verb Tense",
+    "fullSentence": "By the time the manager arrived, the meeting already started.",
+    "options": [
+      { "label": "A", "text": "By the time" },
+      { "label": "B", "text": "arrived" },
+      { "label": "C", "text": "already" },
+      { "label": "D", "text": "started" }
+    ],
+    "correctLabel": "D",
+    "correction": "had already started",
+    "explanation": "An action completed before another past event requires past perfect ('had started')."
+  }
+]

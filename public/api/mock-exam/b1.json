@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "type": "structure",
+    "category": "Inversion",
+    "prompt": "Seldom _____ such an intricate astronomical phenomenon observed without high-powered telescopes.",
+    "options": [
+      { "label": "A", "text": "is" },
+      { "label": "B", "text": "it is" },
+      { "label": "C", "text": "there is" },
+      { "label": "D", "text": "was it" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Negative frequency adverbial 'Seldom' demands auxiliary inversion ('is such an...')."
+  },
+  {
+    "id": 2,
+    "type": "structure",
+    "category": "Reduced Participle Clauses",
+    "prompt": "_____ in 1912, the historic hotel continues to attract visitors from across the globe.",
+    "options": [
+      { "label": "A", "text": "Constructed" },
+      { "label": "B", "text": "Constructing" },
+      { "label": "C", "text": "To construct" },
+      { "label": "D", "text": "Construct" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Passive reduced clause modifying 'the historic hotel' requires past participle 'Constructed'."
+  },
+  {
+    "id": 3,
+    "type": "structure",
+    "category": "Complex Relative Clauses",
+    "prompt": "The manuscript, _____ pages were partially damaged by moisture, was restored by experts.",
+    "options": [
+      { "label": "A", "text": "whose" },
+      { "label": "B", "text": "which" },
+      { "label": "C", "text": "that" },
+      { "label": "D", "text": "of which" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Possessive relative pronoun 'whose' modifies 'pages'."
+  },
+  {
+    "id": 4,
+    "type": "structure",
+    "category": "Subject-Verb Agreement",
+    "prompt": "The committee, along with several external consultants, _____ the quarterly strategy report.",
+    "options": [
+      { "label": "A", "text": "is evaluating" },
+      { "label": "B", "text": "are evaluating" },
+      { "label": "C", "text": "were evaluating" },
+      { "label": "D", "text": "evaluate" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Intervening prepositional phrase 'along with...' does not change singular subject 'The committee'."
+  },
+  {
+    "id": 5,
+    "type": "structure",
+    "category": "Dependent Prepositions",
+    "prompt": "The new findings are fully consistent _____ the theoretical predictions made last year.",
+    "options": [
+      { "label": "A", "text": "with" },
+      { "label": "B", "text": "to" },
+      { "label": "C", "text": "of" },
+      { "label": "D", "text": "for" }
+    ],
+    "correctLabel": "A",
+    "explanation": "Adjective 'consistent' collocates with preposition 'with'."
+  },
+  {
+    "id": 6,
+    "type": "error-spotting",
+    "category": "Passive Voice",
+    "fullSentence": "The new policy was implement without prior notice to the staff members.",
+    "options": [
+      { "label": "A", "text": "was implement" },
+      { "label": "B", "text": "without" },
+      { "label": "C", "text": "prior notice" },
+      { "label": "D", "text": "staff members" }
+    ],
+    "correctLabel": "A",
+    "correction": "was implemented",
+    "explanation": "Passive voice requires past participle ('was implemented')."
+  },
+  {
+    "id": 7,
+    "type": "error-spotting",
+    "category": "Expletive Structures",
+    "fullSentence": "There is several reasons why the project was delayed last quarter.",
+    "options": [
+      { "label": "A", "text": "There is" },
+      { "label": "B", "text": "several reasons" },
+      { "label": "C", "text": "was delayed" },
+      { "label": "D", "text": "last quarter" }
+    ],
+    "correctLabel": "A",
+    "correction": "There are",
+    "explanation": "Plural noun 'reasons' requires plural expletive 'There are'."
+  }
+]

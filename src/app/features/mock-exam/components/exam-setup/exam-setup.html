@@ -1,0 +1,58 @@
+<div class="exam-setup-card">
+  <div class="setup-header">
+    <h2 class="setup-title">Simulador de Examen TOEFL ITP</h2>
+    <p class="setup-subtitle">Section 2: Structure & Written Expression</p>
+  </div>
+
+  <div class="info-banner">
+    <div class="info-item">
+      <span class="info-label">Preguntas Totales:</span>
+      <span class="info-value">40 reactivos</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Tiempo Estándar:</span>
+      <span class="info-value">25:00 minutos</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Escala de Puntaje:</span>
+      <span class="info-value">31 - 68 puntos TOEFL</span>
+    </div>
+  </div>
+
+  <div class="setup-rules">
+    <h3 class="rules-title">Instrucciones del Examen:</h3>
+    <ul>
+      <li>El examen se realiza bajo condiciones estrictas de tiempo.</li>
+      <li>Puedes navegar libremente entre las preguntas antes de enviar.</li>
+      <li>Las respuestas correctas y explicaciones se revelarán al finalizar.</li>
+    </ul>
+  </div>
+
+  <div class="level-selection">
+    <h3 class="level-title">Selecciona tu Nivel:</h3>
+    <div class="level-buttons">
+      @for (lvl of levels; track lvl) {
+        <button
+          type="button"
+          [class.active]="selectedLevel() === lvl"
+          (click)="selectLevel(lvl)"
+          class="level-chip"
+        >
+          Nivel {{ lvl }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="actions">
+    <button
+      appButton
+      variant="primary"
+      size="lg"
+      [fullWidth]="true"
+      (click)="onStart()"
+    >
+      Comenzar Examen (25 min)
+    </button>
+  </div>
+</div>

@@ -1,0 +1,129 @@
+<div class="exam-runner-container">
+  <!-- Header Bar with Timer & Status -->
+  <div class="header-bar">
+    <div class="exam-info">
+      <span class="exam-badge">Examen TOEFL - Nivel {{ level() }}</span>
+      <span class="question-counter">
+        Pregunta {{ currentIndex() + 1 }} de {{ questions().length }}
+      </span>
+    </div>
+
+    <div class="timer-box" [class.timer-warning]="isTimerWarning()">
+      <span class="timer-label">Tiempo Restante:</span>
+      <span class="timer-value">{{ formattedTime() }}</span>
+    </div>
+  </div>
+
+  <!-- Main Layout: Sidebar Navigator + Question Card -->
+  <div class="exam-body">
+    <!-- Question Grid Navigator -->
+    <aside class="navigator-sidebar">
+      <h4 class="nav-title">Navegador de Preguntas</h4>
+      <div class="nav-grid">
+        @for (q of questions(); track q.id; let idx = $index) {
+          <button
+            type="button"
+            class="nav-btn"
+            [class.active]="currentIndex() === idx"
+            [class.answered]="hasAnswer(q.id)"
+            (click)="goToQuestion(idx)"
+          >
+            {{ idx + 1 }}
+          </button>
+        }
+      </div>
+
+      <div class="nav-legend">
+        <span class="legend-item"><span class="dot active-dot"></span> Actual</span>
+        <span class="legend-item"><span class="dot answered-dot"></span> Respondida</span>
+        <span class="legend-item"><span class="dot empty-dot"></span> Sin responder</span>
+      </div>
+
+      <div class="submit-box">
+        <button
+          appButton
+          variant="danger"
+          size="md"
+          [fullWidth]="true"
+          (click)="confirmFinish()"
+        >
+          Finalizar Examen
+        </button>
+      </div>
+    </aside>
+
+    <!-- Active Question Panel -->
+    <main class="question-panel">
+      @if (currentQuestion(); as q) {
+        <div class="question-card">
+          <div class="type-tag">
+            @if (q.type === 'structure') {
+              Part A: Sentence Structure
+            } @else {
+              Part B: Error Spotting
+            }
+          </div>
+
+          <h3 class="question-category">Categoría: {{ q.category }}</h3>
+
+          <div class="question-text">
+            @if (q.type === 'structure') {
+              <p class="sentence-prompt">{{ q.prompt }}</p>
+            } @else {
+              <p class="sentence-prompt">{{ q.fullSentence }}</p>
+              <p class="instruction-sub">Selecciona la opción que contiene el error gramatical.</p>
+            }
+          </div>
+
+          <!-- Options List -->
+          <div class="options-list">
+            @for (opt of q.options; track opt.label) {
+              <button
+                type="button"
+                class="option-card"
+                [class.selected]="getSelectedAnswer(q.id) === opt.label"
+                (click)="selectAnswer(q.id, opt.label)"
+              >
+                <span class="option-badge">{{ opt.label }}</span>
+                <span class="option-text">{{ opt.text }}</span>
+              </button>
+            }
+          </div>
+
+          <!-- Navigation Controls -->
+          <div class="card-footer">
+            <button
+              appButton
+              variant="outline"
+              size="md"
+              [disabled]="currentIndex() === 0"
+              (click)="prevQuestion()"
+            >
+              Anterior
+            </button>
+
+            @if (currentIndex() < questions().length - 1) {
+              <button
+                appButton
+                variant="primary"
+                size="md"
+                (click)="nextQuestion()"
+              >
+                Siguiente
+              </button>
+            } @else {
+              <button
+                appButton
+                variant="success"
+                size="md"
+                (click)="confirmFinish()"
+              >
+                Entregar y Evaluar
+              </button>
+            }
+          </div>
+        </div>
+      }
+    </main>
+  </div>
+</div>

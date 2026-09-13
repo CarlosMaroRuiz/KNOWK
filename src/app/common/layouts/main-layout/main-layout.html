@@ -19,6 +19,20 @@
     </div>
 
     <div class="nav-right">
+      <button
+        type="button"
+        appIconButton
+        variant="secondary"
+        size="sm"
+        [attr.aria-label]="isDarkMode() ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'"
+        (click)="toggleDarkMode()"
+      >
+        <lucide-icon
+          [img]="isDarkMode() ? Sun : Moon"
+          class="icon"
+          aria-hidden="true"
+        ></lucide-icon>
+      </button>
       <a routerLink="/" appButton variant="primary" size="sm">KNOWK</a>
     </div>
   </header>

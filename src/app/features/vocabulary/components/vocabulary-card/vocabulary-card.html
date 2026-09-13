@@ -1,0 +1,77 @@
+<div
+  class="card-container"
+  [class.is-flipped]="isFlipped()"
+  [class.status-learned]="status() === 'learned'"
+  [class.status-review]="status() === 'review'"
+  (click)="onFlip()"
+>
+  <div class="card-header">
+    <div class="badge-group">
+      <span class="pos-badge">{{ word().partOfSpeech }}</span>
+      <span class="level-badge">{{ word().level }}</span>
+    </div>
+
+    @if (status()) {
+      <span
+        class="status-pill"
+        [class.pill-success]="status() === 'learned'"
+        [class.pill-danger]="status() === 'review'"
+      >
+        {{ status() === 'learned' ? 'Aprendida' : 'Por Repasar' }}
+      </span>
+    }
+  </div>
+
+  <div class="card-body">
+    @if (!isFlipped()) {
+      <div class="front-side">
+        <h2 class="word-title">{{ word().word }}</h2>
+        <p class="phonetic-text">{{ word().phonetic }}</p>
+        <p class="flip-hint">Haz clic para ver definicion y ejemplo</p>
+      </div>
+    } @else {
+      <div class="back-side">
+        <h3 class="definition-title">Definicion</h3>
+        <p class="definition-text">{{ word().definition }}</p>
+
+        <h3 class="example-title">Ejemplo en contexto</h3>
+        <p class="example-sentence">"{{ word().exampleSentence }}"</p>
+
+        @if (word().synonyms.length > 0) {
+          <div class="synonyms-section">
+            <span class="synonyms-label">Sinonimos:</span>
+            <div class="synonyms-list">
+              @for (syn of word().synonyms; track syn) {
+                <span class="synonym-chip">{{ syn }}</span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  <div class="card-actions" (click)="$event.stopPropagation()">
+    <button
+      type="button"
+      appButton
+      variant="success"
+      size="sm"
+      [class.active-status]="status() === 'learned'"
+      (click)="setStatus('learned', $event)"
+    >
+      Aprendida
+    </button>
+
+    <button
+      type="button"
+      appButton
+      variant="danger"
+      size="sm"
+      [class.active-status]="status() === 'review'"
+      (click)="setStatus('review', $event)"
+    >
+      Por Repasar
+    </button>
+  </div>
+</div>

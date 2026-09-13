@@ -1,22 +1,32 @@
 <app-selected-level [(selectedLevel)]="selectLevel" />
 
 <section class="error-spotting-container">
-
   @if (questionsResource.isLoading()) {
-    <div class="loading-box">
-      <p>Cargando preguntas...</p>
+    <div class="skeleton-loading-box">
+      <app-skeleton height="24px" width="40%" />
+      <app-skeleton shape="card" height="180px" />
+      <app-skeleton height="44px" width="100%" />
     </div>
-  }
-
-  @if (questionsResource.error()) {
-    <div class="error-box">
-      <p>Ocurrió un error al obtener las preguntas.</p>
-    </div>
-  }
-
-  @if (questionsResource.value(); as questions) {
-    @if (questions.length > 0 && questions[currentQuestionIndex()]; as question) {
+  } @else if (questionsResource.error()) {
+    <app-error-state
+      title="Error al cargar las preguntas"
+      message="No se pudieron obtener los datos del servidor para el nivel seleccionado."
+      (retry)="retryFetch()"
+    />
+  } @else if (questions().length > 0) {
+    @if (questions()[currentQuestionIndex()]; as question) {
       <div class="question-view">
+        <!-- Barra de Progreso -->
+        <div class="progress-section">
+          <div class="progress-info">
+            <span>Pregunta {{ currentQuestionIndex() + 1 }} de {{ questions().length }}</span>
+            <span>{{ progressPercent() }}% completado</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" [style.width.%]="progressPercent()"></div>
+          </div>
+        </div>
+
         <app-error-spotting-card
           [question]="question"
           [index]="currentQuestionIndex()"
@@ -35,23 +45,21 @@
             Anterior
           </button>
 
-          <span>{{ currentQuestionIndex() + 1 }} / {{ questions.length }}</span>
-
           <button
             type="button"
             appButton
             variant="primary"
-            [disabled]="currentQuestionIndex() === questions.length - 1"
+            [disabled]="currentQuestionIndex() === questions().length - 1"
             (click)="nextQuestion()"
           >
             Siguiente
           </button>
         </nav>
       </div>
-    } @else {
-      <div class="error-box">
-        <p>No hay preguntas disponibles.</p>
-      </div>
     }
+  } @else {
+    <div class="error-box">
+      <p>No hay preguntas disponibles para este nivel.</p>
+    </div>
   }
 </section>

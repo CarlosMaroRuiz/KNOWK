@@ -1,0 +1,48 @@
+<div class="card-wrapper">
+  <div class="category-badge">
+    <span>{{ question().category }}</span>
+  </div>
+
+  <div class="prompt-box">
+    <p class="prompt-text">{{ question().prompt }}</p>
+  </div>
+
+  <div class="options-grid">
+    @for (option of question().options; track option.label) {
+      <button
+        type="button"
+        class="option-btn"
+        [class.is-selected]="selectedAnswer() === option.label"
+        [class.is-correct]="selectedAnswer() && option.label === question().correctLabel"
+        [class.is-wrong]="
+          selectedAnswer() === option.label && option.label !== question().correctLabel
+        "
+        [disabled]="!!selectedAnswer()"
+        (click)="selectOption(option.label)"
+      >
+        <span class="option-label">{{ option.label }}</span>
+        <span class="option-text">{{ option.text }}</span>
+      </button>
+    }
+  </div>
+
+  @if (selectedAnswer()) {
+    <div
+      class="feedback-box"
+      [class.feedback-correct]="selectedAnswer() === question().correctLabel"
+      [class.feedback-wrong]="selectedAnswer() !== question().correctLabel"
+    >
+      <div class="feedback-header">
+        @if (selectedAnswer() === question().correctLabel) {
+          <span class="feedback-badge badge-success">Correcto</span>
+        } @else {
+          <span class="feedback-badge badge-danger">Incorrecto</span>
+          <span class="correct-hint"
+            >Respuesta correcta: <strong>({{ question().correctLabel }})</strong></span
+          >
+        }
+      </div>
+      <p class="explanation-text">{{ question().explanation }}</p>
+    </div>
+  }
+</div>
