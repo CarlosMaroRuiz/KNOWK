@@ -1,0 +1,91 @@
+.module-selector-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.selector-header {
+  text-align: center;
+}
+
+.selector-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin: 0 0 0.25rem 0;
+}
+
+.selector-subtitle {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.module-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-ink);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.module-card:hover {
+  background-color: var(--color-surface-secondary);
+}
+
+.module-card.selected {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.module-card.selected .mod-title,
+.module-card.selected .mod-desc {
+  color: var(--color-surface);
+}
+
+.module-card.selected .badge-type {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mod-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.badge-type {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: var(--color-surface-secondary);
+  border: 1px solid var(--color-ink);
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+}
+
+.mod-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { APP_ROUTES } from '@core/routes/routes.config';
+import { authGuard } from '@features/admin/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -60,8 +61,52 @@ export const routes: Routes = [
       },
     ],
   },
+  // ── Admin area ────────────────────────────────────────────
+  {
+    path: APP_ROUTES.ADMIN.path,
+    children: [
+      // /admin/login → login page (pública)
+      {
+        path: APP_ROUTES.ADMIN_LOGIN.path,
+        data: { title: APP_ROUTES.ADMIN_LOGIN.title },
+        loadComponent: () =>
+          import('@features/admin/components/login/login').then(
+            (m) => m.AdminLogin,
+          ),
+      },
+      // /admin/ y sus hijos → protegidos por authGuard
+      {
+        path: APP_ROUTES.ADMIN_INDEX.path,
+        canActivate: [authGuard],
+        loadComponent: () =>
+          import('@features/admin/admin-layout/admin-layout').then(
+            (m) => m.AdminLayout,
+          ),
+        children: [
+          {
+            path: APP_ROUTES.ADMIN_INDEX.path,
+            data: { title: APP_ROUTES.ADMIN_INDEX.title },
+            loadComponent: () =>
+              import('@features/admin/admin-index/admin-index').then(
+                (m) => m.AdminIndex,
+              ),
+          },
+          {
+            path: APP_ROUTES.ADMIN_CONTENT_MANAGER.path,
+            data: { title: APP_ROUTES.ADMIN_CONTENT_MANAGER.title },
+            loadComponent: () =>
+              import('@features/content-manager/content-manager').then(
+                (m) => m.ContentManager,
+              ),
+          },
+        ],
+      },
+    ],
+  },
+  // ─────────────────────────────────────────────────────────
   {
     path: '**',
     redirectTo: APP_ROUTES.INDEX.path,
   },
 ];
+

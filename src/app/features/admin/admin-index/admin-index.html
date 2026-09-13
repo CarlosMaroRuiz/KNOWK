@@ -1,0 +1,26 @@
+﻿<section class="admin-index-page">
+  <header class="admin-index-header">
+    <span class="admin-eyebrow">Panel Administrativo</span>
+    <h1 class="admin-index-title">Configuraciones</h1>
+    <p class="admin-index-subtitle">
+      Selecciona una sección para administrar el contenido de la aplicación.
+    </p>
+  </header>
+
+  <div class="admin-panels-grid">
+    @for (panel of panels; track panel.id) {
+      <a class="admin-panel-card" [routerLink]="panel.route">
+        <div class="panel-card-icon">
+          <lucide-icon [img]="panel.icon" [size]="28" [strokeWidth]="2" />
+        </div>
+        <div class="panel-card-body">
+          <h2 class="panel-card-title">{{ panel.title }}</h2>
+          <p class="panel-card-desc">{{ panel.description }}</p>
+        </div>
+        <div class="panel-card-arrow">
+          <lucide-icon [img]="ArrowRight" [size]="20" [strokeWidth]="2.5" />
+        </div>
+      </a>
+    }
+  </div>
+</section>

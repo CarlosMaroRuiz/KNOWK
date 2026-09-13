@@ -1,0 +1,17 @@
+.content-manager-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.manager-body {
+  margin-top: 1rem;
+}
+
+.loading-box {
+  max-width: 900px;
+  margin: 2rem auto;
+}

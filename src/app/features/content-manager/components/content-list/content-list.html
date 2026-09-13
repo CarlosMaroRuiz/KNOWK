@@ -1,0 +1,73 @@
+<div class="content-list-container">
+  <div class="list-toolbar">
+    <div class="level-filters">
+      <span class="filter-label">Filtrar por Nivel:</span>
+      @for (lvl of levels; track lvl) {
+        <button
+          type="button"
+          class="level-chip"
+          [class.active]="selectedLevel() === lvl"
+          (click)="selectLevel(lvl)"
+        >
+          Nivel {{ lvl }}
+        </button>
+      }
+    </div>
+
+    <div class="actions">
+      <button
+        appButton
+        variant="outline"
+        size="md"
+        (click)="onExportJson()"
+      >
+        Exportar JSON
+      </button>
+
+      <button
+        appButton
+        variant="primary"
+        size="md"
+        (click)="onAddNew()"
+      >
+        + Agregar Nuevo Contenido
+      </button>
+    </div>
+  </div>
+
+  <div class="items-count-banner">
+    <span>Mostrando {{ items().length }} elemento(s) para el módulo <strong>{{ currentModule() }}</strong> (Nivel {{ selectedLevel() }})</span>
+  </div>
+
+  <div class="items-grid">
+    @for (item of items(); track item.id) {
+      <div class="item-card">
+        <div class="card-top">
+          <span class="level-tag">Nivel {{ item.level }}</span>
+          <span class="id-tag">ID: {{ item.id }}</span>
+        </div>
+
+        <h4 class="item-title">{{ item.titleOrPrompt }}</h4>
+        <p class="item-sub">{{ item.categoryOrDefinition }}</p>
+
+        <div class="card-bottom">
+          <span class="date-text">Creado: {{ item.createdAt }}</span>
+          <button
+            type="button"
+            class="btn-delete"
+            (click)="onDelete(item.id)"
+          >
+            Eliminar
+          </button>
+        </div>
+      </div>
+    } @empty {
+      <div class="empty-state">
+        <p>No se encontraron elementos registrados para este nivel.</p>
+        <button appButton variant="primary" size="md" (click)="onAddNew()">
+          Crear el primer elemento
+        </button>
+      </div>
+    }
+  </div>
+</div>

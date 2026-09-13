@@ -1,0 +1,23 @@
+<div class="module-selector-container">
+  <div class="selector-header">
+    <h2 class="selector-title">Panel de Gestión de Contenido</h2>
+    <p class="selector-subtitle">Selecciona el módulo donde deseas visualizar o ingresar nuevo material educativo.</p>
+  </div>
+
+  <div class="modules-grid">
+    @for (mod of modules; track mod.id) {
+      <button
+        type="button"
+        class="module-card"
+        [class.selected]="selectedModule() === mod.id"
+        (click)="onSelect(mod.id)"
+      >
+        <div class="card-header">
+          <h3 class="mod-title">{{ mod.title }}</h3>
+          <span class="badge-type">Módulo API</span>
+        </div>
+        <p class="mod-desc">{{ mod.description }}</p>
+      </button>
+    }
+  </div>
+</div>

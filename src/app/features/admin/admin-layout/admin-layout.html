@@ -1,0 +1,27 @@
+<div class="admin-shell">
+  <header class="admin-header">
+    <div class="admin-header-left">
+      @if (!isAtIndex()) {
+        <button class="back-btn" type="button" (click)="goBack()" aria-label="Volver al panel">
+          <lucide-icon [img]="ArrowLeft" [size]="18" [strokeWidth]="2.5" />
+          <span>Panel</span>
+        </button>
+        <span class="header-separator">/</span>
+      }
+      <span class="admin-brand">Panel Administrativo</span>
+    </div>
+
+    <div class="admin-header-right">
+      @if (session()) {
+        <span class="admin-user">{{ session()!.username }}</span>
+      }
+      <button appButton variant="outline" size="sm" (click)="logout()">
+        Cerrar Sesión
+      </button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <router-outlet />
+  </main>
+</div>

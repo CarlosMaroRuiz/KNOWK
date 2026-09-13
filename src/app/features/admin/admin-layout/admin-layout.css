@@ -1,0 +1,74 @@
+.admin-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background);
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 60px;
+  background-color: var(--color-surface);
+  border-bottom: var(--border-width) solid var(--color-ink);
+  box-shadow: var(--shadow-card);
+}
+
+.admin-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-brand {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  transition: color 0.15s, background-color 0.15s;
+  font-family: inherit;
+}
+
+.back-btn:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-secondary);
+}
+
+.header-separator {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  user-select: none;
+}
+
+.admin-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-user {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.admin-main {
+  flex: 1;
+  padding: 2rem 1rem;
+}
+

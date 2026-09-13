@@ -1,0 +1,123 @@
+<div class="content-form-card">
+  <div class="form-header">
+    <h3 class="form-title">Agregar Nuevo Contenido — Módulo: {{ moduleType() }}</h3>
+    <span class="level-indicator">Nivel: {{ currentLevel() }}</span>
+  </div>
+
+  <form (ngSubmit)="onSubmit()" class="form-body">
+    @if (moduleType() === 'vocabulary') {
+      <div class="field">
+        <label>Palabra o Término *</label>
+        <input type="text" [(ngModel)]="vocabWord" name="vocabWord" placeholder="ej. Paradigm" required />
+      </div>
+      <div class="field">
+        <label>Definición en Español *</label>
+        <textarea [(ngModel)]="vocabDefinition" name="vocabDefinition" placeholder="ej. Un modelo o patrón típico de algo." required></textarea>
+      </div>
+      <div class="field">
+        <label>Oración de Ejemplo *</label>
+        <input type="text" [(ngModel)]="vocabExample" name="vocabExample" placeholder="ej. This discovery represents a new paradigm in physics." required />
+      </div>
+    }
+
+    @if (moduleType() === 'sentence-structure' || moduleType() === 'error-spotting') {
+      <div class="field">
+        <label>Categoría Gramatical *</label>
+        <input type="text" [(ngModel)]="questionCategory" name="questionCategory" placeholder="ej. Parallel Structure" required />
+      </div>
+
+      <div class="field">
+        <label>Oración / Reactivo *</label>
+        <textarea [(ngModel)]="questionPrompt" name="questionPrompt" placeholder="Enuncia la oración completa o con espacio en blanco ___" required></textarea>
+      </div>
+
+      <div class="options-group">
+        <label class="group-label">Opciones de Respuesta (A, B, C, D) *</label>
+
+        <div class="option-field">
+          <span class="badge">A</span>
+          <input type="text" [(ngModel)]="optionA" name="optionA" placeholder="Opción A" required />
+        </div>
+        <div class="option-field">
+          <span class="badge">B</span>
+          <input type="text" [(ngModel)]="optionB" name="optionB" placeholder="Opción B" required />
+        </div>
+        <div class="option-field">
+          <span class="badge">C</span>
+          <input type="text" [(ngModel)]="optionC" name="optionC" placeholder="Opción C" required />
+        </div>
+        <div class="option-field">
+          <span class="badge">D</span>
+          <input type="text" [(ngModel)]="optionD" name="optionD" placeholder="Opción D" required />
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Opción Correcta *</label>
+          <select [(ngModel)]="correctLabel" name="correctLabel">
+            <option value="A">Opción A</option>
+            <option value="B">Opción B</option>
+            <option value="C">Opción C</option>
+            <option value="D">Opción D</option>
+          </select>
+        </div>
+
+        @if (moduleType() === 'error-spotting') {
+          <div class="field">
+            <label>Corrección Sugerida</label>
+            <input type="text" [(ngModel)]="correction" name="correction" placeholder="ej. directing" />
+          </div>
+        }
+      </div>
+
+      <div class="field">
+        <label>Explicación Gramatical *</label>
+        <textarea [(ngModel)]="explanation" name="explanation" placeholder="Explica por qué esa opción es la correcta o contiene el error." required></textarea>
+      </div>
+    }
+
+    @if (moduleType() === 'grammar-review') {
+      <div class="field">
+        <label>Título de la Lección / Tema *</label>
+        <input type="text" [(ngModel)]="lessonTitle" name="lessonTitle" placeholder="ej. Participios en Oraciones Compuestas" required />
+      </div>
+      <div class="field">
+        <label>ResumenBreve *</label>
+        <textarea [(ngModel)]="lessonSummary" name="lessonSummary" placeholder="Resumen conceptual del tema..." required></textarea>
+      </div>
+    }
+
+    @if (moduleType() === 'reading-comprehension') {
+      <div class="field">
+        <label>Título de la Lectura / Libro *</label>
+        <input type="text" [(ngModel)]="bookTitle" name="bookTitle" placeholder="ej. Climate Change in Coastal Ecosystems" required />
+      </div>
+      <div class="field">
+        <label>Texto del Pasaje Académico *</label>
+        <textarea [(ngModel)]="passageText" name="passageText" rows="6" placeholder="Escribe el pasaje completo..." required></textarea>
+      </div>
+    }
+
+    <div class="form-actions">
+      <button
+        appButton
+        type="button"
+        variant="outline"
+        size="md"
+        (click)="onCancel()"
+      >
+        Cancelar
+      </button>
+
+      <button
+        appButton
+        type="submit"
+        variant="primary"
+        size="md"
+      >
+        Guardar Elemento
+      </button>
+    </div>
+  </form>
+</div>

@@ -32,4 +32,24 @@ export const APP_ROUTES = {
     path: 'mock-exam',
     title: 'Mock Exam Simulator',
   },
+  CONTENT_MANAGER: {
+    path: 'content-manager',
+    title: 'Content Manager',
+  },
+  ADMIN: {
+    path: 'admin',
+    title: 'Panel Administrativo',
+  },
+  ADMIN_LOGIN: {
+    path: 'login',
+    title: 'Admin Login',
+  },
+  ADMIN_INDEX: {
+    path: '',
+    title: 'Panel Administrativo',
+  },
+  ADMIN_CONTENT_MANAGER: {
+    path: 'content-manager',
+    title: 'Gestión de Contenido',
+  },
 } as const satisfies Record<string, RouteConfig>;

@@ -1,6 +1,7 @@
 import {
   BookA,
   BookOpen,
+  Database,
   Headphones,
   PenTool,
   Puzzle,

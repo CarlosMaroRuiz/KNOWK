@@ -1,0 +1,40 @@
+<div class="content-manager-page">
+  <app-module-selector
+    [selectedModule]="activeModule()"
+    (moduleSelected)="handleModuleSelected($event)"
+  />
+
+  <div class="manager-body">
+    @if (currentView() === 'list') {
+      @if (itemsResource.isLoading()) {
+        <div class="loading-box">
+          <app-skeleton width="100%" height="300px" borderRadius="16px" />
+        </div>
+      } @else if (itemsResource.error()) {
+        <app-error-state
+          title="Error al cargar contenido"
+          message="No se pudieron recuperar los elementos para este módulo."
+          (retry)="itemsResource.reload()"
+        />
+      } @else if (itemsResource.value(); as items) {
+        <app-content-list
+          [items]="items"
+          [currentModule]="activeModule()"
+          (levelChange)="handleLevelChange($event)"
+          (addNew)="openForm()"
+          (exportJson)="handleExportJson(items)"
+          (deleteItem)="handleDeleteItem($event)"
+        />
+      }
+    }
+
+    @if (currentView() === 'form') {
+      <app-content-form
+        [moduleType]="activeModule()"
+        [currentLevel]="activeLevel()"
+        (saveItem)="handleSaveItem($event)"
+        (cancel)="closeForm()"
+      />
+    }
+  </div>
+</div>
