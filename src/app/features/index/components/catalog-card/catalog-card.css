@@ -70,7 +70,7 @@
 /* ---- Descripción ---- */
 .catalog-description {
   font-size: var(--fs-sm);
-  color: var(--color-ink-muted);
+  color: var(--color-ink);
   line-height: var(--lh-normal);
 }
 

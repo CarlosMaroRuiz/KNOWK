@@ -44,6 +44,24 @@ To execute unit tests with the [Karma](https://karma-runner.github.io) test runn
 ng test
 ```
 
+## Lighthouse performance audit
+
+Start the Angular development server in one terminal:
+
+```bash
+npx ng serve --host 127.0.0.1 --port 4200
+```
+
+Then run the automated audit in another terminal:
+
+```bash
+npm run lighthouse
+```
+
+The audit checks performance, accessibility, best practices, and SEO. Reports are written to `reports/`. The command exits with code `1` when a configured threshold is not met.
+
+Optional environment variables include `LIGHTHOUSE_URLS`, `LH_RUNS`, and the `LH_MIN_*` threshold variables.
+
 ## Running end-to-end tests
 
 For end-to-end (e2e) testing, run:
