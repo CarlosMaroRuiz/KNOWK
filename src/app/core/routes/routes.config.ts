@@ -6,7 +6,7 @@ export interface RouteConfig {
 export const APP_ROUTES = {
   INDEX: {
     path: '',
-    title: 'englishLearning',
+    title: 'Inicio — Panel de Práctica',
   },
   ERROR_SPOTTING: {
     path: 'error-spotting',
@@ -31,6 +31,10 @@ export const APP_ROUTES = {
   MOCK_EXAM: {
     path: 'mock-exam',
     title: 'Mock Exam Simulator',
+  },
+  RESOURCES: {
+    path: 'resources',
+    title: 'Centro de Recursos y Guías',
   },
   CONTENT_MANAGER: {
     path: 'content-manager',

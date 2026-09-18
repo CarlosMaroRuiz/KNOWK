@@ -1,14 +1,15 @@
 import { Component, signal, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { CatalogCard } from '../index/components/catalog-card/catalog-card';
 import { CatalogItem } from '../index/domain/models';
 import { CATALOG_ITEMS } from './data/';
-import { LucideAngularModule, Moon, Sun, BookOpenText } from 'lucide-angular';
+import { LucideAngularModule, Moon, Sun, BookOpenText, BookOpen, ArrowRight } from 'lucide-angular';
 
 @Component({
   selector: 'app-index',
   standalone: true,
-  imports: [CatalogCard, LucideAngularModule],
+  imports: [RouterLink, CatalogCard, LucideAngularModule],
   templateUrl: './index.html',
   styleUrl: './index.css',
 })
@@ -27,6 +28,8 @@ export class Index {
   readonly Moon = Moon;
   readonly Sun = Sun;
   readonly BookOpenText = BookOpenText;
+  readonly BookOpen = BookOpen;
+  readonly ArrowRight = ArrowRight;
 
   private platformId = inject(PLATFORM_ID);
   readonly isDarkMode = signal<boolean>(false);

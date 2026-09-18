@@ -22,6 +22,13 @@
               }
             ],
             "styles": [
+              "node_modules/@fontsource/poppins/latin-600.css",
+              "node_modules/@fontsource/poppins/latin-700.css",
+              "node_modules/@fontsource/poppins/latin-800.css",
+              "node_modules/@fontsource/space-grotesk/latin-400.css",
+              "node_modules/@fontsource/space-grotesk/latin-500.css",
+              "node_modules/@fontsource/space-grotesk/latin-600.css",
+              "node_modules/@fontsource/space-grotesk/latin-700.css",
               "src/styles.css",
               "src/app/common/components/button/button.css"
             ]
@@ -76,6 +83,13 @@
               }
             ],
             "styles": [
+              "node_modules/@fontsource/poppins/latin-600.css",
+              "node_modules/@fontsource/poppins/latin-700.css",
+              "node_modules/@fontsource/poppins/latin-800.css",
+              "node_modules/@fontsource/space-grotesk/latin-400.css",
+              "node_modules/@fontsource/space-grotesk/latin-500.css",
+              "node_modules/@fontsource/space-grotesk/latin-600.css",
+              "node_modules/@fontsource/space-grotesk/latin-700.css",
               "src/styles.css",
               "src/app/common/components/button/button.css"
             ]

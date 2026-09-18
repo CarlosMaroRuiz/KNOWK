@@ -1,0 +1,50 @@
+[
+  {
+    "id": "res-s-01",
+    "title": "Estrategia Sección 2: Encontrar el Sujeto y Verbo Principal",
+    "category": "strategies",
+    "level": "B1",
+    "summary": "Técnica de descarte rápido para resolver preguntas de Structure en menos de 30 segundos.",
+    "formula": "1º Encuentra el Verbo | 2º Encuentra el Sujeto | 3º Elimina modificadores (frases preposicionales)",
+    "toeflTip": "Tacha mentalmente todo lo que esté entre comas o dentro de frases preposicionales (in, on, at, of, with) para ver la estructura básica.",
+    "keyRules": [
+      "Toda oración en inglés debe tener al menos UN sujeto explícito y UN verbo conjugado principal.",
+      "Cuidado con los sujetos falsos dentro de frases preposicionales ('One of the students IS...').",
+      "No dupliques el sujeto usando pronombres ('The teacher he said...' es INCORRECTO)."
+    ],
+    "examples": [
+      {
+        "correct": "One of the most famous buildings in the city is the museum.",
+        "incorrect": "One of the most famous buildings in the city are the museum.",
+        "explanation": "El sujeto real es 'One' (singular), no 'buildings'."
+      }
+    ],
+    "toeflSection": "structure",
+    "practiceRoute": "/sentence-structure",
+    "tags": ["strategies", "structure", "subject-verb-agreement"]
+  },
+  {
+    "id": "res-s-02",
+    "title": "Estrategia Sección 3: Skimming & Scanning en Reading",
+    "category": "strategies",
+    "level": "B2",
+    "summary": "Cómo leer pasajes científicos largos sin perder tiempo traduciendo palabra por palabra.",
+    "formula": "Skimming (Idea Principal) -> Leer 1º y última oración de cada párrafo | Scanning -> Buscar palabras clave de la pregunta",
+    "toeflTip": "No leas todo el texto detenidamente antes de mirar las preguntas. Lee la primera pregunta primero y luego busca la respuesta en el texto.",
+    "keyRules": [
+      "Las preguntas siguen casi siempre un orden cronológico a lo largo del texto.",
+      "Para preguntas de vocabulario en contexto, reemplaza mentalmente las opciones en la oración original.",
+      "Para preguntas de inferencia, la respuesta NUNCA será una especulación extrema sin sustento explícito en el texto."
+    ],
+    "examples": [
+      {
+        "correct": "Lee primero la línea indicada en la pregunta para ubicar el contexto.",
+        "incorrect": "Memorizar todo el pasaje de 500 palabras antes de abrir las preguntas.",
+        "explanation": "El tiempo es limitado (55 minutos para 50 preguntas en Reading)."
+      }
+    ],
+    "toeflSection": "reading",
+    "practiceRoute": "/reading-comprehension",
+    "tags": ["strategies", "reading", "skimming", "time-management"]
+  }
+]

@@ -59,6 +59,14 @@ export const routes: Routes = [
             (m) => m.MockExam,
           ),
       },
+      {
+        path: APP_ROUTES.RESOURCES.path,
+        data: { title: APP_ROUTES.RESOURCES.title },
+        loadComponent: () =>
+          import('@features/resources/resources').then(
+            (m) => m.Resources,
+          ),
+      },
     ],
   },
   // ── Admin area ────────────────────────────────────────────

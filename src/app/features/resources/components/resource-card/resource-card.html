@@ -1,0 +1,35 @@
+<article class="resource-card" [class.resource-card--grammar]="item().category === 'grammar'">
+  <header class="card-header">
+    <div class="badge-row">
+      <span class="badge badge--level">{{ item().level }}</span>
+      <span class="badge badge--category">{{ item().category }}</span>
+      @if (item().toeflSection) {
+        <span class="badge badge--section">TOEFL {{ item().toeflSection }}</span>
+      }
+    </div>
+    <h3 class="card-title">{{ item().title }}</h3>
+  </header>
+
+  <p class="card-summary">{{ item().summary }}</p>
+
+  @if (item().formula) {
+    <div class="formula-box">
+      <span class="formula-label">📐 Fórmula:</span>
+      <code class="formula-text">{{ item().formula }}</code>
+    </div>
+  }
+
+  <footer class="card-actions">
+    <button type="button" appButton variant="primary" size="sm" (click)="onReadClick()">
+      <lucide-icon [img]="BookOpen" [size]="16" aria-hidden="true"></lucide-icon>
+      <span>Leer Teoría</span>
+    </button>
+
+    @if (item().practiceRoute) {
+      <a [routerLink]="item().practiceRoute" appButton variant="secondary" size="sm">
+        <span>Practicar</span>
+        <lucide-icon [img]="ArrowRight" [size]="14" aria-hidden="true"></lucide-icon>
+      </a>
+    }
+  </footer>
+</article>

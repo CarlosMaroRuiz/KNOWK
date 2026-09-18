@@ -1,0 +1,99 @@
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-ink);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5);
+  transition: transform var(--neo-duration-fast) var(--neo-ease),
+              box-shadow var(--neo-duration-fast) var(--neo-ease);
+}
+
+.resource-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.badge--level {
+  background-color: var(--color-yellow-soft);
+  color: var(--color-ink);
+}
+
+.badge--category {
+  background-color: var(--color-primary-soft);
+  color: var(--color-ink);
+}
+
+.badge--section {
+  background-color: var(--color-coral-soft);
+  color: var(--color-ink);
+}
+
+.card-title {
+  font-size: var(--fs-lg);
+  margin: var(--space-2) 0 0;
+  color: var(--color-ink);
+}
+
+.card-summary {
+  font-size: var(--fs-sm);
+  color: var(--color-ink-muted);
+  line-height: var(--lh-normal);
+  margin-bottom: var(--space-4);
+  flex-grow: 1;
+}
+
+.formula-box {
+  background-color: var(--color-surface-alt);
+  border: 2px dashed var(--color-ink);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.formula-label {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: var(--space-1);
+}
+
+.formula-text {
+  font-family: monospace;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--color-primary-hover);
+  word-break: break-word;
+}
+
+.card-actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: auto;
+}

@@ -7,6 +7,7 @@
     "build": "ng build",
     "check:unused": "node scripts/check-unused.mjs",
     "check:ng-compat": "node scripts/check-ng-compat.mjs",
+    "check:complexity": "node scripts/check-complexity.mjs",
     "create:feature": "node scripts/create-feature.mjs",
     "lighthouse": "node scripts/lighthouse.mjs",
     "watch": "ng build --watch --configuration development",

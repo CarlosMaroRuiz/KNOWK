@@ -2,7 +2,7 @@ import { Component, computed, effect, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { ButtonDirective, IconButtonDirective } from '@common/components/button';
 import { APP_ROUTES } from '@core/routes/routes.config';
-import { ArrowLeft, LucideAngularModule, Moon, Sun } from 'lucide-angular';
+import { ArrowLeft, BookOpen, LucideAngularModule, Moon, Sun } from 'lucide-angular';
 
 @Component({
   selector: 'main-layout',
@@ -33,6 +33,7 @@ export class MainLayout {
   protected readonly isDarkMode = signal<boolean>(false);
 
   readonly ArrowLeft = ArrowLeft;
+  readonly BookOpen = BookOpen;
   readonly Sun = Sun;
   readonly Moon = Moon;
 

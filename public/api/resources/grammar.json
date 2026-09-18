@@ -1,0 +1,174 @@
+[
+  {
+    "id": "res-g-01",
+    "title": "Simple Present vs. Present Continuous",
+    "category": "grammar",
+    "level": "A2",
+    "summary": "Diferencia entre hábitos o hechos permanentes y acciones en progreso en el momento del habla.",
+    "formula": "Simple: Sujeto + Verbo (s/es) | Continuous: Sujeto + AM/IS/ARE + Verbo-ing",
+    "toeflTip": "En el TOEFL, los verbos estáticos (know, believe, understand, contain) NUNCA se usan en Present Continuous.",
+    "keyRules": [
+      "El Simple Present se usa para verdades universales, rutinas y estados permanentes.",
+      "El Present Continuous describe acciones temporales sucediendo en este instante.",
+      "Verbos de percepción y estado mental no aceptan la forma -ing continua."
+    ],
+    "examples": [
+      {
+        "correct": "Water boils at 100 degrees Celsius.",
+        "incorrect": "Water is boiling at 100 degrees Celsius.",
+        "explanation": "Es una ley física universal, por lo tanto requiere Simple Present."
+      },
+      {
+        "correct": "The researcher understands the theory.",
+        "incorrect": "The researcher is understanding the theory.",
+        "explanation": "'Understand' es un verbo estático que no acepta forma progresiva."
+      }
+    ],
+    "toeflSection": "structure",
+    "practiceRoute": "/sentence-structure",
+    "tags": ["grammar", "tenses", "present", "stative-verbs"]
+  },
+  {
+    "id": "res-g-02",
+    "title": "Simple Past vs. Past Continuous",
+    "category": "grammar",
+    "level": "B1",
+    "summary": "Acciones completadas en un tiempo específico del pasado frente a acciones continuas interrumpidas.",
+    "formula": "Simple: Sujeto + Verbo Past (-ed / Irregular) | Continuous: WAS/WERE + Verbo-ing",
+    "toeflTip": "Busca palabras clave de tiempo: 'when' suele introducir Simple Past e 'while' suele introducir Past Continuous.",
+    "keyRules": [
+      "Simple Past indica una acción puntual terminada en el pasado.",
+      "Past Continuous describe el fondo o contexto de una acción interrumpida.",
+      "Cuando dos acciones pasaron al mismo tiempo de forma paralela, ambas usan Past Continuous (while)."
+    ],
+    "examples": [
+      {
+        "correct": "While the professor was speaking, a student entered the hall.",
+        "incorrect": "While the professor spoke, a student was entering the hall.",
+        "explanation": "'while' requiere la acción continua en fondo (was speaking) e 'interrupted' por Simple Past (entered)."
+      }
+    ],
+    "toeflSection": "structure",
+    "practiceRoute": "/error-spotting",
+    "tags": ["grammar", "tenses", "past", "time-clauses"]
+  },
+  {
+    "id": "res-g-03",
+    "title": "Present Perfect vs. Simple Past",
+    "category": "grammar",
+    "level": "B1",
+    "summary": "Experiencias o acciones pasadas con conexión al presente frente a eventos terminados en tiempo definido.",
+    "formula": "Present Perfect: Sujeto + HAVE/HAS + Participio Pasado (V3)",
+    "toeflTip": "Si la oración incluye 'yesterday', 'in 1999', o 'ago', usa Simple Past. Si incluye 'since' o 'for', usa Present Perfect.",
+    "keyRules": [
+      "Present Perfect no especifica el momento exacto en que ocurrió la acción.",
+      "Simple Past exige un marcador temporal específico (definido).",
+      "'Since' señala el punto de inicio; 'for' indica la duración acumulada."
+    ],
+    "examples": [
+      {
+        "correct": "The university has published five journals since 2010.",
+        "incorrect": "The university published five journals since 2010.",
+        "explanation": "'since' exige el uso del Present Perfect (has published)."
+      }
+    ],
+    "toeflSection": "structure",
+    "practiceRoute": "/grammar-review",
+    "tags": ["grammar", "tenses", "present-perfect", "since-for"]
+  },
+  {
+    "id": "res-g-04",
+    "title": "Past Perfect (El Pasado del Pasado)",
+    "category": "grammar",
+    "level": "B2",
+    "summary": "Expresa una acción pasada que ocurrió ANTES que otra acción también pasada.",
+    "formula": "Sujeto + HAD + Participio Pasado (V3)",
+    "toeflTip": "En oraciones con 'before' o 'by the time', la primera acción cronológica debe ir en Past Perfect.",
+    "keyRules": [
+      "Establece el orden cronológico estricto entre dos eventos del pasado.",
+      "La acción más antigua usa HAD + V3; la acción subsecuente usa Simple Past."
+    ],
+    "examples": [
+      {
+        "correct": "By the time the conference began, the scientists had reviewed the data.",
+        "incorrect": "By the time the conference began, the scientists reviewed the data.",
+        "explanation": "La revisión ocurrió antes de que iniciara la conferencia."
+      }
+    ],
+    "toeflSection": "structure",
+    "practiceRoute": "/sentence-structure",
+    "tags": ["grammar", "past-perfect", "sequence-of-tenses"]
+  },
+  {
+    "id": "res-g-05",
+    "title": "Voz Pasiva (Passive Voice)",
+    "category": "grammar",
+    "level": "B2",
+    "summary": "Estructura donde el objeto receptor de la acción se convierte en el sujeto gramatical.",
+    "formula": "Sujeto Receptor + [Verbo BE conjugado] + Participio Pasado (V3) (+ by Agente)",
+    "toeflTip": "En la Sección de Reading y Structure del TOEFL, la voz pasiva es omnipresente en textos científicos e históricos.",
+    "keyRules": [
+      "El verbo BE debe coincidir en tiempo con el tiempo gramatical original.",
+      "Solo los verbos transitivos (que aceptan objeto directo) pueden transformarse a voz pasiva.",
+      "El agente (by...) frecuentemente se omite si es desconocido o irrelevante."
+    ],
+    "examples": [
+      {
+        "correct": "The manuscript was discovered in 1920.",
+        "incorrect": "The manuscript discovered in 1920.",
+        "explanation": "El manuscrito no descubrió a nada; fue descubierto (voz pasiva: was discovered)."
+      }
+    ],
+    "toeflSection": "reading",
+    "practiceRoute": "/reading-comprehension",
+    "tags": ["grammar", "passive-voice", "academic-style"]
+  },
+  {
+    "id": "res-g-06",
+    "title": "Inversiones Gramaticales (Inversion)",
+    "category": "grammar",
+    "level": "C1",
+    "summary": "Inversión del orden habitual del verbo auxiliar y el sujeto al iniciar con expresiones negativas o restrictivas.",
+    "formula": "[Palabra Negativa/Restrictiva] + Verbo Auxiliar + Sujeto + Verbo Principal",
+    "toeflTip": "Muy evaluado en el TOEFL ITP. Inicia con: 'Not only', 'Never', 'Rarely', 'Hardly', 'Under no circumstances'.",
+    "keyRules": [
+      "Requiere un verbo auxiliar (do, did, has, is, can) antes del sujeto.",
+      "Si no hay auxiliar en el verbo principal, se inserta DO / DOES / DID.",
+      "Mantiene la estructura de una pregunta pero funciona como declaración afirmativa enfática."
+    ],
+    "examples": [
+      {
+        "correct": "Not only did the team complete the project, but they also won the award.",
+        "incorrect": "Not only the team completed the project, but they also won the award.",
+        "explanation": "Tras 'Not only' se requiere la inversión auxiliar + sujeto: 'did the team complete'."
+      }
+    ],
+    "toeflSection": "structure",
+    "practiceRoute": "/error-spotting",
+    "tags": ["grammar", "inversion", "advanced-structure"]
+  },
+  {
+    "id": "res-g-07",
+    "title": "Participios Reducidos (-ing / -ed)",
+    "category": "grammar",
+    "level": "B2",
+    "summary": "Reducción de cláusulas relativas a frases de participio funcionando como adjetivos.",
+    "formula": "Sujeto + [Participio -ing (activo) / -ed (pasivo)] + Verbo Principal",
+    "toeflTip": "Cuidado con confundir un participio adjetivo con el verbo principal conjugado de la oración.",
+    "keyRules": [
+      "El participio -ing sustituye a una cláusula relativa activa (who study -> studying).",
+      "El participio -ed sustituye a una cláusula relativa pasiva (which was written -> written).",
+      "Un participio solo NUNCA lleva auxilar BE ni HAVE."
+    ],
+    "examples": [
+      {
+        "correct": "The reports submitted yesterday contain crucial data.",
+        "incorrect": "The reports were submitted yesterday contain crucial data.",
+        "explanation": "'were submitted... contain' genera un error de doble verbo conjugado."
+      }
+    ],
+    "toeflSection": "structure",
+    "practiceRoute": "/sentence-structure",
+    "tags": ["grammar", "participles", "reduced-clauses"]
+  }
+]

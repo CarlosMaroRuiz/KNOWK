@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 import { AdminAuthService } from '../services/admin-auth.service';
 import { ButtonDirective } from '@common/components/button/button';
@@ -8,7 +8,7 @@ import { LucideAngularModule, ArrowLeft } from 'lucide-angular';
 @Component({
   selector: 'app-admin-layout',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, ButtonDirective, LucideAngularModule],
+  imports: [RouterOutlet, ButtonDirective, LucideAngularModule],
   templateUrl: './admin-layout.html',
   styleUrl: './admin-layout.css',
 })

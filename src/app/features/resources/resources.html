@@ -1,0 +1,74 @@
+<section class="resources-container">
+  <header class="resources-header">
+    <div class="header-badge">
+      <lucide-icon [img]="BookOpenText" [size]="18" aria-hidden="true"></lucide-icon>
+      <span>Centro de Recursos TOEFL ITP</span>
+    </div>
+    <h1>Guías Teóricas & Fórmulas Gramaticales</h1>
+    <p>Consulta las explicaciones de los 12 tiempos verbales, reglas de estructura, conectores lógicos y estrategias del examen.</p>
+
+    <div class="search-bar">
+      <lucide-icon [img]="Search" [size]="20" class="search-icon" aria-hidden="true"></lucide-icon>
+      <input
+        type="search"
+        placeholder="Buscar por regla, tiempo verbal o palabra clave (ej. Present Perfect, Inversión)..."
+        [value]="searchQuery()"
+        (input)="onSearchChange($event)"
+      />
+    </div>
+  </header>
+
+  <nav class="category-tabs" aria-label="Filtro de categorías">
+    <button
+      type="button"
+      appButton
+      [variant]="activeCategory() === 'all' ? 'primary' : 'outline'"
+      size="sm"
+      (click)="setCategory('all')"
+    >
+      Todas ({{ allItems().length }})
+    </button>
+    <button
+      type="button"
+      appButton
+      [variant]="activeCategory() === 'grammar' ? 'primary' : 'outline'"
+      size="sm"
+      (click)="setCategory('grammar')"
+    >
+      Gramática & Tiempos
+    </button>
+    <button
+      type="button"
+      appButton
+      [variant]="activeCategory() === 'vocabulary' ? 'primary' : 'outline'"
+      size="sm"
+      (click)="setCategory('vocabulary')"
+    >
+      Vocabulario & Conectores
+    </button>
+    <button
+      type="button"
+      appButton
+      [variant]="activeCategory() === 'strategies' ? 'primary' : 'outline'"
+      size="sm"
+      (click)="setCategory('strategies')"
+    >
+      Estrategias TOEFL
+    </button>
+  </nav>
+
+  <main class="resources-grid">
+    @for (item of filteredItems(); track item.id) {
+      <resource-card [item]="item" (openDetail)="openDetail($event)" />
+    } @empty {
+      <div class="empty-state">
+        <lucide-icon [img]="Sparkles" [size]="32" class="empty-icon" aria-hidden="true"></lucide-icon>
+        <p>No se encontraron recursos que coincidan con tu búsqueda.</p>
+      </div>
+    }
+  </main>
+</section>
+
+@if (selectedItem(); as item) {
+  <resource-detail-modal [item]="item" (close)="closeDetail()" />
+}

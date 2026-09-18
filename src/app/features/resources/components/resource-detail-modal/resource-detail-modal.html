@@ -1,0 +1,291 @@
+<div class="modal-backdrop" (click)="onClose()">
+  <div class="modal-container" (click)="$event.stopPropagation()" role="dialog" aria-modal="true">
+    <header class="modal-header">
+      <div class="header-top">
+        <div class="header-badges">
+          <span class="badge badge--level">{{ item().level }}</span>
+          <span class="badge badge--category">{{ item().category }}</span>
+        </div>
+        <button type="button" appIconButton variant="ghost" size="sm" class="close-btn" (click)="onClose()" aria-label="Cerrar">
+          <lucide-icon [img]="X" [size]="20" aria-hidden="true"></lucide-icon>
+        </button>
+      </div>
+
+      <h2 class="modal-title">{{ item().title }}</h2>
+
+      <!-- Pestañas de Navegación del Modal -->
+      <nav class="modal-tabs">
+        <button
+          type="button"
+          appButton
+          [variant]="activeTab() === 'theory' ? 'primary' : 'ghost'"
+          size="sm"
+          (click)="setTab('theory')"
+        >
+          <span>Explicación & Reglas</span>
+        </button>
+
+        <button
+          type="button"
+          appButton
+          [variant]="activeTab() === 'sandbox' ? 'primary' : 'ghost'"
+          size="sm"
+          (click)="setTab('sandbox')"
+        >
+          <span>Constructor en Vivo 🛠️</span>
+        </button>
+
+        <button
+          type="button"
+          appButton
+          [variant]="activeTab() === 'quiz' ? 'primary' : 'ghost'"
+          size="sm"
+          (click)="setTab('quiz')"
+        >
+          <span>Comprobación Rápida</span>
+        </button>
+      </nav>
+    </header>
+
+    <div class="modal-body">
+      @if (activeTab() === 'theory') {
+        <p class="summary-lead">{{ item().summary }}</p>
+
+        @if (item().formula) {
+          <section class="section-box formula-section">
+            <div class="section-title-row">
+              <h3>Fórmula Gramatical Interactiva</h3>
+              <span class="hint-text">Toca cualquier componente para ver su función gramatical</span>
+            </div>
+
+            <div class="formula-interactive-wrapper">
+              @for (variant of formulaVariants(); track variant) {
+                <div class="formula-variant-row">
+                  @for (token of splitTokens(variant); track token; let last = $last) {
+                    <button
+                      type="button"
+                      class="formula-token-chip"
+                      [class.active]="activeTokenHint() === getTokenHint(token)"
+                      (click)="selectToken(token)"
+                    >
+                      <span>{{ token }}</span>
+                    </button>
+                    @if (!last) {
+                      <span class="formula-operator">+</span>
+                    }
+                  }
+                </div>
+              }
+            </div>
+
+            @if (activeTokenHint(); as hint) {
+              <div class="token-hint-box">
+                <lucide-icon [img]="Info" [size]="18" class="hint-icon" aria-hidden="true"></lucide-icon>
+                <span>{{ hint }}</span>
+              </div>
+            }
+          </section>
+        }
+
+        @if (item().toeflTip) {
+          <section class="section-box tip-section">
+            <div class="tip-header">
+              <lucide-icon [img]="Lightbulb" [size]="20" class="tip-icon" aria-hidden="true"></lucide-icon>
+              <h3>Tip Clave para el TOEFL ITP</h3>
+            </div>
+            <p>{{ item().toeflTip }}</p>
+          </section>
+        }
+
+        <section class="section-box rules-section">
+          <h3>Puntos Clave de la Regla</h3>
+          <ul>
+            @for (rule of item().keyRules; track rule) {
+              <li>{{ rule }}</li>
+            }
+          </ul>
+        </section>
+
+        @if (item().examples.length > 0) {
+          <section class="section-box examples-section">
+            <div class="section-title-row">
+              <h3>Ejemplos Interactivos (Con Pronunciación 🔊)</h3>
+              <span class="hint-text">Escucha la pronunciación en inglés nativo o revela el análisis del error</span>
+            </div>
+
+            @for (example of item().examples; track $index) {
+              <div class="example-card">
+                <div class="example-line example-line--correct">
+                  <lucide-icon [img]="CheckCircle2" [size]="18" class="icon-correct" aria-hidden="true"></lucide-icon>
+                  <span><strong>Correcto:</strong> {{ example.correct }}</span>
+
+                  <button
+                    type="button"
+                    appIconButton
+                    variant="ghost"
+                    size="sm"
+                    class="audio-btn"
+                    title="Escuchar pronunciación"
+                    (click)="speakText(example.correct)"
+                  >
+                    <lucide-icon [img]="Volume2" [size]="16" aria-hidden="true"></lucide-icon>
+                  </button>
+                </div>
+
+                <div class="example-line example-line--incorrect">
+                  <lucide-icon [img]="XCircle" [size]="18" class="icon-incorrect" aria-hidden="true"></lucide-icon>
+                  <span><strong>Incorrecto:</strong> {{ example.incorrect }}</span>
+                </div>
+
+                <div class="example-reveal-wrapper">
+                  <button type="button" appButton variant="outline" size="sm" (click)="toggleExample($index)">
+                    <lucide-icon [img]="Eye" [size]="14" aria-hidden="true"></lucide-icon>
+                    <span>{{ expandedExample() === $index ? 'Ocultar Explicación' : 'Ver Explicación del Error' }}</span>
+                  </button>
+
+                  @if (expandedExample() === $index) {
+                    <p class="example-note">💡 {{ example.explanation }}</p>
+                  }
+                </div>
+              </div>
+            }
+          </section>
+        }
+      } @else if (activeTab() === 'sandbox') {
+        <!-- Pestaña 2: Constructor en Vivo (Sandbox) -->
+        <section class="section-box sandbox-container">
+          <div class="sandbox-header">
+            <lucide-icon [img]="Sparkles" [size]="24" class="sandbox-icon" aria-hidden="true"></lucide-icon>
+            <div>
+              <h3>Constructor de Oraciones en Vivo</h3>
+              <p>Ensambla oraciones seleccionando componentes para ver cómo encaja la fórmula en tiempo real.</p>
+            </div>
+          </div>
+
+          <div class="sandbox-builder-box">
+            <div class="builder-controls">
+              <div class="control-group">
+                <label>Sujeto</label>
+                <div class="chip-options">
+                  <button type="button" class="chip-btn" [class.selected]="sandboxSubject() === 'The student'" (click)="setSandboxSubject('The student')">The student</button>
+                  <button type="button" class="chip-btn" [class.selected]="sandboxSubject() === 'Researchers'" (click)="setSandboxSubject('Researchers')">Researchers</button>
+                  <button type="button" class="chip-btn" [class.selected]="sandboxSubject() === 'The university'" (click)="setSandboxSubject('The university')">The university</button>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label>Auxiliar / Tiempo</label>
+                <div class="chip-options">
+                  <button type="button" class="chip-btn" [class.selected]="sandboxAuxiliary() === 'has'" (click)="setSandboxAuxiliary('has')">has</button>
+                  <button type="button" class="chip-btn" [class.selected]="sandboxAuxiliary() === 'have'" (click)="setSandboxAuxiliary('have')">have</button>
+                  <button type="button" class="chip-btn" [class.selected]="sandboxAuxiliary() === 'had'" (click)="setSandboxAuxiliary('had')">had</button>
+                  <button type="button" class="chip-btn" [class.selected]="sandboxAuxiliary() === 'is'" (click)="setSandboxAuxiliary('is')">is</button>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label>Verbo Principal</label>
+                <div class="chip-options">
+                  <button type="button" class="chip-btn" [class.selected]="sandboxVerb() === 'completed'" (click)="setSandboxVerb('completed')">completed</button>
+                  <button type="button" class="chip-btn" [class.selected]="sandboxVerb() === 'published'" (click)="setSandboxVerb('published')">published</button>
+                  <button type="button" class="chip-btn" [class.selected]="sandboxVerb() === 'studying'" (click)="setSandboxVerb('studying')">studying</button>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label>Complemento</label>
+                <div class="chip-options">
+                  <button type="button" class="chip-btn" [class.selected]="sandboxComplement() === 'the exam successfully.'" (click)="setSandboxComplement('the exam successfully.')">the exam</button>
+                  <button type="button" class="chip-btn" [class.selected]="sandboxComplement() === 'new findings since 2020.'" (click)="setSandboxComplement('new findings since 2020.')">new findings</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="live-sentence-preview">
+              <span class="preview-label">Oración Generada en Vivo:</span>
+              <blockquote class="sentence-result">
+                "{{ sandboxSentence() }}"
+              </blockquote>
+
+              <button type="button" appButton variant="secondary" size="sm" (click)="speakText(sandboxSentence())">
+                <lucide-icon [img]="Volume2" [size]="16" aria-hidden="true"></lucide-icon>
+                <span>Escuchar Oración</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      } @else {
+        <!-- Pestaña 3: Comprobación Rápida Interactiva -->
+        <section class="section-box quiz-container">
+          <div class="quiz-header">
+            <lucide-icon [img]="HelpCircle" [size]="24" class="quiz-icon" aria-hidden="true"></lucide-icon>
+            <div>
+              <h3>Comprueba tu Comprensión</h3>
+              <p>Selecciona la opción correcta para validar que dominas este tema antes de pasar a las prácticas completas.</p>
+            </div>
+          </div>
+
+          <div class="quiz-card">
+            <p class="quiz-prompt">
+              ¿Cuál de las siguientes oraciones aplica de forma correcta la regla de <strong>{{ item().title }}</strong>?
+            </p>
+
+            <div class="quiz-options">
+              @for (example of item().examples; track $index) {
+                <button
+                  type="button"
+                  class="quiz-option-btn"
+                  [class.selected]="selectedQuizOption() === $index"
+                  [class.correct]="selectedQuizOption() === $index"
+                  (click)="selectOption($index)"
+                >
+                  <span class="option-marker">{{ $index === 0 ? 'A' : 'B' }}</span>
+                  <span class="option-text">{{ example.correct }}</span>
+                </button>
+
+                <button
+                  type="button"
+                  class="quiz-option-btn"
+                  [class.selected]="selectedQuizOption() === $index + 10"
+                  [class.incorrect]="selectedQuizOption() === $index + 10"
+                  (click)="selectOption($index + 10)"
+                >
+                  <span class="option-marker">{{ $index === 0 ? 'B' : 'C' }}</span>
+                  <span class="option-text">{{ example.incorrect }}</span>
+                </button>
+              }
+            </div>
+
+            @if (selectedQuizOption() !== null) {
+              <div class="quiz-feedback" [class.feedback-success]="selectedQuizOption()! < 10" [class.feedback-error]="selectedQuizOption()! >= 10">
+                @if (selectedQuizOption()! < 10) {
+                  <div class="feedback-title">
+                    <lucide-icon [img]="CheckCircle2" [size]="20" aria-hidden="true"></lucide-icon>
+                    <span>¡Excelente! Respuesta Correcta</span>
+                  </div>
+                  <p>¡Dominas este tema! La estructura concuerda exactamente con la regla estudiada.</p>
+                } @else {
+                  <div class="feedback-title">
+                    <lucide-icon [img]="XCircle" [size]="20" aria-hidden="true"></lucide-icon>
+                    <span>Revisa la regla nuevamente</span>
+                  </div>
+                  <p>Esta opción contiene un error común en el TOEFL ITP. Revisa la pestaña de "Explicación & Reglas".</p>
+                }
+              </div>
+            }
+          </div>
+        </section>
+      }
+    </div>
+
+    <footer class="modal-footer">
+      <button type="button" appButton variant="outline" size="sm" (click)="onClose()">Cerrar</button>
+      @if (item().practiceRoute) {
+        <a [routerLink]="item().practiceRoute" appButton variant="secondary" size="sm" (click)="onClose()">
+          <span>Ir a Práctica Completa</span>
+          <lucide-icon [img]="ArrowRight" [size]="16" aria-hidden="true"></lucide-icon>
+        </a>
+      }
+    </footer>
+  </div>
+</div>

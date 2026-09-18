@@ -1,11 +1,9 @@
 import { Component, input, output } from '@angular/core';
-import { ButtonDirective } from '@common/components/button';
 import { SentenceStructureQuestion } from '../../domain/models';
 
 @Component({
   selector: 'app-sentence-structure-card',
   standalone: true,
-  imports: [ButtonDirective],
   templateUrl: './sentence-structure-card.html',
   styleUrl: './sentence-structure-card.css',
 })

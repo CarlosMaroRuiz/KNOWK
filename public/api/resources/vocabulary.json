@@ -1,0 +1,50 @@
+[
+  {
+    "id": "res-v-01",
+    "title": "Conectores Lógicos de Transición",
+    "category": "vocabulary",
+    "level": "B1",
+    "summary": "Palabras clave para enlazar ideas de contraste, causa, efecto y adición en textos académicos.",
+    "formula": "Idea A. [Conector de Transición], Idea B.",
+    "toeflTip": "'However' y 'Nevertheless' expresan contraste; 'Furthermore' y 'Moreover' añaden información.",
+    "keyRules": [
+      "Los conectores de transición suelen ir seguidos de una coma (,) al inicio de una oración.",
+      "'In spite of' y 'Despite' van seguidos de un sustantivo o gerundio (-ing), NUNCA de una cláusula completa.",
+      "'Although' e 'Even though' introducen una cláusula completa con sujeto y verbo."
+    ],
+    "examples": [
+      {
+        "correct": "Despite the heavy rain, the archeologists continued the excavation.",
+        "incorrect": "Despite the rain was heavy, the archeologists continued the excavation.",
+        "explanation": "'Despite' no acepta una cláusula completa (the rain was heavy); debe ser 'Although the rain was heavy' o 'Despite the heavy rain'."
+      }
+    ],
+    "toeflSection": "reading",
+    "practiceRoute": "/vocabulary",
+    "tags": ["vocabulary", "connectors", "transitions", "linking-words"]
+  },
+  {
+    "id": "res-v-02",
+    "title": "Sufijos y Formación de Clases de Palabras",
+    "category": "vocabulary",
+    "level": "B2",
+    "summary": "Identificación del rol sintáctico de una palabra según sus terminaciones (sustantivo, adjetivo, adverbio).",
+    "formula": "Sustantivos (-tion, -ment) | Adjetivos (-ive, -ous, -able) | Adverbios (-ly)",
+    "toeflTip": "En la Sección de Structure, identifica qué tipo de palabra falta revisando su sufijo.",
+    "keyRules": [
+      "Los sustantivos suelen terminar en -tion, -ment, -ance, -ity, -ness.",
+      "Los adjetivos suelen terminar en -ive, -ous, -ic, -able, -ful.",
+      "Los adverbios de modo se forman agregando -ly al adjetivo."
+    ],
+    "examples": [
+      {
+        "correct": "The system offers significant improvements in efficiency.",
+        "incorrect": "The system offers significant improve in efficiency.",
+        "explanation": "Tras el adjetivo 'significant' se requiere el sustantivo 'improvements', no el verbo 'improve'."
+      }
+    ],
+    "toeflSection": "structure",
+    "practiceRoute": "/vocabulary",
+    "tags": ["vocabulary", "suffixes", "word-families"]
+  }
+]

@@ -60,6 +60,45 @@ export class ContentManagerLocalRepository implements ContentManagerRepository {
     localStorage.setItem(key, JSON.stringify(items));
   }
 
+  private readonly moduleExtractors: Record<
+    ContentModuleType,
+    (r: Record<string, unknown>, defaultTitle: string, defaultCategory: string) => { titleOrPrompt: string; categoryOrDefinition: string }
+  > = {
+    'vocabulary': (r, defaultTitle, defaultCategory) => ({
+      titleOrPrompt: (r['word'] as string) || (r['term'] as string) || defaultTitle,
+      categoryOrDefinition: (r['definition'] as string) || defaultCategory,
+    }),
+    'sentence-structure': (r, defaultTitle, defaultCategory) => ({
+      titleOrPrompt: (r['prompt'] as string) || defaultTitle,
+      categoryOrDefinition: (r['category'] as string) || defaultCategory,
+    }),
+    'error-spotting': (r, defaultTitle, defaultCategory) => ({
+      titleOrPrompt: (r['full_sentence'] as string) || (r['fullSentence'] as string) || defaultTitle,
+      categoryOrDefinition: (r['category'] as string) || defaultCategory,
+    }),
+    'reading-comprehension': (r, defaultTitle, defaultCategory) => ({
+      titleOrPrompt: (r['title'] as string) || defaultTitle,
+      categoryOrDefinition: `${(r['questions'] as unknown[])?.length ?? 0} preguntas`,
+    }),
+    'grammar-review': (r, defaultTitle, defaultCategory) => ({
+      titleOrPrompt: (r['title'] as string) || defaultTitle,
+      categoryOrDefinition: (r['topic'] as string) || (r['summary'] as string) || defaultCategory,
+    }),
+  };
+
+  private extractMetadataByModule(
+    r: Record<string, unknown>,
+    moduleType: ContentModuleType,
+    defaultTitle: string,
+    defaultCategory: string
+  ): { titleOrPrompt: string; categoryOrDefinition: string } {
+    const extractor = this.moduleExtractors[moduleType];
+    if (!extractor) {
+      return { titleOrPrompt: defaultTitle, categoryOrDefinition: defaultCategory };
+    }
+    return extractor(r, defaultTitle, defaultCategory);
+  }
+
   private mapRawToManaged(
     raw: unknown,
     moduleType: ContentModuleType,
@@ -67,26 +106,15 @@ export class ContentManagerLocalRepository implements ContentManagerRepository {
     idx: number
   ): ManagedItem {
     const r = raw as Record<string, unknown>;
+    const defaultTitle = `Item #${idx + 1}`;
+    const defaultCategory = 'General';
 
-    let titleOrPrompt = `Item #${idx + 1}`;
-    let categoryOrDefinition = 'General';
-
-    if (moduleType === 'vocabulary') {
-      titleOrPrompt = (r['word'] as string) || (r['term'] as string) || titleOrPrompt;
-      categoryOrDefinition = (r['definition'] as string) || categoryOrDefinition;
-    } else if (moduleType === 'sentence-structure') {
-      titleOrPrompt = (r['prompt'] as string) || titleOrPrompt;
-      categoryOrDefinition = (r['category'] as string) || categoryOrDefinition;
-    } else if (moduleType === 'error-spotting') {
-      titleOrPrompt = (r['full_sentence'] as string) || (r['fullSentence'] as string) || titleOrPrompt;
-      categoryOrDefinition = (r['category'] as string) || categoryOrDefinition;
-    } else if (moduleType === 'reading-comprehension') {
-      titleOrPrompt = (r['title'] as string) || titleOrPrompt;
-      categoryOrDefinition = `${(r['questions'] as unknown[])?.length ?? 0} preguntas`;
-    } else if (moduleType === 'grammar-review') {
-      titleOrPrompt = (r['title'] as string) || titleOrPrompt;
-      categoryOrDefinition = (r['topic'] as string) || (r['summary'] as string) || categoryOrDefinition;
-    }
+    const { titleOrPrompt, categoryOrDefinition } = this.extractMetadataByModule(
+      r,
+      moduleType,
+      defaultTitle,
+      defaultCategory
+    );
 
     return {
       id: (r['id'] as string | number) ?? `item-${idx + 1}`,
