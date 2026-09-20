@@ -3,13 +3,15 @@ import { rxResource } from '@angular/core/rxjs-interop';
 
 import { ButtonDirective } from '@common/components/button';
 import { ErrorStateComponent } from '@common/components/error-state';
+import { LevelSelectorComponent } from '@common/components/level-selector';
 import { SkeletonComponent } from '@common/components/skeleton';
 import { Level } from '@common/models';
+import { nextIndex, prevIndex } from '@core/utils/pagination';
+import { calcProgress } from '@core/utils/progress';
 import { Question } from '@features/error-spotting/domain/models';
 import { ErrorSpottingUseCase } from '@features/error-spotting/domain/usecases/error-spotting.use-case';
 import { provideErrorSpotting } from '@features/error-spotting/providers/error-spotting.providers';
 import { ErrorSpottingCardComponent } from './components/error-spotting-card/error-spotting-card';
-import { SelectedLevel } from './components/selected-level/selected-level';
 
 @Component({
   selector: 'app-error-spoting',
@@ -17,7 +19,7 @@ import { SelectedLevel } from './components/selected-level/selected-level';
   imports: [
     ButtonDirective,
     ErrorSpottingCardComponent,
-    SelectedLevel,
+    LevelSelectorComponent,
     SkeletonComponent,
     ErrorStateComponent,
   ],
@@ -39,11 +41,9 @@ export class ErrorSpotting {
 
   protected readonly questions = computed(() => this.questionsResource.value() ?? []);
 
-  protected readonly progressPercent = computed(() => {
-    const total = this.questions().length;
-    if (total === 0) return 0;
-    return Math.round(((this.currentQuestionIndex() + 1) / total) * 100);
-  });
+  protected readonly progressPercent = computed(() =>
+    calcProgress(this.currentQuestionIndex(), this.questions().length),
+  );
 
   constructor() {
     effect(() => {
@@ -61,15 +61,12 @@ export class ErrorSpotting {
   }
 
   protected previousQuestion(): void {
-    this.currentQuestionIndex.update((index) => Math.max(0, index - 1));
+    this.currentQuestionIndex.update((index) => prevIndex(index));
   }
 
   protected nextQuestion(): void {
-    const qList = this.questions();
-
-    this.currentQuestionIndex.update((index) =>
-      Math.min(qList.length - 1, index + 1)
-    );
+    const total = this.questions().length;
+    this.currentQuestionIndex.update((index) => nextIndex(index, total));
   }
 
   protected retryFetch(): void {

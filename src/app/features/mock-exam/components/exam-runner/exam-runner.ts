@@ -9,6 +9,7 @@ import {
   signal,
 } from '@angular/core';
 import { ButtonDirective } from '@common/components/button/button';
+import { formatClock } from '@core/utils/time';
 import { MockExamQuestion } from '../../domain/models';
 
 @Component({
@@ -34,7 +35,7 @@ export class ExamRunnerComponent implements OnInit {
   readonly remainingSeconds = signal(1500);
   readonly answersMap = signal<Map<number, string>>(new Map());
 
-  private timerInterval: any;
+  private timerInterval: ReturnType<typeof setInterval> | undefined;
 
   readonly currentQuestion = computed(() => {
     const list = this.questions();
@@ -42,12 +43,7 @@ export class ExamRunnerComponent implements OnInit {
     return list[idx] ?? null;
   });
 
-  readonly formattedTime = computed(() => {
-    const total = this.remainingSeconds();
-    const mins = Math.floor(total / 60);
-    const secs = total % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  });
+  readonly formattedTime = computed(() => formatClock(this.remainingSeconds()));
 
   readonly isTimerWarning = computed(() => this.remainingSeconds() <= 300); // 5 minutes or less
 

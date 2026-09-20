@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Level } from '@common/models';
+import { percentage as toPercentage } from '@core/utils/scoring';
+import { Observable } from 'rxjs';
 import { CategoryResult, MockExamQuestion, MockExamResult, UserAnswer } from '../models';
 import { MockExamRepository } from '../repository/mock-exam.repository';
 
@@ -44,7 +45,7 @@ export class MockExamUseCase {
     }
 
     const totalQuestions = questions.length || 1;
-    const percentage = Math.round((correctCount / totalQuestions) * 100);
+    const percentage = toPercentage(correctCount, questions.length);
 
     // Official TOEFL ITP Section 2 conversion scale: 31 to 68 points
     const toeflScore = Math.round(31 + (correctCount / totalQuestions) * 37);
@@ -54,7 +55,7 @@ export class MockExamUseCase {
         category,
         total: stats.total,
         correct: stats.correct,
-        percentage: Math.round((stats.correct / stats.total) * 100),
+        percentage: toPercentage(stats.correct, stats.total),
       })
     );
 

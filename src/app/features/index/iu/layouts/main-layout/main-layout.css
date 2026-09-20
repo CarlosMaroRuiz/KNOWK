@@ -1,0 +1,72 @@
+.index-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) clamp(var(--space-4), 5vw, var(--space-6));
+  background-color: var(--color-surface);
+  border-bottom: var(--border-width) solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  animation-name: neo-slide-up;
+  animation-duration: 0.38s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+}
+
+.index-navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 800;
+  color: var(--color-ink);
+  letter-spacing: 0.05em;
+}
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  border: 2px solid var(--color-ink);
+  border-radius: 50%; /* Circle for dark mode toggle */
+  box-shadow: 3px 3px 0 var(--color-ink);
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--color-ink);
+  background-color: var(--color-yellow-soft);
+}
+
+.theme-toggle-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--color-ink);
+  transition-duration: 0.1s;
+}
+
+.menu-container {
+  width: min(100%, 1440px);
+  margin: 0 auto;
+  padding: clamp(var(--space-4), 3vw, var(--space-6)) clamp(var(--space-3), 2vw, var(--space-5));
+  animation-name: neo-page-enter;
+  animation-duration: 0.18s;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+@media (max-width: 600px) {
+  .menu-container {
+    padding: var(--space-3) var(--space-2);
+  }
+
+}

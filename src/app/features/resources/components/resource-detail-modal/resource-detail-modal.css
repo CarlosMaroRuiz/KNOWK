@@ -1,7 +1,7 @@
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(11, 7, 4, 0.7);
+  background-color: color-mix(in srgb, var(--color-ink) 70%, transparent);
   display: flex;
   align-items: center;
   justify-content: center;

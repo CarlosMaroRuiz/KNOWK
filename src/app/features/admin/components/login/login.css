@@ -73,10 +73,10 @@
 
 .error-message {
   font-size: 0.875rem;
-  color: var(--color-error, #dc2626);
+  color: var(--color-error);
   margin: 0;
   padding: 0.5rem 0.75rem;
-  background-color: color-mix(in srgb, var(--color-error, #dc2626) 10%, transparent);
+  background-color: var(--color-error-soft);
   border-radius: var(--radius-sm);
-  border: 1px solid color-mix(in srgb, var(--color-error, #dc2626) 30%, transparent);
+  border: 1px solid var(--color-error);
 }

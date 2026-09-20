@@ -1,5 +1,6 @@
 import { Component, computed, input, output, signal } from '@angular/core';
 import { ButtonDirective } from '@common/components/button/button';
+import { formatDuration } from '@core/utils/time';
 import { MockExamResult } from '../../domain/models';
 
 @Component({
@@ -15,12 +16,7 @@ export class ExamResultComponent {
 
   readonly filterMode = signal<'all' | 'incorrect'>('all');
 
-  readonly formattedTimeSpent = computed(() => {
-    const sec = this.result().timeSpentSeconds;
-    const mins = Math.floor(sec / 60);
-    const secs = sec % 60;
-    return `${mins}m ${secs}s`;
-  });
+  readonly formattedTimeSpent = computed(() => formatDuration(this.result().timeSpentSeconds));
 
   readonly userAnswersMap = computed(() => {
     const map = new Map<number, string>();

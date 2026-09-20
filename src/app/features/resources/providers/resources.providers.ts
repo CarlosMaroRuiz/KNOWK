@@ -1,7 +1,7 @@
 import { Provider } from '@angular/core';
-import { RESOURCES_REPOSITORY_TOKEN } from '../domain/repository/resources.repository';
 import { ResourcesHttpRepository } from '../data/repositories/resources-http.repository';
-import { GetResourcesUseCase } from '../domain/usecases/get-resources.usecase';
+import { RESOURCES_REPOSITORY_TOKEN } from '../domain/repository/resources.repository';
+import { GetResourcesUseCase } from '../domain/usecases/resources.use-case';
 
 export function provideResources(): Provider[] {
   return [

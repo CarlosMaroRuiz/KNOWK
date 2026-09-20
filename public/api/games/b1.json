@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ooo-b1-1",
+    "gameId": "odd-one-out",
+    "level": "B1",
+    "title": "Conectores y Clases de Palabras",
+    "questions": [
+      {
+        "id": "o-b1-1",
+        "prompt": "¿Cuál de estos conectores NO expresa contraste?",
+        "criterion": "category",
+        "options": ["however", "nevertheless", "furthermore", "although"],
+        "impostor": "furthermore",
+        "explanation": "\"Furthermore\" anade informacion (adicion). \"However\", \"nevertheless\" y \"although\" expresan contraste."
+      },
+      {
+        "id": "o-b1-2",
+        "prompt": "¿Cuál de estos conectores NO expresa adicion?",
+        "criterion": "category",
+        "options": ["moreover", "in addition", "despite", "furthermore"],
+        "impostor": "despite",
+        "explanation": "\"Despite\" expresa contraste (a pesar de). Los demas anaden informacion."
+      },
+      {
+        "id": "o-b1-3",
+        "prompt": "¿Cuál de estas palabras NO es un sustantivo?",
+        "criterion": "partOfSpeech",
+        "options": ["efficiency", "improvement", "considerable", "analysis"],
+        "impostor": "considerable",
+        "explanation": "\"Considerable\" es un adjetivo. \"Efficiency\", \"improvement\" y \"analysis\" son sustantivos."
+      },
+      {
+        "id": "o-b1-4",
+        "prompt": "¿Cuál de estas palabras NO termina con un sufijo de sustantivo?",
+        "criterion": "category",
+        "options": ["reduction", "agreement", "importance", "carefully"],
+        "impostor": "carefully",
+        "explanation": "\"Carefully\" termina en -ly, que forma adverbios. Los sufijos -tion, -ment y -ance forman sustantivos."
+      },
+      {
+        "id": "o-b1-5",
+        "prompt": "¿Cuál de estos conectores NO expresa causa o efecto?",
+        "criterion": "category",
+        "options": ["therefore", "consequently", "meanwhile", "as a result"],
+        "impostor": "meanwhile",
+        "explanation": "\"Meanwhile\" indica tiempo simultaneo. \"Therefore\", \"consequently\" y \"as a result\" expresan consecuencia."
+      },
+      {
+        "id": "o-b1-6",
+        "prompt": "¿Cuál de estas palabras NO es sinonimo de \"importante\"?",
+        "criterion": "synonym",
+        "options": ["significant", "notable", "substantial", "scarce"],
+        "impostor": "scarce",
+        "explanation": "\"Scarce\" significa escaso. Los demas indican relevancia o magnitud."
+      }
+    ]
+  }
+]

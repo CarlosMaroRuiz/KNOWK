@@ -4,7 +4,7 @@
 
     <div class="nav-left">
       <a
-        routerLink="/"
+        [routerLink]="routes.INDEX.path"
         appIconButton
         variant="secondary"
         size="sm"
@@ -33,11 +33,11 @@
           aria-hidden="true"
         ></lucide-icon>
       </button>
-      <a routerLink="/resources" appButton variant="secondary" size="sm">
+      <a [routerLink]="routes.RESOURCES.path" appButton variant="secondary" size="sm">
         <lucide-icon [img]="BookOpen" [size]="16" aria-hidden="true"></lucide-icon>
         <span>Recursos</span>
       </a>
-      <a routerLink="/" appButton variant="primary" size="sm">KNOWK</a>
+      <a [routerLink]="routes.INDEX.path" appButton variant="primary" size="sm">KNOWK</a>
     </div>
   </header>
 

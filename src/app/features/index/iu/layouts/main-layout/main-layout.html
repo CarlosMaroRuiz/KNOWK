@@ -1,0 +1,16 @@
+<nav class="index-navbar">
+  <div class="index-navbar__brand">
+    <span class="brand-name">KNOWK</span>
+  </div>
+
+  <button 
+    class="theme-toggle-btn" 
+    (click)="toggleTheme()" 
+    [attr.aria-label]="isDarkMode() ? 'Activar modo claro' : 'Activar modo oscuro'">
+    <lucide-icon [img]="isDarkMode() ? Sun : Moon" [size]="20" [strokeWidth]="2.5"></lucide-icon>
+  </button>
+</nav>
+
+<section class="menu-container">
+    <ng-content/>
+</section>

@@ -1,7 +1,7 @@
-import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Level, LEVELS } from '@common/models';
 import { map, Observable, of } from 'rxjs';
-import { Level } from '@common/models';
 import { ContentModuleType, ManagedItem } from '../../domain/models';
 import { ContentManagerRepository } from '../../domain/repository/content-manager.repository';
 
@@ -32,7 +32,7 @@ export class ContentManagerLocalRepository implements ContentManagerRepository {
   }
 
   deleteItem(moduleType: ContentModuleType, itemId: string | number): Observable<boolean> {
-    const levels: Level[] = ['A2', 'B1', 'B2'];
+    const levels: readonly Level[] = LEVELS;
     for (const lvl of levels) {
       const custom = this.getCustomItemsFromStorage(moduleType, lvl);
       const filtered = custom.filter((i) => i.id !== itemId);

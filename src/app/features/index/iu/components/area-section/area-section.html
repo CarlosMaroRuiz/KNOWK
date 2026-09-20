@@ -1,0 +1,19 @@
+<div class="section-heading">
+  <div class="section-heading__row">
+    <h2 [id]="'area-title-' + id()" class="section-title">
+      @if (icon()) {
+        <lucide-icon [img]="icon()" [size]="22" [strokeWidth]="2.5" aria-hidden="true" />
+      }
+      {{ name() }}
+    </h2>
+    <span class="section-count">{{ itemCount() }} módulos</span>
+  </div>
+
+  @if (description()) {
+    <p class="section-description">{{ description() }}</p>
+  }
+</div>
+
+<div class="catalog-grid">
+  <ng-content />
+</div>

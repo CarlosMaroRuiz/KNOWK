@@ -3,7 +3,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
 import { ButtonDirective } from '@common/components/button';
 import { ErrorStateComponent } from '@common/components/error-state';
 import { SkeletonComponent } from '@common/components/skeleton';
-import { Level } from '@common/models';
+import { Level, LEVELS } from '@common/models';
 import { GrammarTopicCardComponent } from './components/grammar-topic-card/grammar-topic-card';
 import { GrammarTopic } from './domain/models';
 import { GrammarReviewUseCase } from './domain/usecases/grammar-review.use-case';
@@ -25,7 +25,7 @@ import { provideGrammarReview } from './providers/grammar-review.providers';
 export class GrammarReview {
   private readonly useCase = inject(GrammarReviewUseCase);
 
-  protected readonly levels: readonly Level[] = ['A2', 'B1', 'B2'];
+  protected readonly levels: readonly Level[] = LEVELS;
   protected readonly selectLevel = signal<Level>('A2');
   protected readonly viewMode = signal<'catalog' | 'lesson'>('catalog');
   protected readonly selectedTopicId = signal<string | null>(null);

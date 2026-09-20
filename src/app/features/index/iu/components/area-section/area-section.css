@@ -1,0 +1,141 @@
+:host {
+  display: block;
+  margin-bottom: clamp(var(--space-6), 5vw, 4rem);
+  animation-name: neo-slide-up;
+  animation-duration: 0.38s;
+  animation-delay: 0.5s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+}
+
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.section-heading__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  min-width: 0;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  font-size: var(--fs-xl);
+  line-height: 1.2;
+}
+
+/* Tile de color: toma el acento de la sección (data-accent) y cae al celeste de marca.
+   Texto/icono siempre oscuro sobre acento (--color-on-accent). */
+.section-title lucide-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  background-color: var(--accent, var(--color-primary));
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: 2px 2px 0 var(--accent-shadow, var(--color-shadow));
+  color: var(--color-on-accent);
+}
+
+/* Contador como chip: neutro, con borde de tinta (crema de noche) */
+.section-count {
+  padding: 2px var(--space-3);
+  background-color: var(--chip-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-ink);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Antes era un kicker en mayúsculas sobre el título; ahora es una frase de apoyo bajo él */
+.section-description {
+  margin: 0;
+  max-width: 65ch;
+  font-size: var(--fs-sm);
+  color: var(--color-ink-muted);
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-5);
+}
+
+.catalog-grid ::ng-deep > catalog-card {
+  animation-name: neo-card-in;
+  animation-duration: 0.38s;
+  animation-delay: 0.56s;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation-fill-mode: both;
+}
+
+.catalog-grid ::ng-deep > catalog-card:nth-child(2) { animation-delay: 0.64s; }
+.catalog-grid ::ng-deep > catalog-card:nth-child(3) { animation-delay: 0.72s; }
+.catalog-grid ::ng-deep > catalog-card:nth-child(4) { animation-delay: 0.80s; }
+.catalog-grid ::ng-deep > catalog-card:nth-child(5) { animation-delay: 0.88s; }
+.catalog-grid ::ng-deep > catalog-card:nth-child(6) { animation-delay: 0.96s; }
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: var(--space-5);
+  background-color: var(--color-surface-alt);
+  border: 2px dashed var(--color-ink-muted);
+  color: var(--color-ink-muted);
+  text-align: center;
+}
+
+@keyframes neo-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes neo-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px) rotate(-1.5deg) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  :host,
+  .catalog-grid ::ng-deep > catalog-card {
+    animation-name: neo-page-enter;
+    animation-duration: 0.2s;
+    animation-delay: 0s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+  }
+}

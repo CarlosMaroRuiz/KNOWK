@@ -36,6 +36,10 @@ export const APP_ROUTES = {
     path: 'resources',
     title: 'Centro de Recursos y Guías',
   },
+  GAMES: {
+    path: 'game-arena',
+    title: 'Game Arena',
+  },
   CONTENT_MANAGER: {
     path: 'content-manager',
     title: 'Content Manager',

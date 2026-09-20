@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ooo-b2-1",
+    "gameId": "odd-one-out",
+    "level": "B2",
+    "title": "Estructuras Avanzadas y Matices",
+    "questions": [
+      {
+        "id": "o-b2-1",
+        "prompt": "¿Cuál de estas palabras NO es un adverbio?",
+        "criterion": "partOfSpeech",
+        "options": ["inevitably", "substantially", "meticulous", "consequently"],
+        "impostor": "meticulous",
+        "explanation": "\"Meticulous\" es un adjetivo (meticuloso). Los demas terminan en -ly y funcionan como adverbios."
+      },
+      {
+        "id": "o-b2-2",
+        "prompt": "¿Cuál de estas palabras NO es sinonimo de \"reducir\"?",
+        "criterion": "synonym",
+        "options": ["diminish", "mitigate", "curtail", "augment"],
+        "impostor": "augment",
+        "explanation": "\"Augment\" significa aumentar, lo opuesto a reducir. Los demas implican disminucion."
+      },
+      {
+        "id": "o-b2-3",
+        "prompt": "¿Cuál de estos conectores NO es formal o academico?",
+        "criterion": "category",
+        "options": ["notwithstanding", "henceforth", "kind of", "thereby"],
+        "impostor": "kind of",
+        "explanation": "\"Kind of\" es coloquial. Los demas son propios del registro academico formal."
+      },
+      {
+        "id": "o-b2-4",
+        "prompt": "¿Cuál de estas palabras NO es un adjetivo?",
+        "criterion": "partOfSpeech",
+        "options": ["ambiguous", "coherent", "compel", "plausible"],
+        "impostor": "compel",
+        "explanation": "\"Compel\" es un verbo (obligar). \"Ambiguous\", \"coherent\" y \"plausible\" son adjetivos."
+      },
+      {
+        "id": "o-b2-5",
+        "prompt": "¿Cuál de estas palabras NO expresa duda o incertidumbre?",
+        "criterion": "category",
+        "options": ["presumably", "allegedly", "ostensibly", "undoubtedly"],
+        "impostor": "undoubtedly",
+        "explanation": "\"Undoubtedly\" expresa certeza total. Los demas indican suposicion o duda."
+      },
+      {
+        "id": "o-b2-6",
+        "prompt": "¿Cuál de estas palabras NO es un sustantivo abstracto?",
+        "criterion": "category",
+        "options": ["resilience", "paradigm", "meticulously", "coherence"],
+        "impostor": "meticulously",
+        "explanation": "\"Meticulously\" es un adverbio. Los demas son conceptos abstractos."
+      }
+    ]
+  }
+]

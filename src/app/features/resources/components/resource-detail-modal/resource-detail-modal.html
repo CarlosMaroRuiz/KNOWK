@@ -32,7 +32,7 @@
           size="sm"
           (click)="setTab('sandbox')"
         >
-          <span>Constructor en Vivo 🛠️</span>
+          <span>Constructor en Vivo</span>
         </button>
 
         <button
@@ -109,7 +109,7 @@
         @if (item().examples.length > 0) {
           <section class="section-box examples-section">
             <div class="section-title-row">
-              <h3>Ejemplos Interactivos (Con Pronunciación 🔊)</h3>
+              <h3>Ejemplos Interactivos (Con Pronunciacion)</h3>
               <span class="hint-text">Escucha la pronunciación en inglés nativo o revela el análisis del error</span>
             </div>
 
@@ -144,7 +144,7 @@
                   </button>
 
                   @if (expandedExample() === $index) {
-                    <p class="example-note">💡 {{ example.explanation }}</p>
+                    <p class="example-note">{{ example.explanation }}</p>
                   }
                 </div>
               </div>

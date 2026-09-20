@@ -1,0 +1,47 @@
+.game-arena {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-ink);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.game-arena__eyebrow {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.game-arena__title {
+  margin: 0;
+  font-size: var(--fs-xl);
+}
+
+.game-arena__subtitle {
+  margin: var(--space-2) 0 0;
+  color: var(--color-ink-muted);
+  font-size: var(--fs-sm);
+}
+
+.game-arena__levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.game-arena__levels .is-active {
+  background-color: var(--color-primary-soft);
+}
+
+.game-arena__empty {
+  padding: var(--space-5);
+  border: 2px dashed var(--color-ink-muted);
+  color: var(--color-ink-muted);
+  text-align: center;
+}
