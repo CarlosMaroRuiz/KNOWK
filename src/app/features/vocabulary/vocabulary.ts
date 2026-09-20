@@ -2,7 +2,7 @@ import { Component, computed, effect, inject, signal } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { ErrorStateComponent } from '@common/components/error-state';
 import { SkeletonComponent } from '@common/components/skeleton';
-import { Level } from '@common/models';
+import { Level, LEVELS } from '@common/models';
 import { VocabularyCardComponent } from './components/vocabulary-card/vocabulary-card';
 import { VocabularyWord } from './domain/models';
 import { VocabularyUseCase } from './domain/usecases/vocabulary.use-case';
@@ -23,7 +23,7 @@ import { provideVocabulary } from './providers/vocabulary.providers';
 export class Vocabulary {
   private readonly useCase = inject(VocabularyUseCase);
 
-  protected readonly levels: readonly Level[] = ['A2', 'B1', 'B2'];
+  protected readonly levels: readonly Level[] = LEVELS;
   protected readonly selectLevel = signal<Level>('A2');
 
   protected readonly wordsResource = rxResource<VocabularyWord[], Level>({

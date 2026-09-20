@@ -1,5 +1,6 @@
 import { Component, computed, input, output } from '@angular/core';
 import { ButtonDirective } from '@common/components/button';
+import { percentage } from '@core/utils/scoring';
 
 @Component({
   selector: 'app-reading-result',
@@ -15,7 +16,7 @@ export class ReadingResult {
   readonly backToCatalog = output<void>();
 
   readonly percentage = computed(() =>
-    Math.round((this.correctAnswers() / this.totalQuestions()) * 100),
+    percentage(this.correctAnswers(), this.totalQuestions()),
   );
 
   readonly isPerfect = computed(() => this.correctAnswers() === this.totalQuestions());

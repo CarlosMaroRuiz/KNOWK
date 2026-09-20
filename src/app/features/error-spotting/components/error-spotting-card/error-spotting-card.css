@@ -64,7 +64,7 @@
 /* Seleccionado = "presionado": se hunde hasta su propia sombra */
 .option-btn.selected {
   background-color: var(--color-primary);
-  color: #ffffff;
+  color: var(--button-on-accent);
   transform: translate(3px, 3px);
   box-shadow: 0 0 0 var(--color-ink);
 }
@@ -77,7 +77,7 @@
 
 .option-btn.selected .option-label {
   opacity: 1;
-  color: #ffffff;
+  color: var(--button-on-accent);
 }
 
 .feedback-box {
@@ -223,4 +223,4 @@
   .explanation {
     font-size: var(--fs-sm);
   }
-}
+}

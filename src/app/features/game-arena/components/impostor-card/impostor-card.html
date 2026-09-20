@@ -1,0 +1,29 @@
+<article class="impostor">
+  <h2 class="impostor__prompt">{{ question().prompt }}</h2>
+
+  <ul class="impostor__options" role="list">
+    @for (option of question().options; track $index) {
+      <li>
+        <button
+          type="button"
+          class="impostor__option"
+          [class]="optionClass(option)"
+          [disabled]="isRevealed()"
+          (click)="onSelect(option)"
+        >
+          <span class="impostor__word">{{ option }}</span>
+
+          @if (isRevealed() && option === question().impostor) {
+            <lucide-icon [img]="CircleCheck" [size]="20" [strokeWidth]="2.5" aria-hidden="true" />
+          } @else if (isRevealed()) {
+            <lucide-icon [img]="CircleX" [size]="20" [strokeWidth]="2.5" aria-hidden="true" />
+          }
+        </button>
+      </li>
+    }
+  </ul>
+
+  @if (isRevealed()) {
+    <p class="impostor__explanation" role="status">{{ question().explanation }}</p>
+  }
+</article>

@@ -2,6 +2,7 @@
    para eliminar la cadena de @import bloqueante del render path critico. */
 
 :root {
+  /* ── Superficies y texto ─────────────────────────────────────── */
   --color-bg: #fdfaf5;
   --color-surface: #ffffff;
   --color-surface-alt: #f5f1e8;
@@ -9,10 +10,15 @@
   --color-ink-muted: #55524c;
   --color-border: #0b0704;
 
-  --color-primary: #8267f6;
-  --color-primary-hover: #6b4ef0;
-  --color-primary-soft: #ece7ff;
+  /* ── Marca: celeste (hero, botones primarios) ────────────────── */
+  --color-primary: #24c0d1;
+  --color-primary-hover: #1a9fb0;
+  --color-primary-soft: #d3f3f7;
   --color-primary-border: #0b0704;
+
+  /* ── Acentos: identidad de cada módulo / sección ─────────────── */
+  --color-violet: #8b6cff;
+  --color-violet-soft: #ece7ff;
 
   --color-yellow: #fed01a;
   --color-yellow-soft: #fff3c4;
@@ -26,22 +32,37 @@
   --color-green: #3ecf4a;
   --color-green-soft: #e1f9e3;
 
-  --color-success: #1f8a3b;
+  /* ── Semánticos ──────────────────────────────────────────────── */
+  /* Oscurecidos levemente: antes daban 3.97:1 y 4.11:1 sobre su -soft (AA pide 4.5) */
+  --color-success: #1a7a35;
   --color-success-soft: #e1f9e3;
   --color-success-border: #0b0704;
-  --color-error: #d81e3f;
+  --color-error: #c2143a;
   --color-error-soft: #ffe1e6;
   --color-error-border: #0b0704;
 
-  --color-hero: var(--color-coral-soft);
+  /* ── Roles nuevos ────────────────────────────────────────────── */
+  /* Link como texto: el celeste de marca (#24c0d1) da 2.2:1 sobre blanco, no sirve para texto */
+  --color-link: #0b6470;
+  /* Texto/iconos sobre cualquier fondo de acento sólido (celeste, violeta, amarillo, rosa…) */
+  --color-on-accent: #0b0704;
+  /* Hero */
+  --color-hero: var(--color-primary);
+  --color-hero-ink: var(--color-ink);
+  --color-hero-ink-muted: #0b3a41; /* 5.6:1 sobre el celeste; el gris neutro daba 3.5:1 */
+  /* Chips de nivel (A2 / B1 / B2): blancos para leerse sobre cualquier tinte de card */
+  --chip-bg: var(--color-surface);
 
   --state-hover-primary: var(--color-primary-hover);
   --state-hover-surface: var(--color-primary-soft);
   --state-active-transform: translate(2px, 2px);
-  --state-focus: var(--color-primary);
+  /* El celeste sobre el fondo crema casi no se ve como outline */
+  --state-focus: var(--color-violet);
+  /* El violeta no se distingue sobre el hero celeste (1.7:1): ahí el foco va en tinta */
+  --state-focus-inverse: var(--color-ink);
   --state-disabled-opacity: 0.5;
   --state-disabled-cursor: not-allowed;
-  --button-on-accent: var(--color-ink);
+  --button-on-accent: var(--color-on-accent);
   --button-loading-size: 1em;
 
   --font-display: 'Poppins', sans-serif;
@@ -69,9 +90,14 @@
 
   --border-width: 3px;
 
-  --shadow-card: 5px 5px 0 var(--color-ink);
-  --shadow-card-hover: 8px 8px 0 var(--color-ink);
-  --shadow-card-active: 2px 2px 0 var(--color-ink);
+  --color-shadow: var(--color-ink);
+  --shadow-card: 5px 5px 0 var(--color-shadow);
+  --shadow-card-hover: 8px 8px 0 var(--color-shadow);
+  --shadow-card-active: 2px 2px 0 var(--color-shadow);
+  /* Offsets sueltos: permiten cambiar solo el color de la sombra (ver [data-accent]) */
+  --shadow-offset: 5px 5px 0;
+  --shadow-offset-hover: 8px 8px 0;
+  --shadow-offset-active: 2px 2px 0;
 
   --neo-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --neo-snap:   cubic-bezier(0.16, 1, 0.3, 1);
@@ -83,37 +109,85 @@
 }
 
 :root[data-theme="dark"] {
-  --color-bg: #09090b;
-  --color-surface: #18181b;
-  --color-surface-alt: #27272a;
+  color-scheme: dark;
 
-  --color-ink: #ffffff;
-  --color-ink-muted: #a1a1aa;
-  --color-border: #ffffff;
+  /* Modo noche: fondo azul-teal profundo; las superficies suben de luminancia por escalones */
+  --color-bg: #031f2b;
+  --color-surface: #0e3341;
+  --color-surface-alt: #072a36;
 
-  --color-primary: #a64aff;
-  --color-primary-hover: #c480ff;
-  --color-primary-soft: #2b114d;
+  /* Crema apagado: evita el resplandor del blanco puro (14:1 sobre el fondo, 11:1 en cards) */
+  --color-ink: #efe9dc;
+  --color-ink-muted: #a3bcc4; /* 6.7:1 sobre cards */
 
-  --color-yellow: #ffe600;
-  --color-yellow-soft: #332e00;
+  /* Antes borde y sombra eran #03121a: 1.1:1 contra el fondo, el neobrutalismo desaparecía.
+     De noche el borde pasa a ser la tinta crema (espejo del tema claro: borde = tinta)
+     y la sombra dura toma el color de acento. */
+  --color-border: #d9d3c4;
+  --color-shadow: #3cc7d7;
 
-  --color-pink: #ff3385;
-  --color-pink-soft: #330a1a;
+  /* Celeste brillante SOLO en superficies pequeñas (botones, chips activos) con texto oscuro,
+     igual que en el tema claro. Antes el primario era #015058 y el hover #4fd8e7 con texto
+     claro encima: 1.3:1, ilegible. */
+  --color-primary: #3cc7d7;
+  --color-primary-hover: #7ce0ea;
+  --color-primary-soft: #144a58;
+  --color-primary-border: var(--color-border);
 
-  --color-coral: #ff6a2e;
-  --color-coral-soft: #3a1707;
+  /* Acentos: un punto más claros que antes para que funcionen como bloque sólido
+     con texto oscuro (≥6.9:1), sin llegar a quemar */
+  --color-violet: #a996ff;
+  --color-violet-soft: #28285a;
 
-  --color-green: #17f748;
-  --color-green-soft: #05330f;
+  --color-yellow: #f0cd4a;
+  --color-yellow-soft: #35331a;
 
-  --color-success: #17f748;
-  --color-success-soft: #05330f;
+  --color-pink: #f27aa3;
+  --color-pink-soft: #3d1e31;
 
-  --color-error: #ff244c;
-  --color-error-soft: #330711;
+  --color-coral: #f58462;
+  --color-coral-soft: #3d2820;
 
-  --color-hero: var(--color-coral-soft);
+  --color-green: #55d475;
+  --color-green-soft: #17402f;
+
+  --color-success: #56d68a;
+  --color-success-soft: #17402f;
+  --color-success-border: var(--color-border);
+
+  --color-error: #ff8a9c;
+  --color-error-soft: #3f1c28;
+  --color-error-border: var(--color-border);
+
+  --color-link: #6fdde9;
+  --color-on-accent: #031a22;
+  --color-hero: #0e5c69;
+  --color-hero-ink: var(--color-ink);
+  --color-hero-ink-muted: #c2dde1;
+  --chip-bg: var(--color-surface-alt);
+
+  --state-focus: var(--color-violet);
+  --state-focus-inverse: var(--color-ink);
+}
+
+:root[data-theme="dark"] img {
+  filter: brightness(0.92) saturate(0.95);
+}
+[data-accent="cyan"]   { --accent: var(--color-primary); --accent-soft: var(--color-primary-soft); }
+[data-accent="violet"] { --accent: var(--color-violet);  --accent-soft: var(--color-violet-soft); }
+[data-accent="yellow"] { --accent: var(--color-yellow);  --accent-soft: var(--color-yellow-soft); }
+[data-accent="pink"]   { --accent: var(--color-pink);    --accent-soft: var(--color-pink-soft); }
+[data-accent="coral"]  { --accent: var(--color-coral);   --accent-soft: var(--color-coral-soft); }
+[data-accent="green"]  { --accent: var(--color-green);   --accent-soft: var(--color-green-soft); }
+
+/* Claro: card tintada + sombra negra.  Oscuro: card en superficie + sombra del color del módulo */
+[data-accent] {
+  --accent-fill: var(--accent-soft);
+  --accent-shadow: var(--color-shadow);
+}
+:root[data-theme="dark"] [data-accent] {
+  --accent-fill: var(--color-surface);
+  --accent-shadow: var(--accent);
 }
 
 *,
@@ -154,7 +228,7 @@ h2 {
 
 p {
   margin: 0;
-  color: var(--color-ink-muted);
+  color: var(--color-ink);
 }
 
 button {
@@ -166,4 +240,9 @@ button {
 :focus-visible {
   outline: var(--border-width) solid var(--state-focus);
   outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-yellow);
+  color: var(--color-on-accent);
 }

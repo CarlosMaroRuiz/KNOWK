@@ -1,0 +1,31 @@
+<article class="game-result">
+  <lucide-icon class="game-result__icon" [img]="Trophy" [size]="40" [strokeWidth]="2.5" aria-hidden="true" />
+
+  <h2 class="game-result__title">Ronda completada</h2>
+
+  @if (isNewRecord()) {
+    <p class="game-result__record" role="status">Nuevo record personal</p>
+  }
+
+  <div class="game-result__stats">
+    <div class="game-result__stat">
+      <span class="game-result__value">{{ score() }}</span>
+      <span class="game-result__label">Puntos</span>
+    </div>
+
+    <div class="game-result__stat">
+      <span class="game-result__value">{{ maxStreak() }}</span>
+      <span class="game-result__label">Mejor racha</span>
+    </div>
+
+    <div class="game-result__stat">
+      <span class="game-result__value">{{ bestScore() }}</span>
+      <span class="game-result__label">Record</span>
+    </div>
+  </div>
+
+  <button appButton variant="primary" size="md" type="button" (click)="onPlayAgain()">
+    <lucide-icon [img]="RotateCcw" [size]="18" aria-hidden="true" />
+    Jugar otra vez
+  </button>
+</article>

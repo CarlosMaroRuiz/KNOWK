@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ooo-a1-1",
+    "gameId": "odd-one-out",
+    "level": "A1",
+    "title": "Palabras Basicas",
+    "questions": [
+      {
+        "id": "o-a1-1",
+        "prompt": "¿Cuál de estas palabras NO es una acción?",
+        "criterion": "partOfSpeech",
+        "options": ["run", "eat", "blue", "sleep"],
+        "impostor": "blue",
+        "explanation": "\"Blue\" es un color (adjetivo), no una accion. \"Run\", \"eat\" y \"sleep\" son verbos."
+      },
+      {
+        "id": "o-a1-2",
+        "prompt": "¿Cuál de estas palabras NO es un color?",
+        "criterion": "category",
+        "options": ["red", "green", "water", "yellow"],
+        "impostor": "water",
+        "explanation": "\"Water\" es una sustancia, no un color. \"Red\", \"green\" y \"yellow\" son colores."
+      },
+      {
+        "id": "o-a1-3",
+        "prompt": "¿Cuál de estas palabras NO es un animal?",
+        "criterion": "category",
+        "options": ["dog", "cat", "chair", "bird"],
+        "impostor": "chair",
+        "explanation": "\"Chair\" es un objeto (mueble), no un animal. \"Dog\", \"cat\" y \"bird\" son animales."
+      },
+      {
+        "id": "o-a1-4",
+        "prompt": "¿Cuál de estas palabras NO es una cosa?",
+        "criterion": "partOfSpeech",
+        "options": ["book", "house", "slowly", "table"],
+        "impostor": "slowly",
+        "explanation": "\"Slowly\" es un adverbio (indica como se hace algo). \"Book\", \"house\" y \"table\" son sustantivos."
+      }
+    ]
+  }
+]

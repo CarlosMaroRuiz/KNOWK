@@ -9,9 +9,9 @@ export class PageTitleStrategy extends TitleStrategy {
   override updateTitle(snapshot: RouterStateSnapshot): void {
     const title = this.buildTitle(snapshot);
     if (title) {
-      this.title.setTitle(`TOEFL Exam — ${title}`);
+      this.title.setTitle(`KNOWK — ${title}`);
     } else {
-      this.title.setTitle('TOEFL ITP Exam Practice — Preparation System');
+      this.title.setTitle('KNOWK — Aprende inglés por niveles');
     }
   }
 }

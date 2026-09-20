@@ -5,6 +5,15 @@
     </span>
     <span class="catalog-title">{{ item().title }}</span>
     <span class="catalog-description">{{ item().description }}</span>
+
+    @if (item().levels?.length) {
+      <ul class="catalog-levels" [attr.aria-label]="'Niveles disponibles de ' + item().title">
+        @for (level of item().levels; track level) {
+          <li class="catalog-level">{{ level }}</li>
+        }
+      </ul>
+    }
+
     <span class="catalog-action">
       Comenzar práctica
       <lucide-icon [img]="ArrowRight" [size]="18" aria-hidden="true" />
@@ -18,5 +27,13 @@
     </span>
     <span class="catalog-title">{{ item().title }}</span>
     <span class="catalog-description">{{ item().description }}</span>
+
+    @if (item().levels?.length) {
+      <ul class="catalog-levels" [attr.aria-label]="'Niveles previstos de ' + item().title">
+        @for (level of item().levels; track level) {
+          <li class="catalog-level">{{ level }}</li>
+        }
+      </ul>
+    }
   </div>
 }

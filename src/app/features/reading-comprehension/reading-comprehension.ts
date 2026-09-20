@@ -3,7 +3,9 @@ import { rxResource } from '@angular/core/rxjs-interop';
 import { ButtonDirective } from '@common/components/button';
 import { ErrorStateComponent } from '@common/components/error-state';
 import { SkeletonComponent } from '@common/components/skeleton';
-import { Level } from '@common/models';
+import { Level, LEVELS } from '@common/models';
+import { nextIndex, prevIndex } from '@core/utils/pagination';
+import { countCorrect } from '@core/utils/scoring';
 import { BookCard } from './components/book-card/book-card';
 import { PassageReader } from './components/passage-reader/passage-reader';
 import { ReadingQuestionCard } from './components/reading-question-card/reading-question-card';
@@ -31,7 +33,7 @@ import { provideReadingComprehension } from './providers/reading-comprehension.p
 export class ReadingComprehension {
   private readonly useCase = inject(ReadingComprehensionUseCase);
 
-  protected readonly levels: readonly Level[] = ['A2', 'B1', 'B2'];
+  protected readonly levels: readonly Level[] = LEVELS;
   protected readonly selectLevel = signal<Level>('A2');
   protected readonly viewMode = signal<'catalog' | 'reading' | 'questions' | 'results'>('catalog');
   protected readonly selectedBookId = signal<string | null>(null);
@@ -53,8 +55,7 @@ export class ReadingComprehension {
 
   protected readonly correctAnswers = computed(() => {
     const questions = this.selectedBook()?.questions ?? [];
-    const answers = this.selectedAnswers();
-    return questions.filter((question) => answers[question.id] === question.correctLabel).length;
+    return countCorrect(questions, this.selectedAnswers());
   });
 
   protected readonly currentAnswer = computed(() => {
@@ -98,7 +99,7 @@ export class ReadingComprehension {
   }
 
   protected previousQuestion(): void {
-    this.currentQuestionIndex.update((index) => Math.max(0, index - 1));
+    this.currentQuestionIndex.update((index) => prevIndex(index));
   }
 
   protected nextQuestion(): void {
@@ -107,7 +108,7 @@ export class ReadingComprehension {
       this.viewMode.set('results');
       return;
     }
-    this.currentQuestionIndex.update((index) => Math.min(questionCount - 1, index + 1));
+    this.currentQuestionIndex.update((index) => nextIndex(index, questionCount));
   }
 
   protected restartQuestions(): void {

@@ -1,0 +1,21 @@
+<div class="scoreboard">
+  <div class="scoreboard__item">
+    <lucide-icon [img]="Target" [size]="18" [strokeWidth]="2.5" aria-hidden="true" />
+    <span class="scoreboard__value">{{ score() }}</span>
+    <span class="scoreboard__label">Puntos</span>
+  </div>
+
+  <div class="scoreboard__item">
+    <lucide-icon [img]="Flame" [size]="18" [strokeWidth]="2.5" aria-hidden="true" />
+    <span class="scoreboard__value">{{ streak() }}</span>
+    <span class="scoreboard__label">Racha</span>
+  </div>
+
+  <div class="scoreboard__item">
+    <lucide-icon [img]="Award" [size]="18" [strokeWidth]="2.5" aria-hidden="true" />
+    <span class="scoreboard__value">{{ bestStreak() }}</span>
+    <span class="scoreboard__label">Mejor racha</span>
+  </div>
+
+  <div class="scoreboard__progress">{{ progress() }}</div>
+</div>

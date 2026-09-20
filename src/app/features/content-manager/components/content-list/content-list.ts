@@ -1,6 +1,6 @@
 import { Component, input, output, signal } from '@angular/core';
-import { Level } from '@common/models';
 import { ButtonDirective } from '@common/components/button/button';
+import { Level, LEVELS } from '@common/models';
 import { ContentModuleType, ManagedItem } from '../../domain/models';
 
 @Component({
@@ -19,7 +19,7 @@ export class ContentListComponent {
   readonly exportJson = output<void>();
   readonly deleteItem = output<string | number>();
 
-  readonly levels: Level[] = ['A2', 'B1', 'B2'];
+  readonly levels: readonly Level[] = LEVELS;
   readonly selectedLevel = signal<Level>('B1');
 
   selectLevel(lvl: Level): void {

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ooo-a2-1",
+    "gameId": "odd-one-out",
+    "level": "A2",
+    "title": "Clases de Palabras y Categorias",
+    "questions": [
+      {
+        "id": "o-a2-1",
+        "prompt": "¿Cuál de estas palabras NO es un verbo?",
+        "criterion": "partOfSpeech",
+        "options": ["acquire", "analyze", "accurate", "publish"],
+        "impostor": "accurate",
+        "explanation": "\"Accurate\" es un adjetivo (preciso, exacto). \"Acquire\", \"analyze\" y \"publish\" son verbos."
+      },
+      {
+        "id": "o-a2-2",
+        "prompt": "¿Cuál de estas palabras NO es un sustantivo?",
+        "criterion": "partOfSpeech",
+        "options": ["hypothesis", "research", "significant", "experiment"],
+        "impostor": "significant",
+        "explanation": "\"Significant\" es un adjetivo (importante, notable). \"Hypothesis\", \"research\" y \"experiment\" son sustantivos."
+      },
+      {
+        "id": "o-a2-3",
+        "prompt": "¿Cuál de estas palabras NO es un lugar?",
+        "criterion": "category",
+        "options": ["library", "laboratory", "measurement", "classroom"],
+        "impostor": "measurement",
+        "explanation": "\"Measurement\" es un concepto abstracto (una medicion), no un lugar fisico. Los demas son espacios donde se estudia o investiga."
+      },
+      {
+        "id": "o-a2-4",
+        "prompt": "¿Cuál de estas palabras NO es un adjetivo?",
+        "criterion": "partOfSpeech",
+        "options": ["accurate", "significant", "obtain", "complex"],
+        "impostor": "obtain",
+        "explanation": "\"Obtain\" es un verbo (obtener). \"Accurate\", \"significant\" y \"complex\" son adjetivos."
+      },
+      {
+        "id": "o-a2-5",
+        "prompt": "¿Cuál de estas palabras NO es sinonimo de \"importante\"?",
+        "criterion": "synonym",
+        "options": ["significant", "crucial", "tiny", "essential"],
+        "impostor": "tiny",
+        "explanation": "\"Tiny\" significa \"muy pequeno\", lo contrario de importante. Los demas son sinonimos de relevancia o necesidad."
+      },
+      {
+        "id": "o-a2-6",
+        "prompt": "¿Cuál de estas palabras NO es sinonimo de \"obtener\"?",
+        "criterion": "synonym",
+        "options": ["acquire", "obtain", "gain", "reduce"],
+        "impostor": "reduce",
+        "explanation": "\"Reduce\" significa disminuir, no obtener. \"Acquire\", \"obtain\" y \"gain\" son sinonimos."
+      }
+    ]
+  }
+]

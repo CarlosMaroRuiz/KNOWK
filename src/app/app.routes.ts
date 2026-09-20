@@ -67,13 +67,21 @@ export const routes: Routes = [
             (m) => m.Resources,
           ),
       },
+      {
+        path: APP_ROUTES.GAMES.path,
+        data: { title: APP_ROUTES.GAMES.title },
+        loadComponent: () =>
+          import('@features/game-arena/game-arena').then(
+            (m) => m.GameArena,
+          ),
+      },
     ],
   },
   // ── Admin area ────────────────────────────────────────────
   {
     path: APP_ROUTES.ADMIN.path,
     children: [
-      // /admin/login → login page (pública)
+      // /admin/login -> pagina de login (publica)
       {
         path: APP_ROUTES.ADMIN_LOGIN.path,
         data: { title: APP_ROUTES.ADMIN_LOGIN.title },
@@ -82,7 +90,7 @@ export const routes: Routes = [
             (m) => m.AdminLogin,
           ),
       },
-      // /admin/ y sus hijos → protegidos por authGuard
+      // /admin/ y sus hijos -> protegidos por authGuard
       {
         path: APP_ROUTES.ADMIN_INDEX.path,
         canActivate: [authGuard],
@@ -117,4 +125,4 @@ export const routes: Routes = [
     redirectTo: APP_ROUTES.INDEX.path,
   },
 ];
-
+

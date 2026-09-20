@@ -1,6 +1,6 @@
 import { Component, output, signal } from '@angular/core';
-import { Level } from '@common/models';
 import { ButtonDirective } from '@common/components/button/button';
+import { Level, LEVELS } from '@common/models';
 
 @Component({
   selector: 'app-exam-setup',
@@ -10,7 +10,7 @@ import { ButtonDirective } from '@common/components/button/button';
   styleUrl: './exam-setup.css',
 })
 export class ExamSetupComponent {
-  readonly levels: Level[] = ['A2', 'B1', 'B2'];
+  readonly levels: readonly Level[] = LEVELS;
   readonly selectedLevel = signal<Level>('B1');
   readonly startExam = output<{ level: Level }>();
 

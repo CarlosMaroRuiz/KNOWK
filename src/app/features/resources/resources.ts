@@ -1,10 +1,10 @@
-import { Component, ChangeDetectionStrategy, OnInit, inject, signal, computed } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, computed, inject, signal } from '@angular/core';
 import { ButtonDirective } from '@common/components/button';
-import { LucideAngularModule, BookOpenText, Search, Sparkles } from 'lucide-angular';
-import { GetResourcesUseCase } from './domain/usecases/get-resources.usecase';
-import { ResourceCategory, ResourceItem } from './domain/models/resource.model';
+import { BookOpenText, LucideAngularModule, Search, Sparkles } from 'lucide-angular';
 import { ResourceCardComponent } from './components/resource-card/resource-card';
 import { ResourceDetailModalComponent } from './components/resource-detail-modal/resource-detail-modal';
+import { ResourceCategory, ResourceItem } from './domain/models/resource.model';
+import { GetResourcesUseCase } from './domain/usecases/resources.use-case';
 import { provideResources } from './providers/resources.providers';
 
 @Component({
