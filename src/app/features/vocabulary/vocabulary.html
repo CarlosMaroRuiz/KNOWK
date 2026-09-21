@@ -1,32 +1,9 @@
-<div class="vocabulary-wrapper">
-  <!-- Header con selector de nivel -->
-  <header class="header-section">
-    <div class="title-area">
-      <h1>Vocabulary Builder</h1>
-      <p>Tarjetas de memoria de vocabulario academico para el TOEFL ITP.</p>
-    </div>
+<level-layout [levels]="levels" [(selectLevel)]="selectLevel" [subtitle]="subtitle" [title]="title">
 
-    <div class="level-selector">
-      <span class="level-label">Nivel:</span>
-      <div class="level-buttons">
-        @for (level of levels; track level) {
-          <button
-            type="button"
-            class="level-btn"
-            [class.is-active]="selectLevel() === level"
-            (click)="changeLevel(level)"
-          >
-            {{ level }}
-          </button>
-        }
-      </div>
-    </div>
-  </header>
-
-  <!-- Barra de Estadisticas de Progreso -->
   <div class="stats-bar">
     <div class="stat-item">
       <span class="stat-label">Total:</span>
+
       <span class="stat-value">{{ words().length }}</span>
     </div>
     <div class="stat-item stat-success">
@@ -39,34 +16,27 @@
     </div>
   </div>
 
-  <!-- Estado de Carga / Error / Grid de Tarjetas -->
+
   @if (wordsResource.isLoading()) {
-    <div class="skeleton-grid">
-      <app-skeleton shape="card" height="280px" />
-      <app-skeleton shape="card" height="280px" />
-      <app-skeleton shape="card" height="280px" />
-    </div>
+  <div class="skeleton-grid">
+    <app-skeleton shape="card" height="280px" />
+    <app-skeleton shape="card" height="280px" />
+    <app-skeleton shape="card" height="280px" />
+  </div>
   } @else if (wordsResource.error()) {
-    <app-error-state
-      title="Error al cargar el vocabulario"
-      message="No se pudieron obtener las palabras del nivel seleccionado."
-      (retry)="retryFetch()"
-    />
+  <app-error-state title="Error al cargar el vocabulario"
+    message="No se pudieron obtener las palabras del nivel seleccionado." (retry)="retryFetch()" />
   } @else if (words().length > 0) {
-    <div class="cards-grid">
-      @for (word of words(); track word.id) {
-        <app-vocabulary-card
-          [word]="word"
-          [isFlipped]="!!flippedCards()[word.id]"
-          [status]="wordStatus()[word.id]"
-          (toggleFlip)="toggleFlip(word.id)"
-          (markStatus)="setStatus(word.id, $event)"
-        />
-      }
-    </div>
+  <div class="cards-grid">
+    @for (word of words(); track word.id) {
+    <app-vocabulary-card [word]="word" [isFlipped]="!!flippedCards()[word.id]" [status]="wordStatus()[word.id]"
+      (toggleFlip)="toggleFlip(word.id)" (markStatus)="setStatus(word.id, $event)" />
+    }
+  </div>
   } @else {
-    <div class="empty-box">
-      <p>No hay palabras disponibles para este nivel.</p>
-    </div>
+  <div class="empty-box">
+    <p>No hay palabras disponibles para este nivel.</p>
+  </div>
   }
-</div>
+
+</level-layout>

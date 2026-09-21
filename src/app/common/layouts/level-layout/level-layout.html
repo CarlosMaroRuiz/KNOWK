@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <header class="header-section">
+    <div class="title-area">
+      <h1>{{title()}}</h1>
+      <p>{{subtitle()}}</p>
+    </div>
+
+    <div class="level-selector">
+      <span class="level-label">Nivel:</span>
+      <div class="level-buttons">
+        @for (level of levels(); track level) {
+          <button
+            type="button"
+            class="level-btn"
+            [class.is-active]="selectLevel() === level"
+            (click)="changeLevel(level)"
+          >
+            {{ level }}
+          </button>
+        }
+      </div>
+    </div>
+  </header>
+
+  <ng-content/>
+</div>
