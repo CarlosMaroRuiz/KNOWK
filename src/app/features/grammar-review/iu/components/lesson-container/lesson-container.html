@@ -1,0 +1,85 @@
+<div class="lesson-container">
+  <div class="lesson-nav">
+    <button appButton variant="secondary" size="sm" (click)="backToCatalog.emit()">
+  Volver a las Lecciones
+</button>
+  <article class="lesson-content">
+    <div class="lesson-header">
+      <span class="category-badge">{{ topic().category }}</span>
+      <h2>{{ topic().title }}</h2>
+      <p class="lesson-summary">{{ topic().summary }}</p>
+    </div>
+
+    <div class="formula-banner">
+      <span class="banner-title">Ecuacion / Regla Invariable</span>
+      <p class="banner-formula">{{ topic().ruleFormula }}</p>
+    </div>
+
+    <section class="points-section">
+      <h3>Puntos Clave a Recordar</h3>
+      <ul>
+        @for (point of topic().keyPoints; track point) {
+        <li>{{ point }}</li>
+        }
+      </ul>
+    </section>
+
+    <section class="examples-section">
+      <h3>Ejemplos Comparativos</h3>
+      <div class="examples-grid">
+        @for (ex of topic().examples; track ex.correct) {
+        <div class="example-card">
+          <div class="ex-line ex-correct">
+            <span class="ex-badge">Correcto</span>
+            <code>{{ ex.correct }}</code>
+          </div>
+          @if (ex.incorrect) {
+          <div class="ex-line ex-incorrect">
+            <span class="ex-badge">Incorrecto</span>
+            <code>{{ ex.incorrect }}</code>
+          </div>
+          }
+          <p class="ex-note">Nota: {{ ex.note }}</p>
+        </div>
+        }
+      </div>
+    </section>
+
+    <section class="exercises-section">
+      <h3>Mini-Ejercicio de Comprobacion</h3>
+      @for (ex of topic().exercises; track ex.id) {
+      <div class="exercise-box">
+        <p class="exercise-prompt">{{ ex.prompt }}</p>
+
+        <div class="exercise-options">
+          @for (opt of ex.options; track opt.label) {
+          <button type="button" class="opt-btn" [class.is-selected]="exerciseAnswers()[ex.id] === opt.label"
+            [class.is-correct]="
+                  exerciseAnswers()[ex.id] && opt.label === ex.correctLabel
+                " [class.is-wrong]="
+                  exerciseAnswers()[ex.id] === opt.label && opt.label !== ex.correctLabel
+                " [disabled]="!!exerciseAnswers()[ex.id]" (click)="selectExerciseOption(ex.id, opt.label)">
+            <span class="opt-label">{{ opt.label }}</span>
+            <span class="opt-text">{{ opt.text }}</span>
+          </button>
+          }
+        </div>
+
+        @if (exerciseAnswers()[ex.id]) {
+        <div class="exercise-feedback" [class.fb-correct]="exerciseAnswers()[ex.id] === ex.correctLabel"
+          [class.fb-wrong]="exerciseAnswers()[ex.id] !== ex.correctLabel">
+          <p class="fb-title">
+            {{
+            exerciseAnswers()[ex.id] === ex.correctLabel
+            ? 'Correcto'
+            : 'Incorrecto (Respuesta correcta: ' + ex.correctLabel + ')'
+            }}
+          </p>
+          <p class="fb-explanation">{{ ex.explanation }}</p>
+        </div>
+        }
+      </div>
+      }
+    </section>
+  </article>
+</div>

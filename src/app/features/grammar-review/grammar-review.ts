@@ -4,19 +4,22 @@ import { ButtonDirective } from '@common/components/button';
 import { ErrorStateComponent } from '@common/components/error-state';
 import { SkeletonComponent } from '@common/components/skeleton';
 import { Level, LEVELS } from '@common/models';
-import { GrammarTopicCardComponent } from './components/grammar-topic-card/grammar-topic-card';
+import { GrammarTopicCardComponent } from './iu/components/grammar-topic-card/grammar-topic-card';
+import { LessonContainer } from './iu/components/lesson-container/lesson-container';
 import { GrammarTopic } from './domain/models';
 import { GrammarReviewUseCase } from './domain/usecases/grammar-review.use-case';
 import { provideGrammarReview } from './providers/grammar-review.providers';
+import { LevelLayout } from '@common/layouts/level-layout/level-layout';
 
 @Component({
   selector: 'app-grammar-review',
   standalone: true,
   imports: [
-    ButtonDirective,
     GrammarTopicCardComponent,
     SkeletonComponent,
     ErrorStateComponent,
+    LevelLayout,
+    LessonContainer,
   ],
   templateUrl: './grammar-review.html',
   styleUrl: './grammar-review.css',
@@ -25,11 +28,13 @@ import { provideGrammarReview } from './providers/grammar-review.providers';
 export class GrammarReview {
   private readonly useCase = inject(GrammarReviewUseCase);
 
-  protected readonly levels: readonly Level[] = LEVELS;
-  protected readonly selectLevel = signal<Level>('A2');
   protected readonly viewMode = signal<'catalog' | 'lesson'>('catalog');
   protected readonly selectedTopicId = signal<string | null>(null);
-  protected readonly exerciseAnswers = signal<Record<number, string>>({});
+  protected readonly levels: Level[] = LEVELS as Level[];
+  protected readonly selectLevel = signal<Level>('A2');
+  protected readonly title = 'Grammar Review';
+  protected readonly subtitle =
+    'Repaso teorico e interactivo de reglas clave para el examen TOEFL ITP.';
 
   protected readonly topicsResource = rxResource<GrammarTopic[], Level>({
     params: () => this.selectLevel(),
@@ -47,7 +52,6 @@ export class GrammarReview {
       this.selectLevel();
       this.viewMode.set('catalog');
       this.selectedTopicId.set(null);
-      this.exerciseAnswers.set({});
     });
   }
 
@@ -58,20 +62,11 @@ export class GrammarReview {
   protected selectTopic(id: string): void {
     this.selectedTopicId.set(id);
     this.viewMode.set('lesson');
-    this.exerciseAnswers.set({});
   }
 
   protected backToCatalog(): void {
     this.viewMode.set('catalog');
     this.selectedTopicId.set(null);
-    this.exerciseAnswers.set({});
-  }
-
-  protected selectExerciseOption(questionId: number, label: string): void {
-    this.exerciseAnswers.update((prev) => ({
-      ...prev,
-      [questionId]: label,
-    }));
   }
 
   protected retryFetch(): void {

@@ -1,6 +1,6 @@
 import { Component, input, output } from '@angular/core';
 import { ButtonDirective } from '@common/components/button';
-import { GrammarTopic } from '../../domain/models';
+import { GrammarTopic } from '@features/grammar-review/domain/models';
 
 @Component({
   selector: 'app-grammar-topic-card',

@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { LevelLayout } from '@common/layouts/level-layout/level-layout';
 import { ErrorStateComponent } from '@common/components/error-state';
@@ -25,7 +25,7 @@ import { provideVocabulary } from './providers/vocabulary.providers';
 export class Vocabulary {
   private readonly useCase = inject(VocabularyUseCase);
 
- protected readonly levels: Level[] = LEVELS as Level[]; 
+  protected readonly levels: Level[] = LEVELS as Level[];
   protected readonly selectLevel = signal<Level>('A2');
   protected readonly title = "Vocabulary";
   protected readonly subtitle = "Tarjetas de memoria de vocabulario academico."
@@ -69,13 +69,13 @@ export class Vocabulary {
   protected setStatus(id: string, status: 'learned' | 'review'): void {
     this.wordStatus.update((prev) => {
       const next = { ...prev };
-      
+
       if (next[id] === status) {
         delete next[id];
       } else {
         next[id] = status;
       }
-      
+
       return next;
     });
   }
