@@ -1,7 +1,7 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { BookOpenText, LucideAngularModule } from 'lucide-angular';
-import { CatalogCard } from '../index/components/catalog-card/catalog-card';
-import { HeaderBaner } from './components/header-baner/header-baner';
+import { CatalogCard } from './iu/components/catalog-card/catalog-card';
+import { HeaderBaner } from './iu/components/header-baner/header-baner';
 import { AreaSection } from './iu/components/area-section/area-section';
 import { CatalogArea } from '../index/domain/models';
 import { CATALOG_AREAS } from './data/';

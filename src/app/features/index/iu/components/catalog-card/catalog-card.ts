@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ArrowRight, LucideAngularModule } from 'lucide-angular';
-import { CatalogItem } from '../../domain/models';
+import { CatalogItem } from '@features/index/domain/models';
 
 @Component({
   selector: 'catalog-card',
